@@ -360,6 +360,7 @@ const OWNER_TEL='18530013864';/* 店长电话：停卡页「联系店长」 */
 const PZ_MIN=7,PZ_MAX=30,PZ_YEAR=2;
 function ptInit(){if(S.ptEnd===undefined){S.ptStart=dayAdd(today(),-12);S.ptEnd=dayAdd(today(),17)}if(!S.pz)S.pz=[];if(!S.user.gender)S.user.gender='女'}
 const ptOn=()=>(ptInit(),S.ptEnd>=today()),ptLeft=()=>ptOn()?Math.round((new Date(S.ptEnd)-new Date(today()))/864e5)+1:0;
+function memCard(){const name=S.cardName||'季卡',days=S.cardDays>0?S.cardDays:89,end=dayAdd(today(),days-1);const left=pzNow()?null:Math.round((new Date(end)-new Date(today()))/864e5)+1;return{name,days,end,left,sub:pzNow()?`停卡中 · 到期 ${end}`:`${name} · 剩 ${left} 天 · 到期 ${end}`}};
 const ptKey=()=>S.ptStart+':'+Math.floor((new Date(today())-new Date(S.ptStart))/864e5/30);
 const pzYear=()=>(ptInit(),S.pz.filter(x=>x.d.slice(0,4)==today().slice(0,4)&&x.st!='已驳回').length);
 const pzNow=()=>(ptInit(),S.pz.find(x=>x.st=='已通过'&&x.from<=today()&&dayAdd(x.from,x.days)>today()));
@@ -381,7 +382,7 @@ function demo(){const t=today();const w=[],b=[];
  b.forEach(x=>x.wt=+(71-(x===b[0]?0:b.indexOf(x)*0.45)).toFixed(1));
  const food={};food[t]=[{m:'早餐',n:'鸡蛋(水煮)',q:2,u:'份',kcal:144,p:12.6},{m:'早餐',n:'小米粥',q:1,u:'份',kcal:115,p:3.5},{m:'午餐',n:'米饭',q:1,u:'拳头',kcal:174,p:3.9},{m:'午餐',n:'西红柿炒鸡蛋',q:1,u:'份',kcal:260,p:12},{m:'午餐',n:'鸡胸肉(熟)',q:1,u:'手掌',kcal:133,p:28}];
  return{w,b,food,water:{[t]:4},target:{kcal:1500,p:100},user:{name:'小雅',coach:'教练 达',store:'锦龙店',goal:'减脂塑形',tw:60},routines:[{n:'臀腿日 A',ids:['Barbell_Hip_Thrust','Goblet_Squat','Romanian_Deadlift','Glute_Kickback','Thigh_Abductor','Plank']},{n:'上肢日 B',ids:['Wide-Grip_Lat_Pulldown','Dumbbell_Shoulder_Press','Seated_Cable_Rows','Side_Lateral_Raise','Triceps_Pushdown','Crunches']}],plan:{name:'8周减脂塑形计划',week:3,days:['臀腿日 A','有氧30分钟+拉伸','上肢日 B','休息','臀腿日 A','上肢日 B','休息/散步8000步'],note:'这周臀推加到42.5kg，每组最后2次要做到有点吃力。饮食晚餐主食减半，蛋白质每天100g。—— 教练 达'}}}
-if(!S)S=demo();const save=()=>localStorage.setItem('blj',JSON.stringify(S));if(!S.role)S.role='member';if(S.activated===undefined)S.activated=true;save();
+if(!S)S=demo();const save=()=>localStorage.setItem('blj',JSON.stringify(S));if(!S.role)S.role='member';if(S.activated===undefined)S.activated=true;if(S.activated&&!S.cardName){S.cardName='季卡';S.cardDays=90}save();
 let cur=null,tab='home',timer=null,restLeft=0,restTotal=0;
 // ---------- helpers
 const lastSets=id=>{for(let i=S.w.length-1;i>=0;i--){const e=S.w[i].ex.find(x=>x.id===id);if(e)return e.sets}return null};
@@ -410,8 +411,8 @@ V.home=()=>{const t=today(),f=(S.food[t]||[]),kc=f.reduce((a,b)=>a+b.kcal,0),wd=
  const trBtn=td.length?`<span class=pill>已练</span>`:(can?`<button class=btn onclick="event.stopPropagation();startR('${todo}')">开始</button>`:`<span class=muted>›</span>`);
  const left=Math.max(S.target.kcal-kc,0),pct=Math.min(kc/S.target.kcal*100,100);
  const meals=['早餐','午餐','晚餐','加餐'].map(m=>{const n=f.filter(x=>x.m==m).length;return `<span class="fm ${n?'on':''}">${m}${n?n:''}</span>`}).join('');
- const leftDays=pzNow()?null:89;const cardSub=pzNow()?`停卡中 · 到期 ${dayAdd(today(),89)}`:`季卡 · 剩 ${leftDays} 天 · 到期 ${dayAdd(today(),89)}`;
- const vip=SZ()?`<div class="card vip home-vip" onclick="go('me')"><div class=row><div><div class=htag style="color:rgba(255,255,255,.9)">💳 会员卡剩余</div><p>请到前台办理 / 续卡 · ${OW().sets[S.user.store].tel}</p></div><span style="opacity:.85">›</span></div></div>`
+ const MC=memCard();const leftDays=MC.left;const cardSub=MC.sub;
+ const vip=SZ()?`<div class="card vip home-vip" onclick="go('me')"><div class=row><div><div class=htag style="color:rgba(255,255,255,.9)">💳 会员卡剩余</div><p>${S.activated===false?'未开卡 · 请到前台办理 · '+OW().sets[S.user.store].tel:cardSub}</p></div>${S.activated===false?'<span style="opacity:.85">›</span>':(pzNow()?'<span class=pill>停卡</span>':`<span class=pill>${leftDays}天</span>`)}</div></div>`
   :`<div class="card vip home-vip" onclick="go('buy')"><div class=row><div><div class=htag style="color:rgba(255,255,255,.9)">💳 会员卡剩余</div><p>${cardSub}</p></div>${pzNow()?'<span class=pill>停卡</span>':`<span class=pill>${leftDays}天</span>`}</div></div>`;
  const weekVisits=(()=>{try{const O=OW(),from=dayAdd(t,-6);const days=new Set(O.ent.filter(x=>x.n==S.user.name&&x.d>=from&&x.d<=t).map(x=>x.d));return days.size||(S.ck?1:3)}catch(e){return S.ck?1:3}})();
  return `<div class=hero><div><div class=hi>你好，${S.user.name} 👋</div><div class=sub>${S.user.store} · ${S.user.goal}</div></div><div class=logo>板栗<br>健身</div></div>
@@ -468,7 +469,7 @@ V.me=()=>{if(!S.role)S.role='member';
   ...(S.role==='owner'?[['own','🏪 门店后台 <span class=pill>店长</span>']]:[]),
   ...(S.role==='coach'||S.role==='owner'?[['coach','👨‍🏫 教练后台 <span class=pill>教练</span>']]:[]),
   ['about','ℹ️ 关于 / 开源致谢']];
- const vip=SZ()?`<div class="card vip"><b>💳 我的会员卡</b><p>会员卡请到前台办理，电话 ${OW().sets[S.user.store].tel}</p></div>`:`<div class="card vip" onclick="go('buy')"><div class=row><b>💳 季卡 · 两店通用</b><span class=pill>有效</span></div><p>到期 ${dayAdd(today(),89)} · 剩 89 天${pzNow()?' · 停卡中':''}</p></div><div class="card row"><span>🏋️ 私教包月 ${ptOn()?`至 ${S.ptEnd}（剩${ptLeft()}天）`:'已到期'}</span>${ptOn()&&S.user.gender=='女'?`<a class=muted style="font-size:calc(12*var(--p));text-decoration:underline" onclick="ptExtApply()">${S.ptx&&S.ptx.key==ptKey()?(S.ptx.st=='待确认'?'经期延期待确认':S.ptx.st=='已通过'?'本期已延期':'经期延期'):'经期延期'}</a>`:ptOn()?'':`<a onclick="go('buy')">续费</a>`}</div>`;
+ const MC=memCard();const vip=SZ()?`<div class="card vip"><div class=row><b>💳 ${MC.name} · 两店通用</b><span class=pill>${pzNow()?'停卡':'有效'}</span></div><p>到期 ${MC.end} · 剩 ${MC.left||0} 天${pzNow()?' · 停卡中':''}</p><p class=muted style="margin-top:4px">续卡请到前台，电话 ${OW().sets[S.user.store].tel}</p></div><div class="card row"><span>🏋️ 私教包月 ${ptOn()?`至 ${S.ptEnd}（剩${ptLeft()}天）`:'已到期'}</span>${ptOn()&&S.user.gender=='女'?`<a class=muted style="font-size:calc(12*var(--p));text-decoration:underline" onclick="ptExtApply()">${S.ptx&&S.ptx.key==ptKey()?(S.ptx.st=='待确认'?'经期延期待确认':S.ptx.st=='已通过'?'本期已延期':'经期延期'):'经期延期'}</a>`:ptOn()?'':`<a href="tel:${OW().sets[S.user.store].tel}">续费</a>`}</div>`:`<div class="card vip" onclick="go('buy')"><div class=row><b>💳 ${MC.name} · 两店通用</b><span class=pill>有效</span></div><p>到期 ${MC.end} · 剩 ${MC.left} 天${pzNow()?' · 停卡中':''}</p></div><div class="card row"><span>🏋️ 私教包月 ${ptOn()?`至 ${S.ptEnd}（剩${ptLeft()}天）`:'已到期'}</span>${ptOn()&&S.user.gender=='女'?`<a class=muted style="font-size:calc(12*var(--p));text-decoration:underline" onclick="ptExtApply()">${S.ptx&&S.ptx.key==ptKey()?(S.ptx.st=='待确认'?'经期延期待确认':S.ptx.st=='已通过'?'本期已延期':'经期延期'):'经期延期'}</a>`:ptOn()?'':`<a onclick="go('buy')">续费</a>`}</div>`;
  return `<h1>我的</h1><div class="card row"><div class=avatar>${S.user.name[0]}</div><div style="flex:1"><b>${S.user.name}</b><p class=muted>${S.user.store}会员 · 教练：${S.user.coach}</p></div></div>
 ${vip}
 <div class="card ml">${items.map(([k,t])=>`<div class="row" onclick="${k=='target'?'setTarget()':`go('${k}')`}"><span>${t}</span><span class=muted>›</span></div>`).join('')}</div>
@@ -710,7 +711,7 @@ const KQ=['卡种价格','我的卡还剩多久','营业时间','门店地址电
 function chatAns(q){const O=OW(),st=S.user.store,set=O.sets[st]||{};
  if(/退卡|退款|退钱/.test(q))return `退卡请联系门店：${st} 电话 ${set.tel}，按《入会协议》里的退卡规则计算。`;
  if(/价|多少钱|卡种|年卡|月卡|季卡|次卡/.test(q))return '当前在售：'+O.prods.filter(p=>p.on).map(p=>`${p.name} ¥${yu(p.price)}`).join('；')+(SZ()?`。办卡、续卡请到门店前台，电话 ${set.tel}。`:'（以买卡页为准）');
- if(/我的卡|到期|还剩|剩多少/.test(q)&&SZ())return `会员卡请到门店前台办理和查询，电话 ${set.tel}。`;
+ if(/我的卡|到期|还剩|剩多少/.test(q)){const MC=memCard();return SZ()?`你的${MC.name}到期 ${MC.end}，剩 ${MC.left||0} 天。续卡请到门店前台，电话 ${set.tel}。`:`你的${MC.name}到期 ${MC.end}，剩 ${MC.left||0} 天。`;}
  if(/我的卡|到期|还剩|剩多少/.test(q))return `你的卡：季卡 · 两店通用，到期 ${dayAdd(today(),89)}，私教剩 8 节。`;
  if(/几点|营业|开门时间|关门/.test(q))return `${st}营业时间：${set.open||'06:00'}-${set.close||'22:00'}`;
  if(/地址|在哪|电话|怎么去/.test(q))return `${st}：${set.addr||'见门店公告'}，电话 ${set.tel||'请在门店公告查看'}`;

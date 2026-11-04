@@ -418,7 +418,6 @@ V.home=()=>{const t=today(),f=(S.food[t]||[]),kc=f.reduce((a,b)=>a+b.kcal,0),wd=
  const MC=memCard();const leftDays=MC.left;const cardSub=MC.sub;
  const vip=SZ()?`<div class="card vip home-vip" onclick="go('me')"><div class=row><div><div class=htag style="color:rgba(255,255,255,.9)">💳 会员卡剩余</div><p>${S.activated===false?'未开卡 · 请到前台办理 · '+OW().sets[S.user.store].tel:cardSub}</p></div>${S.activated===false?'<span style="opacity:.85">›</span>':(pzNow()?'<span class=pill>停卡</span>':`<span class=pill>${leftDays}天</span>`)}</div></div>`
   :`<div class="card vip home-vip" onclick="go('buy')"><div class=row><div><div class=htag style="color:rgba(255,255,255,.9)">💳 会员卡剩余</div><p>${cardSub}</p></div>${pzNow()?'<span class=pill>停卡</span>':`<span class=pill>${leftDays}天</span>`}</div></div>`;
- const weekVisits=(()=>{try{const O=OW(),from=dayAdd(t,-6);const days=new Set(O.ent.filter(x=>x.n==S.user.name&&x.d>=from&&x.d<=t).map(x=>x.d));return days.size||(S.ck?1:3)}catch(e){return S.ck?1:3}})();
  const b=S.b||[], last=b.at(-1), prev=b.length>1?b.at(-2):null;
  let prWt='暂无体重记录',prCirc='点此记录围度';
  if(last&&last.wt!=null){const dlt=prev&&prev.wt!=null?+(last.wt-prev.wt).toFixed(1):null;const gap=S.user.tw!=null?+(last.wt-S.user.tw).toFixed(1):null;prWt='体重 '+last.wt+'kg'+(dlt!=null?(' · 较上次 '+(dlt>0?'+':'')+dlt):'')+(gap!=null?(' · 距目标 '+(gap>0?'+':'')+gap):'')}
@@ -430,7 +429,7 @@ V.home=()=>{const t=today(),f=(S.food[t]||[]),kc=f.reduce((a,b)=>a+b.kcal,0),wd=
 <div class="card home-sum" onclick="go('food')"><div class=row><div class=htag>今日饮食</div><a onclick="event.stopPropagation();go('food')">记录 ›</a></div><div class=bar><i style="width:${pct}%"></i></div><p class=muted>已摄入 ${kc} / ${S.target.kcal} 千卡 · 还可吃 ${left}</p><div class=fmeals>${meals}</div></div>
 ${vip}
 <div class="card home-sum home-prog" onclick="go('progress')"><div class=row><div class=htag>📈 进度</div><a onclick="event.stopPropagation();go('progress')">详情 ›</a></div><p>${prWt}</p><p class=muted>${prCirc} · 本周练 ${prWk} 次</p><div class=pr-mini>${prChart}</div></div>
-<div class="card home-row visit"><div class=row><div><div class=htag>📍 本周到店</div><p class=muted>刷脸进门自动统计 · 无打卡按钮</p></div><div class=vbig>${weekVisits}<span class=vu>天</span></div></div></div>
+<div class="card home-sum home-rank" onclick="go('rank')"><div class=row><div><div class=htag>🏆 排行榜</div><p>${CH&&CH.d!=null?('21天挑战 · 已坚持 '+CH.d+'/21 天'):'打卡 · 训练量 · 减重% · 点开看榜'}</p></div><a onclick="event.stopPropagation();go('rank')">详情 ›</a></div></div>
 `};
 V.train=V.train=()=>{if(cur)return V.workout();const h=S.w.slice(-6).reverse();
 return `${bk('训练')}<button class="btn big" onclick="startEmpty()">＋ 开始空白训练</button>

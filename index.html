@@ -426,6 +426,34 @@ details.p3d-note p{margin:calc(6*var(--p)) 0 0}
 .mt-tlt .mt-chg{text-align:left;font-size:calc(11.5*var(--p));line-height:1.5;padding-left:calc(8*var(--p))}
 /* 拍照页：「从相册选一张」改成小字链接 */
 .ps-filelink{font-size:calc(13*var(--p));color:#8a8a99;margin:calc(10*var(--p)) 0 calc(4*var(--p));cursor:pointer}.ps-filelink u{color:#1f6fe0;text-decoration:underline}
+
+/* 2026-11-16 拍照实时引导 + 结果页标记（类专业体态仪主界面） */
+.ps-sil{left:15%;top:11%;width:70%;height:78%}
+.ps-cam .ps-sil .ps-body{transition:stroke .2s,fill .2s}
+.ps-cam.g-ok .ps-sil .ps-body{stroke:#12b886;fill:rgba(18,184,134,.16);stroke-width:1.2;stroke-dasharray:none}
+.ps-cam.g-bad .ps-sil .ps-body{stroke:#ffd43b}
+.ps-hint{position:absolute;left:6%;right:6%;bottom:calc(10*var(--p));z-index:3;text-align:center;color:#fff;background:rgba(20,22,28,.72);border-radius:calc(12*var(--p));padding:calc(8*var(--p)) calc(10*var(--p));font-size:calc(16*var(--p));font-weight:700;line-height:1.35}
+.ps-hint.ok{background:rgba(12,138,99,.88)}.ps-hint.off{font-size:calc(13*var(--p));font-weight:500}
+.ps-cd{position:absolute;inset:0;z-index:4;display:none;align-items:center;justify-content:center;font-size:calc(96*var(--p));font-weight:800;color:#fff;text-shadow:0 0 calc(12*var(--p)) rgba(0,0,0,.7);pointer-events:none}
+.ps-legend{display:flex;flex-wrap:wrap;gap:calc(4*var(--p)) calc(12*var(--p));font-size:calc(12*var(--p));color:#6b7385;margin:calc(8*var(--p)) 0 0;line-height:1.4;max-width:100%}
+.ps-legend span{white-space:nowrap;display:inline-flex;align-items:center}
+.ps-legend i{display:inline-block;width:calc(10*var(--p));height:calc(10*var(--p));border-radius:50%;margin:0 calc(4*var(--p)) 0 0}
+.ps-legend i.ln{width:calc(14*var(--p));height:calc(3*var(--p));border-radius:2px}.ps-legend i.sq{border-radius:2px}
+.ps-sw{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:calc(12*var(--p))}
+.ps-sw::-webkit-scrollbar{display:none}.ps-swc{flex:0 0 100%;scroll-snap-align:center}.ps-swc canvas{width:100%;display:block;cursor:zoom-in}
+.ps-tapt{font-size:calc(11.5*var(--p));margin:calc(4*var(--p)) 0 calc(8*var(--p))}
+.ps-mk{display:flex;flex-wrap:wrap;gap:calc(6*var(--p));margin-top:calc(10*var(--p))}
+.ps-mki{display:inline-flex;align-items:center;gap:calc(5*var(--p));padding:calc(5*var(--p)) calc(9*var(--p));border-radius:calc(16*var(--p));background:#f3f5f8;border:1px solid #e3e6eb;font-size:calc(13*var(--p));color:#2b2f36;cursor:pointer}
+.ps-mki.on{border-color:#1c7ed6;background:#e7f1ff;box-shadow:0 0 0 2px rgba(28,126,214,.25)}.ps-mki.away{opacity:.75}
+.ps-mki b.no{color:#fff;font-size:calc(11*var(--p));padding:0 calc(4*var(--p));border-radius:3px}.ps-mki b.no.bad{background:#c92a2a}.ps-mki b.no.mild{background:#e8590c}
+.ps-mki i.dot{width:calc(8*var(--p));height:calc(8*var(--p));border-radius:50%;display:inline-block}.ps-mki em{font-style:normal;font-weight:700;font-size:calc(12*var(--p))}
+.ps-mkt{font-size:calc(11.5*var(--p));margin:calc(6*var(--p)) 0 0}
+.ps-lb{position:fixed;inset:0;z-index:999;background:rgba(14,16,22,.96);display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.ps-lbh{display:flex;justify-content:space-between;align-items:center;color:#fff;padding:calc(10*var(--p)) calc(14*var(--p));font-size:calc(14*var(--p))}
+.ps-lbx{color:#fff;font-size:calc(22*var(--p));padding:0 calc(6*var(--p));cursor:pointer}
+.ps-sw.lb{flex:1;min-height:0;border-radius:0}.ps-sw.lb .ps-swc{display:flex;align-items:center;justify-content:center}.ps-sw.lb canvas{width:auto;max-width:100%;max-height:100%;height:auto;cursor:default}
+.ps-lbf{background:#fff;border-radius:calc(14*var(--p)) calc(14*var(--p)) 0 0;padding:calc(4*var(--p)) calc(12*var(--p)) calc(10*var(--p));max-height:40vh;overflow:auto}
+body.ps-lbopen{overflow:hidden}
 </style></head><body><div class=sbar><span>9:41</span><span>▂▄▆ 5G ▭</span></div><div class=nav>板栗健身<span class=cap><b>···</b><i style="width:1px;height:18px;background:#e5e5e5"></i><b>◎</b></span></div><div id=main></div><div id=tabs></div><script>const EXS=[{"id": "Barbell_Full_Squat", "n": "杠铃深蹲", "g": "腿臀", "en": "Barbell Full Squat", "pm": ["quadriceps"], "sm": ["glutes", "adductors", "hamstrings", "lower back"], "eq": "barbell", "lv": "intermediate", "st": ["杠铃放在肩后斜方肌上，双脚略比肩宽，屁股往后往下坐，蹲到大腿约与地面平行，脚跟踩实站起", "膝盖往里扣、脚跟离地、低头弓背"]}, {"id": "Goblet_Squat", "n": "高脚杯深蹲", "g": "腿臀", "en": "Goblet Squat", "pm": ["quadriceps"], "sm": ["glutes", "adductors", "abdominals"], "eq": "kettlebells", "lv": "beginner", "st": ["双手捧一只哑铃贴在胸前，挺胸，屁股往下坐到大腿约平行，脚跟发力站起", "身体前倒、哑铃离开胸口、膝盖内扣"]}, {"id": "Bodyweight_Squat", "n": "徒手深蹲", "g": "腿臀", "en": "Bodyweight Squat", "pm": ["quadriceps"], "sm": ["glutes", "adductors", "hamstrings"], "eq": "body only", "lv": "beginner", "st": ["双脚与肩同宽，双手前伸保持平衡，屁股往后坐，蹲到舒服的深度再站起", "脚跟离地、膝盖内扣、塌腰"]}, {"id": "Dumbbell_Squat", "n": "哑铃深蹲", "g": "腿臀", "en": "Dumbbell Squat", "pm": ["quadriceps"], "sm": ["glutes", "adductors", "hamstrings", "lower back"], "eq": "dumbbell", "lv": "beginner", "st": ["双手各拿一只哑铃垂在身体两侧，挺胸收腹，屁股往下坐，脚跟发力站起", "含胸驼背、膝盖内扣、蹲起太快"]}, {"id": "Plie_Dumbbell_Squat", "n": "相扑哑铃深蹲", "g": "腿臀", "en": "Plie Dumbbell Squat", "pm": ["quadriceps", "adductors"], "sm": ["glutes", "hamstrings"], "eq": "dumbbell", "lv": "beginner", "st": ["双脚分开约两倍肩宽、脚尖外转，双手握一只哑铃垂在两腿之间，垂直往下蹲", "膝盖没有对准脚尖、上身前倾太多"]}, {"id": "Front_Squat_Clean_Grip", "n": "杠铃前蹲", "g": "腿臀", "en": "Front Squat (Clean Grip)", "pm": ["quadriceps"], "sm": ["glutes", "adductors", "abdominals", "lower back"], "eq": "barbell", "lv": "intermediate", "st": ["杠铃放在锁骨和肩前，手肘抬高向前，上身保持直立往下蹲", "手肘掉下来、上身前倾、杠铃往前滑"]}, {"id": "Hack_Squat", "n": "哈克深蹲", "g": "腿臀", "en": "Hack Squat", "pm": ["quadriceps"], "sm": ["glutes", "adductors"], "eq": "machine", "lv": "beginner", "st": ["背和肩贴紧靠垫，双脚踩在踏板中间，慢慢下蹲到膝盖约90度再蹬起", "屁股离开靠垫、膝盖内扣、蹬到底锁死膝盖"]}, {"id": "Leg_Press", "n": "倒蹬/腿举", "g": "腿臀", "en": "Leg Press", "pm": ["quadriceps"], "sm": ["glutes", "adductors", "hamstrings"], "eq": "machine", "lv": "beginner", "st": ["背和屁股贴紧座椅，双脚与肩同宽踩在踏板中间，慢慢屈膝下放，再用脚跟蹬回", "下放太深让屁股抬起、蹬到底锁死膝盖"]}, {"id": "Narrow_Stance_Leg_Press", "n": "窄距腿举", "g": "腿臀", "en": "Narrow Stance Leg Press", "pm": ["quadriceps"], "sm": ["glutes", "hamstrings"], "eq": "machine", "lv": "intermediate", "st": ["双脚并拢一些踩在踏板中下部，背贴紧座椅，屈膝下放再蹬回", "屁股离开座椅、膝盖锁死、下放太快"]}, {"id": "Leg_Extensions", "n": "坐姿腿屈伸", "g": "腿臀", "en": "Leg Extensions", "pm": ["quadriceps"], "sm": [], "eq": "machine", "lv": "beginner", "st": ["坐好后膝盖对准器械转轴，小腿抵住滚垫，用大腿前侧把腿伸直，停1秒再慢放", "甩腿借力、屁股离开座椅、放下太快"]}, {"id": "Lying_Leg_Curls", "n": "俯卧腿弯举", "g": "腿臀", "en": "Lying Leg Curls", "pm": ["hamstrings"], "sm": [], "eq": "machine", "lv": "beginner", "st": ["趴好后膝盖在凳子边缘外，脚踝勾住滚垫，往屁股方向弯腿，再慢慢放回", "屁股翘起来、甩腿、放下太快"]}, {"id": "Seated_Leg_Curl", "n": "坐姿腿弯举", "g": "腿臀", "en": "Seated Leg Curl", "pm": ["hamstrings"], "sm": [], "eq": "machine", "lv": "beginner", "st": ["坐好压紧大腿垫，小腿压住滚垫，往下往后弯腿，再慢慢放回", "身体后仰借力、放回太快"]}, {"id": "Barbell_Lunge", "n": "杠铃箭步蹲", "g": "腿臀", "en": "Barbell Lunge", "pm": ["quadriceps"], "sm": ["glutes", "adductors", "hamstrings"], "eq": "barbell", "lv": "intermediate", "st": ["杠铃扛在肩后，向前迈一大步，后膝往地面下沉，前脚跟发力回到站姿", "前膝往里扣、步子太小、上身前倒"]}, {"id": "Dumbbell_Lunges", "n": "哑铃箭步蹲", "g": "腿臀", "en": "Dumbbell Lunges", "pm": ["quadriceps"], "sm": ["glutes", "adductors", "hamstrings"], "eq": "dumbbell", "lv": "beginner", "st": ["双手各拿一只哑铃，向前迈步下蹲，前后膝都约90度，前脚发力回来", "前膝内扣、后膝重重磕地、上身前倒"]}, {"id": "Dumbbell_Rear_Lunge", "n": "哑铃后撤步", "g": "腿臀", "en": "Dumbbell Rear Lunge", "pm": ["quadriceps", "glutes"], "sm": ["adductors", "hamstrings"], "eq": "dumbbell", "lv": "intermediate", "st": ["双手拿哑铃，一条腿向后撤一大步下蹲，前脚跟发力站回", "重心落在后腿、前膝内扣"]}, {"id": "Bodyweight_Walking_Lunge", "n": "徒手行走箭步", "g": "腿臀", "en": "Bodyweight Walking Lunge", "pm": ["quadriceps"], "sm": ["glutes", "adductors", "hamstrings"], "eq": null, "lv": "beginner", "st": ["向前迈步下蹲后，后腿直接跟上迈出下一步，像走路一样连续前进", "步子忽大忽小、身体左右晃"]}, {"id": "Crossover_Reverse_Lunge", "n": "交叉后撤步", "g": "腿臀", "en": "Crossover Reverse Lunge", "pm": ["quadriceps", "glutes"], "sm": ["abductors", "adductors", "hamstrings", "abdominals"], "eq": null, "lv": "intermediate", "st": ["一条腿向斜后方撤到另一条腿后侧下蹲，前脚发力站回", "撤得太远站不稳、前膝内扣"]}, {"id": "Barbell_Side_Split_Squat", "n": "杠铃侧弓步蹲", "g": "腿臀", "en": "Barbell Side Split Squat", "pm": ["quadriceps", "adductors"], "sm": ["glutes", "hamstrings"], "eq": "barbell", "lv": "beginner", "st": ["杠铃扛在肩后，双脚大开立、一侧脚尖朝外，向这一侧屈膝屈髋下蹲，另一条腿基本伸直，再蹬回中间；做完一侧再换另一侧", "下蹲侧膝盖往里扣、弯腰弓背、杠铃压在脖子上"]}, {"id": "Dumbbell_Step_Ups", "n": "哑铃登阶", "g": "腿臀", "en": "Dumbbell Step Ups", "pm": ["quadriceps"], "sm": ["glutes", "hamstrings"], "eq": "dumbbell", "lv": "intermediate", "st": ["双手拿哑铃，一只脚整只踩上凳子，用这条腿发力站上去，再慢慢下来", "后脚蹬地借力、凳子太高"]}, {"id": "Barbell_Step_Ups", "n": "杠铃登阶", "g": "腿臀", "en": "Barbell Step Ups", "pm": ["quadriceps"], "sm": ["glutes", "hamstrings"], "eq": "barbell", "lv": "intermediate", "st": ["杠铃扛在肩后，一只脚踩上凳子，用前腿发力站上去，再慢慢下来", "后脚借力、身体晃动"]}, {"id": "Romanian_Deadlift", "n": "罗马尼亚硬拉", "g": "腿臀", "en": "Romanian Deadlift", "pm": ["hamstrings"], "sm": ["glutes", "lower back", "forearms"], "eq": "barbell", "lv": "intermediate", "st": ["双手握杠铃贴着大腿，膝盖微弯，屁股往后推，杠铃沿腿往下滑到小腿中间，再夹臀站起", "弓背、杠铃离腿太远、膝盖弯太多变成深蹲"]}, {"id": "Barbell_Deadlift", "n": "杠铃硬拉", "g": "腿臀", "en": "Barbell Deadlift", "pm": ["glutes", "hamstrings"], "sm": ["lower back", "quadriceps", "traps", "lats", "middle back", "forearms"], "eq": "barbell", "lv": "intermediate", "st": ["杠铃在脚中间上方，屈髋屈膝握杆，背挺直，腿和背一起发力把杠铃拉起，站直后再慢慢放下", "弓背拉起、杠铃离身体太远、站直后身体后仰"]}, {"id": "Kettlebell_One-Legged_Deadlift", "n": "壶铃单腿硬拉", "g": "腿臀", "en": "Kettlebell One-Legged Deadlift", "pm": ["hamstrings", "glutes"], "sm": ["lower back", "abductors"], "eq": "kettlebells", "lv": "intermediate", "st": ["单脚站立，手拿壶铃，上身前倾的同时另一条腿往后抬，身体成一条线，再回到站立", "弓背、骨盆翻转、站立腿膝盖锁死"]}, {"id": "Cable_Deadlifts", "n": "绳索硬拉", "g": "腿臀", "en": "Cable Deadlifts", "pm": ["glutes", "hamstrings"], "sm": ["lower back", "quadriceps", "forearms"], "eq": "cable", "lv": "beginner", "st": ["面对拉索下端，双手握把，屁股往后推屈髋，背挺直，夹臀站起", "弓背、用手臂拉"]}, {"id": "Barbell_Hip_Thrust", "n": "杠铃臀推", "g": "腿臀", "en": "Barbell Hip Thrust", "pm": ["glutes"], "sm": ["hamstrings", "quadriceps", "adductors"], "eq": "barbell", "lv": "intermediate", "st": ["上背靠凳，杠铃放在髋部（垫好护垫），全脚掌踩地，用臀部把髋顶起到身体成一条线，停1秒", "只踮脚尖、腰过度后仰、顶不到位"]}, {"id": "Butt_Lift_Bridge", "n": "臀桥", "g": "腿臀", "en": "Butt Lift (Bridge)", "pm": ["glutes"], "sm": ["hamstrings"], "eq": "body only", "lv": "beginner", "st": ["仰卧屈膝，全脚掌踩地，夹紧臀部把髋抬起到肩、髋、膝成一条线，再慢慢放下", "用腰顶起、膝盖往外打开或内扣"]}, {"id": "Single_Leg_Glute_Bridge", "n": "单腿臀桥", "g": "腿臀", "en": "Single Leg Glute Bridge", "pm": ["glutes"], "sm": ["hamstrings"], "eq": "body only", "lv": "beginner", "st": ["仰卧屈膝，一条腿抬起，另一只脚踩地把髋抬起，左右髋保持一样高", "骨盆一边高一边低、用腰发力"]}, {"id": "Glute_Kickback", "n": "跪姿后踢腿", "g": "腿臀", "en": "Glute Kickback", "pm": ["glutes"], "sm": ["hamstrings"], "eq": "body only", "lv": "beginner", "st": ["四点跪姿，一条腿保持屈膝，用臀部把脚往天花板方向蹬，再慢慢放回", "腰往下塌、甩腿借力"]}, {"id": "One-Legged_Cable_Kickback", "n": "绳索后踢腿", "g": "腿臀", "en": "One-Legged Cable Kickback", "pm": ["glutes"], "sm": ["hamstrings"], "eq": "cable", "lv": "intermediate", "st": ["脚踝绑好拉索，扶住架子，腿往后蹬，用臀部发力，再慢慢回来", "上身前后晃、腰过度后仰"]}, {"id": "Thigh_Abductor", "n": "坐姿髋外展", "g": "腿臀", "en": "Thigh Abductor", "pm": ["abductors"], "sm": ["glutes"], "eq": "machine", "lv": "beginner", "st": ["坐好背贴紧靠背，大腿外侧顶住垫子，用臀部外侧把腿向外推开，再慢慢合上", "身体前倾借力、合上太快砸配重"]}, {"id": "Thigh_Adductor", "n": "坐姿髋内收", "g": "腿臀", "en": "Thigh Adductor", "pm": ["adductors"], "sm": [], "eq": "machine", "lv": "beginner", "st": ["坐好背贴紧靠背，大腿内侧夹住垫子，向内夹紧，再慢慢打开", "打开过大拉伤、身体晃动"]}, {"id": "Side_Leg_Raises", "n": "站姿侧抬腿", "g": "腿臀", "en": "Side Leg Raises", "pm": ["abductors"], "sm": ["glutes"], "eq": "body only", "lv": "beginner", "st": ["扶着椅背单脚站稳，另一条腿伸直向侧面抬起，再慢慢放回，回来时可以稍微越过支撑腿", "上身往一侧歪、甩腿太快、脚尖朝上转"]}, {"id": "Hip_Extension_with_Bands", "n": "弹力带髋伸展", "g": "腿臀", "en": "Hip Extension with Bands", "pm": ["glutes"], "sm": ["hamstrings"], "eq": "bands", "lv": "beginner", "st": ["弹力带一端固定，另一端套在脚踝，站稳后把腿向后伸，夹紧臀部", "腰过度后仰、身体前倾"]}, {"id": "Standing_Calf_Raises", "n": "站姿提踵", "g": "腿臀", "en": "Standing Calf Raises", "pm": ["calves"], "sm": [], "eq": "machine", "lv": "beginner", "st": ["前脚掌站在踏板边缘，肩扛住垫子，脚跟尽量抬高，再慢慢落到最低", "弯膝借力、上下太快"]}, {"id": "Seated_Calf_Raise", "n": "坐姿提踵", "g": "腿臀", "en": "Seated Calf Raise", "pm": ["calves"], "sm": [], "eq": "machine", "lv": "beginner", "st": ["坐好膝盖压住垫子，前脚掌踩踏板，脚跟抬到最高再慢慢放下", "动作幅度太小、弹起借力"]}, {"id": "Freehand_Jump_Squat", "n": "深蹲跳", "g": "腿臀", "en": "Freehand Jump Squat", "pm": ["quadriceps"], "sm": ["calves", "glutes", "hamstrings"], "eq": "body only", "lv": "intermediate", "st": ["半蹲后用力向上跳起，落地时前脚掌先着地、屈膝缓冲，接下一次", "落地膝盖伸直硬着地、膝盖内扣"]}, {"id": "Barbell_Bench_Press_-_Medium_Grip", "n": "杠铃卧推", "g": "胸", "en": "Barbell Bench Press - Medium Grip", "pm": ["chest"], "sm": ["shoulders", "triceps"], "eq": "barbell", "lv": "beginner", "st": ["躺在凳上，双脚踩地，握距略比肩宽，杠铃慢慢放到胸中下部，再推起", "屁股离开凳子、杠铃砸到胸口弹起、手肘张得太开"]}, {"id": "Dumbbell_Bench_Press", "n": "哑铃卧推", "g": "胸", "en": "Dumbbell Bench Press", "pm": ["chest"], "sm": ["shoulders", "triceps"], "eq": "dumbbell", "lv": "beginner", "st": ["躺在凳上，双手各拿一只哑铃在胸两侧，推起到胸上方，再慢慢放回", "哑铃落得太低肩膀前顶、两边速度不一致"]}, {"id": "Incline_Dumbbell_Press", "n": "上斜哑铃卧推", "g": "胸", "en": "Incline Dumbbell Press", "pm": ["chest"], "sm": ["shoulders", "triceps"], "eq": "dumbbell", "lv": "beginner", "st": ["凳子调到约30度斜上，哑铃从上胸两侧推起，再慢慢放回", "凳子角度太大变成推肩、腰拱起太多"]}, {"id": "Barbell_Incline_Bench_Press_-_Medium_Grip", "n": "上斜杠铃卧推", "g": "胸", "en": "Barbell Incline Bench Press - Medium Grip", "pm": ["chest"], "sm": ["shoulders", "triceps"], "eq": "barbell", "lv": "beginner", "st": ["斜凳约30度，杠铃放到锁骨下方，再推起", "杠铃落点太低、屁股离开凳子"]}, {"id": "Decline_Dumbbell_Bench_Press", "n": "下斜哑铃卧推", "g": "胸", "en": "Decline Dumbbell Bench Press", "pm": ["chest"], "sm": ["shoulders", "triceps"], "eq": "dumbbell", "lv": "beginner", "st": ["在下斜凳上固定好双脚，哑铃从胸下部推起，再慢慢放回", "下放太快、头部充血憋气"]}, {"id": "Machine_Bench_Press", "n": "器械推胸", "g": "胸", "en": "Machine Bench Press", "pm": ["chest"], "sm": ["shoulders", "triceps"], "eq": "machine", "lv": "beginner", "st": ["调好座椅让把手在胸中部高度，背贴紧靠背推出，再慢慢回来", "耸肩、推到底锁死手肘"]}, {"id": "Dumbbell_Flyes", "n": "哑铃飞鸟", "g": "胸", "en": "Dumbbell Flyes", "pm": ["chest"], "sm": ["shoulders"], "eq": "dumbbell", "lv": "beginner", "st": ["躺在凳上，手肘微弯，双臂像抱大树一样向两侧打开，再合拢到胸前", "手臂伸太直、打开过低拉伤肩"]}, {"id": "Incline_Dumbbell_Flyes", "n": "上斜哑铃飞鸟", "g": "胸", "en": "Incline Dumbbell Flyes", "pm": ["chest"], "sm": ["shoulders"], "eq": "dumbbell", "lv": "beginner", "st": ["斜凳约30度，手肘微弯向两侧打开，再合拢", "打开过深、变成推的动作"]}, {"id": "Butterfly", "n": "蝴蝶机夹胸", "g": "胸", "en": "Butterfly", "pm": ["chest"], "sm": ["shoulders"], "eq": "machine", "lv": "beginner", "st": ["坐好背贴紧靠背，手肘与肩同高，把两边把手向胸前合拢，再慢慢打开", "耸肩、身体前倾借力"]}, {"id": "Flat_Bench_Cable_Flyes", "n": "绳索飞鸟", "g": "胸", "en": "Flat Bench Cable Flyes", "pm": ["chest"], "sm": ["shoulders"], "eq": "cable", "lv": "intermediate", "st": ["平躺在两个拉索之间，手肘微弯，把两边把手合拢到胸前上方", "手肘弯太多变成推、回放太快"]}, {"id": "Pushups", "n": "俯卧撑", "g": "胸", "en": "Pushups", "pm": ["chest"], "sm": ["shoulders", "triceps"], "eq": "body only", "lv": "beginner", "st": ["双手略比肩宽撑地，身体从头到脚成一条直线，胸口下降到接近地面再推起", "塌腰撅屁股、头往下探"]}, {"id": "Incline_Push-Up", "n": "上斜俯卧撑(跪姿替代)", "g": "胸", "en": "Incline Push-Up", "pm": ["chest"], "sm": ["shoulders", "triceps"], "eq": "body only", "lv": "beginner", "st": ["双手撑在凳子或台面上，身体成一条直线，胸口靠近台面再推起", "塌腰、只动手臂不动身体"]}, {"id": "Push-Up_Wide", "n": "宽距俯卧撑", "g": "胸", "en": "Push-Up Wide", "pm": ["chest"], "sm": ["abdominals", "shoulders", "triceps"], "eq": "body only", "lv": "beginner", "st": ["双手撑得比肩宽一些，身体保持直线，胸口下降再推起", "手肘外翻过大伤肩、塌腰"]}, {"id": "Dips_-_Chest_Version", "n": "双杠臂屈伸(胸)", "g": "胸", "en": "Dips - Chest Version", "pm": ["chest"], "sm": ["shoulders", "triceps"], "eq": "other", "lv": "intermediate", "st": ["双手撑在双杠上，身体略前倾，屈肘下放到上臂约与地面平行，再撑起", "下放太深伤肩、耸肩"]}, {"id": "Wide-Grip_Lat_Pulldown", "n": "宽握高位下拉", "g": "背", "en": "Wide-Grip Lat Pulldown", "pm": ["lats"], "sm": ["biceps", "middle back", "shoulders"], "eq": "cable", "lv": "beginner", "st": ["坐好压住大腿垫，宽握横杆，先沉肩，再把杆拉到锁骨前，慢慢放回", "身体大幅后仰、拉到脖子后面、用手臂拽"]}, {"id": "Close-Grip_Front_Lat_Pulldown", "n": "窄握高位下拉", "g": "背", "en": "Close-Grip Front Lat Pulldown", "pm": ["lats"], "sm": ["biceps", "middle back", "shoulders"], "eq": "cable", "lv": "beginner", "st": ["窄握把手，坐稳后先沉肩，把把手拉到胸前，再慢慢放回", "耸肩、身体后仰借力"]}, {"id": "Pullups", "n": "引体向上", "g": "背", "en": "Pullups", "pm": ["lats"], "sm": ["biceps", "middle back"], "eq": "body only", "lv": "beginner", "st": ["宽握单杠悬垂，先沉肩，把身体拉到下巴过杆，再慢慢放下", "踢腿荡身、只拉半程"]}, {"id": "Band_Assisted_Pull-Up", "n": "弹力带辅助引体", "g": "背", "en": "Band Assisted Pull-Up", "pm": ["lats"], "sm": ["biceps", "middle back", "forearms"], "eq": "other", "lv": "beginner", "st": ["弹力带挂在单杠上，脚或膝踩进带子里，再像引体向上一样拉起", "借弹力带猛弹、下放太快"]}, {"id": "Chin-Up", "n": "反手引体", "g": "背", "en": "Chin-Up", "pm": ["lats"], "sm": ["biceps", "forearms", "middle back"], "eq": "body only", "lv": "beginner", "st": ["反手（掌心朝自己）握杠悬垂，把身体拉到下巴过杆，再慢慢放下", "荡身借力、下放不完全"]}, {"id": "Seated_Cable_Rows", "n": "坐姿绳索划船", "g": "背", "en": "Seated Cable Rows", "pm": ["middle back"], "sm": ["biceps", "lats", "shoulders"], "eq": "cable", "lv": "beginner", "st": ["坐好膝盖微弯，背挺直，把把手拉向肚脐，夹紧后背，再慢慢放回", "身体前后摇、耸肩、弓背"]}, {"id": "Bent_Over_Barbell_Row", "n": "杠铃俯身划船", "g": "背", "en": "Bent Over Barbell Row", "pm": ["middle back"], "sm": ["biceps", "lats", "shoulders"], "eq": "barbell", "lv": "beginner", "st": ["屈髋让上身前倾约45度，背挺直，把杠铃拉向肚脐，再慢慢放下", "弓背、上身起伏借力"]}, {"id": "One-Arm_Dumbbell_Row", "n": "单臂哑铃划船", "g": "背", "en": "One-Arm Dumbbell Row", "pm": ["middle back"], "sm": ["biceps", "lats", "shoulders"], "eq": "dumbbell", "lv": "beginner", "st": ["一手一膝撑在凳上，另一只手拿哑铃，把哑铃拉向髋部，再慢慢放下", "身体扭转、耸肩用手臂拽"]}, {"id": "Bent_Over_Two-Dumbbell_Row", "n": "双哑铃俯身划船", "g": "背", "en": "Bent Over Two-Dumbbell Row", "pm": ["middle back"], "sm": ["biceps", "lats", "shoulders"], "eq": "dumbbell", "lv": "beginner", "st": ["双手拿哑铃，屈髋上身前倾，背挺直，把哑铃拉向腰侧", "弓背、站起来借力"]}, {"id": "Inverted_Row", "n": "反向划船", "g": "背", "en": "Inverted Row", "pm": ["middle back"], "sm": ["lats", "biceps", "shoulders"], "eq": null, "lv": "beginner", "st": ["躺在低杠或史密斯杠下方，握杠后身体成直线，把胸口拉向杠", "塌腰、只拉半程"]}, {"id": "Leverage_High_Row", "n": "器械高位划船", "g": "背", "en": "Leverage High Row", "pm": ["middle back"], "sm": ["lats", "biceps", "shoulders"], "eq": "machine", "lv": "beginner", "st": ["坐好胸贴靠垫，握住把手向后拉，夹紧后背，再慢慢放回", "耸肩、身体离开靠垫"]}, {"id": "Rope_Straight-Arm_Pulldown", "n": "直臂下压", "g": "背", "en": "Rope Straight-Arm Pulldown", "pm": ["lats"], "sm": ["triceps"], "eq": "cable", "lv": "beginner", "st": ["站在拉索前，手臂伸直握绳，用背把手臂往下压到大腿前", "弯手肘变成下压三头、身体前后晃"]}, {"id": "Hyperextensions_Back_Extensions", "n": "山羊挺身", "g": "背", "en": "Hyperextensions (Back Extensions)", "pm": ["lower back"], "sm": ["glutes", "hamstrings"], "eq": "other", "lv": "beginner", "st": ["髋部卡在垫子边缘，上身向下弯，再用臀部和后背把身体抬到成一条直线", "抬得过高腰过度后仰、甩身体"]}, {"id": "Superman", "n": "超人式", "g": "背", "en": "Superman", "pm": ["lower back"], "sm": ["glutes", "hamstrings"], "eq": "body only", "lv": "beginner", "st": ["趴在垫子上，手臂前伸，同时把手臂和腿轻轻抬离地面，停一下再放下", "抬太高腰痛、憋气"]}, {"id": "Face_Pull", "n": "面拉", "g": "肩", "en": "Face Pull", "pm": ["shoulders"], "sm": ["middle back", "traps"], "eq": "cable", "lv": "intermediate", "st": ["拉索调到脸的高度，握绳把手往脸的方向拉，手肘向两侧抬高", "耸肩、身体后仰"]}, {"id": "Dumbbell_Shoulder_Press", "n": "哑铃推肩", "g": "肩", "en": "Dumbbell Shoulder Press", "pm": ["shoulders"], "sm": ["triceps"], "eq": "dumbbell", "lv": "intermediate", "st": ["坐直背贴靠背，哑铃在耳朵两侧，向上推到头顶，再慢慢放回", "腰往前拱、哑铃放得太低"]}, {"id": "Arnold_Dumbbell_Press", "n": "阿诺德推举", "g": "肩", "en": "Arnold Dumbbell Press", "pm": ["shoulders"], "sm": ["triceps"], "eq": "dumbbell", "lv": "intermediate", "st": ["哑铃在胸前掌心朝自己，边上推边转腕到掌心朝前，再反向放回", "动作太快、腰拱起"]}, {"id": "Barbell_Shoulder_Press", "n": "杠铃推举", "g": "肩", "en": "Barbell Shoulder Press", "pm": ["shoulders"], "sm": ["triceps", "traps"], "eq": "barbell", "lv": "intermediate", "st": ["站直收腹，杠铃从锁骨前推到头顶，头稍后让开杠铃", "腰往前拱、用腿借力"]}, {"id": "Machine_Shoulder_Military_Press", "n": "器械推肩", "g": "肩", "en": "Machine Shoulder (Military) Press", "pm": ["shoulders"], "sm": ["triceps"], "eq": "machine", "lv": "beginner", "st": ["调好座椅让把手在肩高，背贴紧推起，再慢慢放回", "耸肩、推到底锁死手肘"]}, {"id": "Side_Lateral_Raise", "n": "哑铃侧平举", "g": "肩", "en": "Side Lateral Raise", "pm": ["shoulders"], "sm": [], "eq": "dumbbell", "lv": "beginner", "st": ["双手拿轻哑铃，手肘微弯，向两侧抬到与肩同高，再慢慢放下", "耸肩、甩身体、抬得过高"]}, {"id": "Cable_Seated_Lateral_Raise", "n": "绳索侧平举", "g": "肩", "en": "Cable Seated Lateral Raise", "pm": ["shoulders"], "sm": ["traps"], "eq": "cable", "lv": "beginner", "st": ["坐在拉索旁，手握低位把手，向侧面抬到肩高，再慢慢放下", "耸肩、身体歪向一边"]}, {"id": "Front_Dumbbell_Raise", "n": "哑铃前平举", "g": "肩", "en": "Front Dumbbell Raise", "pm": ["shoulders"], "sm": ["chest"], "eq": "dumbbell", "lv": "beginner", "st": ["双手拿哑铃，手臂微弯向前抬到肩高，再慢慢放下", "身体后仰甩起、抬得太高"]}, {"id": "Reverse_Flyes", "n": "俯身反向飞鸟", "g": "肩", "en": "Reverse Flyes", "pm": ["shoulders"], "sm": ["middle back", "traps"], "eq": "dumbbell", "lv": "beginner", "st": ["屈髋上身前倾，手拿轻哑铃向两侧打开，夹紧后背", "耸肩、用手臂甩起"]}, {"id": "Reverse_Machine_Flyes", "n": "器械反向飞鸟", "g": "肩", "en": "Reverse Machine Flyes", "pm": ["shoulders"], "sm": ["middle back", "traps"], "eq": "machine", "lv": "beginner", "st": ["面对器械坐好胸贴靠垫，握把向后打开到身体两侧", "耸肩、身体离开靠垫"]}, {"id": "Dumbbell_Shrug", "n": "哑铃耸肩", "g": "肩", "en": "Dumbbell Shrug", "pm": ["traps"], "sm": ["forearms"], "eq": "dumbbell", "lv": "beginner", "st": ["双手拿哑铃垂在两侧，肩膀直直往上耸到最高，再慢慢放下", "转动肩膀画圈、用手臂弯起"]}, {"id": "Upright_Barbell_Row", "n": "杠铃直立划船", "g": "肩", "en": "Upright Barbell Row", "pm": ["shoulders", "traps"], "sm": ["biceps"], "eq": "barbell", "lv": "beginner", "st": ["握距与肩同宽，杠铃贴着身体拉到胸口下方，手肘高于手腕", "拉得太高夹肩、握距太窄"]}, {"id": "Dumbbell_Bicep_Curl", "n": "哑铃弯举", "g": "手臂", "en": "Dumbbell Bicep Curl", "pm": ["biceps"], "sm": ["forearms"], "eq": "dumbbell", "lv": "beginner", "st": ["站直，大臂贴紧身体，只弯小臂把哑铃举到肩前，再慢慢放下", "晃身体借力、手肘往前跑"]}, {"id": "Hammer_Curls", "n": "锤式弯举", "g": "手臂", "en": "Hammer Curls", "pm": ["biceps"], "sm": ["forearms"], "eq": "dumbbell", "lv": "beginner", "st": ["掌心相对握哑铃，大臂不动，弯小臂把哑铃举起", "甩身体、手肘离开身体"]}, {"id": "Barbell_Curl", "n": "杠铃弯举", "g": "手臂", "en": "Barbell Curl", "pm": ["biceps"], "sm": ["forearms"], "eq": "barbell", "lv": "beginner", "st": ["站直握杠铃，大臂夹紧身体，弯小臂把杠铃举到胸前", "身体后仰借力、手肘前移"]}, {"id": "Preacher_Curl", "n": "牧师凳弯举", "g": "手臂", "en": "Preacher Curl", "pm": ["biceps"], "sm": [], "eq": "barbell", "lv": "beginner", "st": ["上臂贴住牧师凳斜面，把杠铃弯举起，再慢慢放到手臂接近伸直", "放下太快、手臂锁死弹起"]}, {"id": "Concentration_Curls", "n": "集中弯举", "g": "手臂", "en": "Concentration Curls", "pm": ["biceps"], "sm": ["forearms"], "eq": "dumbbell", "lv": "beginner", "st": ["坐着把手肘抵在大腿内侧，单手把哑铃弯举起", "用肩膀带动、放下太快"]}, {"id": "Incline_Dumbbell_Curl", "n": "上斜哑铃弯举", "g": "手臂", "en": "Incline Dumbbell Curl", "pm": ["biceps"], "sm": [], "eq": "dumbbell", "lv": "beginner", "st": ["仰靠在斜凳上，手臂自然下垂，只弯小臂把哑铃举起", "肩膀往前送、甩起"]}, {"id": "Triceps_Pushdown", "n": "绳索下压", "g": "手臂", "en": "Triceps Pushdown", "pm": ["triceps"], "sm": [], "eq": "cable", "lv": "beginner", "st": ["站在拉索前，大臂夹紧身体，把把手往下压到手臂伸直，再慢慢回来", "手肘离开身体、用身体压"]}, {"id": "Cable_Rope_Overhead_Triceps_Extension", "n": "绳索过顶臂屈伸", "g": "手臂", "en": "Cable Rope Overhead Triceps Extension", "pm": ["triceps"], "sm": [], "eq": "cable", "lv": "beginner", "st": ["背对拉索，双手握绳举过头，大臂不动，向前上方伸直小臂", "手肘向两边张开、腰拱起"]}, {"id": "Bench_Dips", "n": "凳上臂屈伸", "g": "手臂", "en": "Bench Dips", "pm": ["triceps"], "sm": ["chest", "shoulders"], "eq": "body only", "lv": "beginner", "st": ["双手撑在凳边，脚放前方，屈肘让身体往下，再撑起", "下得太深肩膀前顶、耸肩"]}, {"id": "Lying_Triceps_Press", "n": "仰卧臂屈伸", "g": "手臂", "en": "Lying Triceps Press", "pm": ["triceps"], "sm": [], "eq": "e-z curl bar", "lv": "intermediate", "st": ["仰卧握曲杆在胸上方，大臂不动，屈肘把杆放到额头附近，再伸直", "手肘外张、大臂跟着动"]}, {"id": "Tricep_Dumbbell_Kickback", "n": "哑铃臂屈伸后踢", "g": "手臂", "en": "Tricep Dumbbell Kickback", "pm": ["triceps"], "sm": [], "eq": "dumbbell", "lv": "beginner", "st": ["上身前倾，大臂贴紧身体与地面平行，把小臂向后伸直", "大臂下垂、甩哑铃"]}, {"id": "Close-Grip_Barbell_Bench_Press", "n": "窄距卧推", "g": "手臂", "en": "Close-Grip Barbell Bench Press", "pm": ["triceps"], "sm": ["chest", "shoulders"], "eq": "barbell", "lv": "beginner", "st": ["握距约与肩同宽，手肘贴近身体，杠铃放到胸下部再推起", "握得太窄伤腕、手肘外张"]}, {"id": "Plank", "n": "平板支撑", "g": "核心", "en": "Plank", "pm": ["abdominals"], "sm": ["obliques", "shoulders"], "eq": "body only", "lv": "beginner", "st": ["小臂撑地，手肘在肩正下方，身体从头到脚成一条直线，收腹夹臀", "塌腰、撅屁股、憋气"]}, {"id": "Side_Bridge", "n": "侧平板支撑", "g": "核心", "en": "Side Bridge", "pm": ["obliques"], "sm": ["abdominals", "abductors", "shoulders"], "eq": "body only", "lv": "beginner", "st": ["侧躺用一侧小臂撑地，把髋抬起，身体成一条直线", "髋往下掉、身体前后歪"]}, {"id": "Crunches", "n": "卷腹", "g": "核心", "en": "Crunches", "pm": ["abdominals"], "sm": [], "eq": "body only", "lv": "beginner", "st": ["仰卧屈膝，双手轻放耳旁，用腹部把肩胛抬离地面，再慢慢放下", "手抱头拉脖子、整个上身坐起来"]}, {"id": "Reverse_Crunch", "n": "反向卷腹", "g": "核心", "en": "Reverse Crunch", "pm": ["abdominals"], "sm": [], "eq": "body only", "lv": "beginner", "st": ["仰卧屈膝抬腿，用腹部把屁股卷离地面，再慢慢放下", "甩腿借力、腰离地太猛"]}, {"id": "Cable_Crunch", "n": "跪姿绳索卷腹", "g": "核心", "en": "Cable Crunch", "pm": ["abdominals"], "sm": [], "eq": "cable", "lv": "beginner", "st": ["跪在拉索前，双手握绳放在头两侧，用腹部把身体往下卷", "用手臂拉、屁股往后坐"]}, {"id": "Russian_Twist", "n": "俄罗斯转体", "g": "核心", "en": "Russian Twist", "pm": ["obliques"], "sm": ["abdominals"], "eq": "body only", "lv": "intermediate", "st": ["坐姿上身稍后倾，双脚可踩地，左右转动上身", "弓背、只动手臂不动身体"]}, {"id": "Flat_Bench_Lying_Leg_Raise", "n": "仰卧举腿", "g": "核心", "en": "Flat Bench Lying Leg Raise", "pm": ["abdominals"], "sm": [], "eq": "body only", "lv": "beginner", "st": ["躺在凳上双手抓住凳头，腿伸直慢慢抬起再放下", "腰拱起离开凳面、甩腿"]}, {"id": "Hanging_Leg_Raise", "n": "悬垂举腿", "g": "核心", "en": "Hanging Leg Raise", "pm": ["abdominals"], "sm": ["obliques", "forearms"], "eq": "body only", "lv": "expert", "st": ["双手悬垂在单杠上，用腹部把腿抬起，再慢慢放下", "荡身借力、只抬小腿"]}, {"id": "Mountain_Climbers", "n": "登山跑", "g": "核心", "en": "Mountain Climbers", "pm": ["abdominals"], "sm": ["quadriceps", "shoulders", "obliques"], "eq": null, "lv": "beginner", "st": ["俯卧撑姿势撑地，左右腿交替快速向胸口提膝", "屁股撅高、手离肩太远"]}, {"id": "Dead_Bug", "n": "死虫式", "g": "核心", "en": "Dead Bug", "pm": ["abdominals"], "sm": ["obliques"], "eq": "body only", "lv": "beginner", "st": ["仰卧，手臂伸向天花板，膝盖弯成90度，同时伸出对侧手和腿，腰始终贴地", "腰离开地面、动作太快"]}, {"id": "Pallof_Press", "n": "抗旋转推", "g": "核心", "en": "Pallof Press", "pm": ["obliques", "abdominals"], "sm": ["shoulders"], "eq": "cable", "lv": "beginner", "st": ["侧对拉索，双手握把放在胸前，把手向前推直，身体不跟着转", "身体被拉索带转、耸肩"]}, {"id": "Ab_Roller", "n": "健腹轮", "g": "核心", "en": "Ab Roller", "pm": ["abdominals"], "sm": ["lats", "shoulders", "obliques"], "eq": "other", "lv": "intermediate", "st": ["跪姿双手握健腹轮，收腹慢慢向前推出，再用腹部拉回", "塌腰、推得太远"]}, {"id": "Oblique_Crunches_-_On_The_Floor", "n": "侧向卷腹", "g": "核心", "en": "Oblique Crunches - On The Floor", "pm": ["obliques"], "sm": ["abdominals"], "eq": "body only", "lv": "beginner", "st": ["侧躺屈膝，用侧腹把上身向侧上方抬起", "拉脖子、动作幅度太大"]}, {"id": "One-Arm_Kettlebell_Swings", "n": "壶铃摆荡", "g": "全身", "en": "One-Arm Kettlebell Swings", "pm": ["glutes", "hamstrings"], "sm": ["lower back", "shoulders", "forearms"], "eq": "kettlebells", "lv": "intermediate", "st": ["单手握壶铃，屈髋把壶铃荡到两腿间，再用臀部发力把壶铃荡到胸高", "用手臂甩、弓背、变成深蹲"]}, {"id": "Kettlebell_Turkish_Get-Up_Squat_style", "n": "土耳其起立", "g": "全身", "en": "Kettlebell Turkish Get-Up (Squat style)", "pm": ["shoulders", "abdominals"], "sm": ["obliques", "glutes", "quadriceps", "triceps"], "eq": "kettlebells", "lv": "intermediate", "st": ["仰卧单手举壶铃，眼睛看着壶铃，分步撑起到站立，再按原路回到躺下", "手臂弯曲、步骤做太快"]}, {"id": "Clean_and_Press", "n": "高翻推举", "g": "全身", "en": "Clean and Press", "pm": ["shoulders", "quadriceps", "glutes"], "sm": ["hamstrings", "traps", "triceps", "lower back", "abdominals", "calves"], "eq": "barbell", "lv": "intermediate", "st": ["杠铃从地面快速拉到肩前接住，再推到头顶", "弓背拉起、用手臂硬拉"]}, {"id": "Front_Box_Jump", "n": "跳箱", "g": "全身", "en": "Front Box Jump", "pm": ["quadriceps", "glutes"], "sm": ["hamstrings", "calves"], "eq": "other", "lv": "beginner", "st": ["面对跳箱半蹲，双臂摆动跳上箱子，双脚轻轻落稳，再走下来", "跳下来伤膝、箱子太高"]}, {"id": "Hamstring_Stretch", "n": "腘绳肌拉伸", "g": "拉伸", "en": "Hamstring Stretch", "pm": ["hamstrings"], "sm": [], "eq": null, "lv": "beginner", "st": ["一条腿伸直，上身从髋部向前倾，感到大腿后侧拉紧即可", "弓背去够脚尖、弹振拉伸"]}, {"id": "Quad_Stretch", "n": "股四头肌拉伸", "g": "拉伸", "en": "Quad Stretch", "pm": ["quadriceps"], "sm": [], "eq": "other", "lv": "intermediate", "st": ["站稳后抓住一只脚踝往屁股方向拉，两膝并拢", "腰往前拱、膝盖向外打开"]}, {"id": "Cat_Stretch", "n": "猫式伸展", "g": "拉伸", "en": "Cat Stretch", "pm": ["lower back"], "sm": ["middle back", "traps"], "eq": null, "lv": "beginner", "st": ["四点跪姿，吸气抬头塌腰，呼气低头把背拱起，慢慢交替", "动作太快、只动脖子"]}, {"id": "IT_Band_and_Glute_Stretch", "n": "臀部/髂胫束拉伸", "g": "拉伸", "en": "IT Band and Glute Stretch", "pm": ["abductors"], "sm": [], "eq": "other", "lv": "intermediate", "st": ["坐姿把一条腿搭在另一条腿上，抱膝往胸口拉，感到臀部外侧拉紧", "弓背、用力过猛"]}, {"id": "Bird_Dog", "n": "鸟狗式", "g": "核心", "en": "Bird Dog", "pm": ["abdominals", "lower back"], "sm": ["glutes", "shoulders"], "eq": "body only", "lv": "beginner", "st": ["四点跪姿，同时伸出对侧手和腿，身体保持稳定不晃，再收回", "腰往下塌、身体向一侧歪"]}, {"id": "Kneeling_Plank", "n": "跪姿平板支撑", "g": "核心", "en": "Kneeling Plank", "pm": ["abdominals"], "sm": ["shoulders"], "eq": "body only", "lv": "beginner", "st": ["小臂和膝盖撑地，从头到膝成一条直线，收腹", "塌腰、撅屁股、憋气"]}];const FOODS=[{"c": "主食", "n": "米饭", "u": "1碗", "g": 150, "k": 177, "p": 3.9}, {"c": "主食", "n": "糙米饭", "u": "1碗", "g": 150, "k": 167, "p": 4.0}, {"c": "主食", "n": "馒头", "u": "1个", "g": 100, "k": 226, "p": 7.0}, {"c": "主食", "n": "花卷", "u": "1个", "g": 80, "k": 174, "p": 5.1}, {"c": "主食", "n": "烙馍", "u": "1张", "g": 60, "k": 157, "p": 4.5}, {"c": "主食", "n": "葱油饼", "u": "1张", "g": 100, "k": 290, "p": 6.5}, {"c": "主食", "n": "菜盒子", "u": "1个", "g": 120, "k": 260, "p": 8.0}, {"c": "主食", "n": "烩面(羊肉)", "u": "1碗", "g": 500, "k": 620, "p": 26.0}, {"c": "主食", "n": "胡辣汤", "u": "1碗", "g": 350, "k": 190, "p": 7.0}, {"c": "主食", "n": "油条", "u": "1根", "g": 60, "k": 233, "p": 4.1}, {"c": "主食", "n": "豆腐脑(咸)", "u": "1碗", "g": 300, "k": 144, "p": 7.8}, {"c": "主食", "n": "热干面", "u": "1碗", "g": 300, "k": 520, "p": 14.0}, {"c": "主食", "n": "手擀面(素)", "u": "1碗", "g": 400, "k": 450, "p": 14.0}, {"c": "主食", "n": "西红柿鸡蛋面", "u": "1碗", "g": 450, "k": 480, "p": 17.0}, {"c": "主食", "n": "炸酱面", "u": "1碗", "g": 400, "k": 600, "p": 20.0}, {"c": "主食", "n": "牛肉拉面", "u": "1碗", "g": 500, "k": 540, "p": 24.0}, {"c": "主食", "n": "饺子(猪肉白菜)", "u": "10个", "g": 230, "k": 517, "p": 17.2}, {"c": "主食", "n": "包子(肉)", "u": "1个", "g": 90, "k": 208, "p": 6.6}, {"c": "主食", "n": "包子(素)", "u": "1个", "g": 90, "k": 170, "p": 5.0}, {"c": "主食", "n": "小米粥", "u": "1碗", "g": 250, "k": 115, "p": 3.5}, {"c": "主食", "n": "大米粥", "u": "1碗", "g": 250, "k": 118, "p": 2.8}, {"c": "主食", "n": "八宝粥", "u": "1碗", "g": 250, "k": 200, "p": 5.0}, {"c": "主食", "n": "玉米", "u": "1根", "g": 150, "k": 170, "p": 6.0}, {"c": "主食", "n": "红薯", "u": "1个", "g": 200, "k": 207, "p": 2.2}, {"c": "主食", "n": "紫薯", "u": "1个", "g": 150, "k": 120, "p": 2.0}, {"c": "主食", "n": "土豆(蒸)", "u": "1个", "g": 150, "k": 118, "p": 3.0}, {"c": "主食", "n": "燕麦片", "u": "1份", "g": 40, "k": 152, "p": 6.0}, {"c": "主食", "n": "全麦面包", "u": "1片", "g": 40, "k": 100, "p": 4.5}, {"c": "主食", "n": "白面包", "u": "1片", "g": 40, "k": 110, "p": 3.2}, {"c": "主食", "n": "炒饭", "u": "1盘", "g": 300, "k": 560, "p": 14.0}, {"c": "主食", "n": "蛋炒饭", "u": "1盘", "g": 300, "k": 520, "p": 16.0}, {"c": "主食", "n": "凉皮", "u": "1份", "g": 300, "k": 380, "p": 8.0}, {"c": "主食", "n": "肉夹馍", "u": "1个", "g": 150, "k": 420, "p": 18.0}, {"c": "主食", "n": "煎饼果子", "u": "1个", "g": 200, "k": 480, "p": 15.0}, {"c": "主食", "n": "方便面", "u": "1包", "g": 100, "k": 470, "p": 9.0}, {"c": "主食", "n": "粽子(肉)", "u": "1个", "g": 150, "k": 370, "p": 11.0}, {"c": "主食", "n": "汤圆", "u": "5个", "g": 100, "k": 310, "p": 4.0}, {"c": "主食", "n": "米线", "u": "1碗", "g": 450, "k": 430, "p": 15.0}, {"c": "主食", "n": "螺蛳粉", "u": "1碗", "g": 450, "k": 550, "p": 17.0}, {"c": "主食", "n": "麻辣烫", "u": "1碗", "g": 500, "k": 520, "p": 20.0}, {"c": "蛋白", "n": "鸡蛋(水煮)", "u": "1个", "g": 50, "k": 72, "p": 6.7}, {"c": "蛋白", "n": "鸡蛋白", "u": "1个", "g": 33, "k": 20, "p": 3.8}, {"c": "蛋白", "n": "煎鸡蛋", "u": "1个", "g": 55, "k": 105, "p": 6.5}, {"c": "蛋白", "n": "鸡胸肉(生重)", "u": "1掌", "g": 100, "k": 133, "p": 19.4}, {"c": "蛋白", "n": "鸡腿(带皮)", "u": "1个", "g": 100, "k": 180, "p": 16.0}, {"c": "蛋白", "n": "卤牛肉", "u": "1份", "g": 100, "k": 200, "p": 30.0}, {"c": "蛋白", "n": "瘦猪肉", "u": "1份", "g": 100, "k": 143, "p": 20.3}, {"c": "蛋白", "n": "五花肉", "u": "1份", "g": 100, "k": 335, "p": 13.6}, {"c": "蛋白", "n": "虾仁", "u": "1份", "g": 100, "k": 90, "p": 19.0}, {"c": "蛋白", "n": "清蒸鱼", "u": "1份", "g": 150, "k": 170, "p": 28.0}, {"c": "蛋白", "n": "三文鱼", "u": "1份", "g": 100, "k": 200, "p": 20.0}, {"c": "蛋白", "n": "带鱼(煎)", "u": "1份", "g": 100, "k": 190, "p": 18.0}, {"c": "蛋白", "n": "豆腐", "u": "1块", "g": 150, "k": 123, "p": 12.2}, {"c": "蛋白", "n": "豆浆(无糖)", "u": "1杯", "g": 250, "k": 39, "p": 4.5}, {"c": "蛋白", "n": "纯牛奶", "u": "1盒", "g": 250, "k": 136, "p": 7.5}, {"c": "蛋白", "n": "脱脂牛奶", "u": "1盒", "g": 250, "k": 85, "p": 8.5}, {"c": "蛋白", "n": "无糖酸奶", "u": "1杯", "g": 150, "k": 93, "p": 4.8}, {"c": "蛋白", "n": "含糖酸奶", "u": "1杯", "g": 150, "k": 108, "p": 3.8}, {"c": "蛋白", "n": "乳清蛋白粉", "u": "1勺", "g": 30, "k": 120, "p": 24.0}, {"c": "蛋白", "n": "卤鸡蛋", "u": "1个", "g": 55, "k": 80, "p": 7.0}, {"c": "蛋白", "n": "鸭血", "u": "1份", "g": 100, "k": 109, "p": 13.6}, {"c": "蛋白", "n": "羊肉", "u": "1份", "g": 100, "k": 200, "p": 19.0}, {"c": "蛋白", "n": "豆干", "u": "1份", "g": 50, "k": 71, "p": 8.1}, {"c": "蛋白", "n": "腐竹(泡发)", "u": "1份", "g": 100, "k": 120, "p": 11.0}, {"c": "蛋白", "n": "火腿肠", "u": "1根", "g": 50, "k": 106, "p": 7.0}, {"c": "家常菜", "n": "西红柿炒鸡蛋", "u": "1盘", "g": 250, "k": 260, "p": 12.0}, {"c": "家常菜", "n": "青椒肉丝", "u": "1盘", "g": 250, "k": 330, "p": 18.0}, {"c": "家常菜", "n": "酸辣土豆丝", "u": "1盘", "g": 250, "k": 250, "p": 4.5}, {"c": "家常菜", "n": "鱼香肉丝", "u": "1盘", "g": 250, "k": 410, "p": 17.0}, {"c": "家常菜", "n": "宫保鸡丁", "u": "1盘", "g": 250, "k": 450, "p": 26.0}, {"c": "家常菜", "n": "麻婆豆腐", "u": "1盘", "g": 250, "k": 300, "p": 15.0}, {"c": "家常菜", "n": "红烧肉", "u": "1份", "g": 150, "k": 680, "p": 16.0}, {"c": "家常菜", "n": "糖醋里脊", "u": "1份", "g": 200, "k": 520, "p": 20.0}, {"c": "家常菜", "n": "回锅肉", "u": "1盘", "g": 200, "k": 560, "p": 18.0}, {"c": "家常菜", "n": "可乐鸡翅", "u": "4个", "g": 200, "k": 440, "p": 30.0}, {"c": "家常菜", "n": "地三鲜", "u": "1盘", "g": 250, "k": 430, "p": 5.0}, {"c": "家常菜", "n": "干煸豆角", "u": "1盘", "g": 250, "k": 260, "p": 6.0}, {"c": "家常菜", "n": "蒜蓉西兰花", "u": "1盘", "g": 250, "k": 150, "p": 8.0}, {"c": "家常菜", "n": "清炒油麦菜", "u": "1盘", "g": 250, "k": 120, "p": 4.0}, {"c": "家常菜", "n": "醋溜白菜", "u": "1盘", "g": 300, "k": 140, "p": 4.0}, {"c": "家常菜", "n": "手撕包菜", "u": "1盘", "g": 300, "k": 180, "p": 4.5}, {"c": "家常菜", "n": "凉拌黄瓜", "u": "1盘", "g": 200, "k": 70, "p": 2.0}, {"c": "家常菜", "n": "凉拌木耳", "u": "1盘", "g": 150, "k": 80, "p": 2.5}, {"c": "家常菜", "n": "拍黄瓜", "u": "1盘", "g": 200, "k": 90, "p": 2.0}, {"c": "家常菜", "n": "韭菜炒鸡蛋", "u": "1盘", "g": 250, "k": 300, "p": 14.0}, {"c": "家常菜", "n": "木须肉", "u": "1盘", "g": 250, "k": 360, "p": 18.0}, {"c": "家常菜", "n": "蒜苔炒肉", "u": "1盘", "g": 250, "k": 320, "p": 16.0}, {"c": "家常菜", "n": "红烧茄子", "u": "1盘", "g": 250, "k": 380, "p": 4.0}, {"c": "家常菜", "n": "水煮肉片", "u": "1份", "g": 350, "k": 560, "p": 30.0}, {"c": "家常菜", "n": "水煮鱼", "u": "1份", "g": 400, "k": 620, "p": 40.0}, {"c": "家常菜", "n": "大盘鸡", "u": "1份", "g": 350, "k": 560, "p": 35.0}, {"c": "家常菜", "n": "黄焖鸡", "u": "1份", "g": 300, "k": 480, "p": 30.0}, {"c": "家常菜", "n": "小炒黄牛肉", "u": "1盘", "g": 250, "k": 420, "p": 30.0}, {"c": "家常菜", "n": "烧茄子", "u": "1盘", "g": 250, "k": 360, "p": 4.0}, {"c": "家常菜", "n": "白菜炖粉条", "u": "1碗", "g": 350, "k": 260, "p": 5.0}, {"c": "家常菜", "n": "猪肉炖粉条", "u": "1碗", "g": 350, "k": 450, "p": 15.0}, {"c": "家常菜", "n": "小鸡炖蘑菇", "u": "1碗", "g": 350, "k": 380, "p": 30.0}, {"c": "家常菜", "n": "羊肉汤", "u": "1碗", "g": 500, "k": 320, "p": 22.0}, {"c": "家常菜", "n": "酸菜鱼", "u": "1份", "g": 400, "k": 500, "p": 38.0}, {"c": "家常菜", "n": "烤鸭(带皮)", "u": "1份", "g": 100, "k": 431, "p": 16.6}, {"c": "家常菜", "n": "卤肉饭", "u": "1碗", "g": 350, "k": 620, "p": 20.0}, {"c": "家常菜", "n": "紫菜蛋花汤", "u": "1碗", "g": 300, "k": 60, "p": 4.0}, {"c": "家常菜", "n": "番茄蛋汤", "u": "1碗", "g": 300, "k": 80, "p": 5.0}, {"c": "家常菜", "n": "冬瓜排骨汤", "u": "1碗", "g": 350, "k": 190, "p": 14.0}, {"c": "家常菜", "n": "蒸蛋羹", "u": "1碗", "g": 150, "k": 90, "p": 7.0}, {"c": "家常菜", "n": "炒青菜", "u": "1盘", "g": 250, "k": 110, "p": 4.0}, {"c": "家常菜", "n": "凉拌菠菜", "u": "1盘", "g": 200, "k": 90, "p": 5.0}, {"c": "家常菜", "n": "炒合菜", "u": "1盘", "g": 250, "k": 280, "p": 9.0}, {"c": "家常菜", "n": "烧烤羊肉串", "u": "5串", "g": 100, "k": 250, "p": 18.0}, {"c": "家常菜", "n": "炸鸡", "u": "1块", "g": 120, "k": 340, "p": 22.0}, {"c": "家常菜", "n": "汉堡", "u": "1个", "g": 200, "k": 500, "p": 25.0}, {"c": "家常菜", "n": "披萨", "u": "1块", "g": 110, "k": 290, "p": 12.0}, {"c": "蔬果", "n": "苹果", "u": "1个", "g": 200, "k": 109, "p": 0.4}, {"c": "蔬果", "n": "香蕉", "u": "1根", "g": 120, "k": 113, "p": 1.7}, {"c": "蔬果", "n": "橙子", "u": "1个", "g": 200, "k": 98, "p": 1.6}, {"c": "蔬果", "n": "梨", "u": "1个", "g": 220, "k": 111, "p": 0.9}, {"c": "蔬果", "n": "葡萄", "u": "1小串", "g": 150, "k": 67, "p": 0.8}, {"c": "蔬果", "n": "西瓜", "u": "1块", "g": 300, "k": 79, "p": 1.8}, {"c": "蔬果", "n": "草莓", "u": "10颗", "g": 150, "k": 48, "p": 1.0}, {"c": "蔬果", "n": "猕猴桃", "u": "1个", "g": 80, "k": 50, "p": 0.6}, {"c": "蔬果", "n": "柚子", "u": "2瓣", "g": 150, "k": 60, "p": 1.2}, {"c": "蔬果", "n": "圣女果", "u": "10颗", "g": 150, "k": 38, "p": 1.5}, {"c": "蔬果", "n": "黄瓜", "u": "1根", "g": 200, "k": 32, "p": 1.6}, {"c": "蔬果", "n": "西红柿", "u": "1个", "g": 200, "k": 41, "p": 1.8}, {"c": "蔬果", "n": "生菜沙拉(无酱)", "u": "1碗", "g": 150, "k": 25, "p": 2.0}, {"c": "蔬果", "n": "枣(干)", "u": "5颗", "g": 25, "k": 70, "p": 0.8}, {"c": "蔬果", "n": "蓝莓", "u": "1盒", "g": 125, "k": 70, "p": 0.9}, {"c": "零食饮品", "n": "坚果(混合)", "u": "1小把", "g": 25, "k": 150, "p": 5.0}, {"c": "零食饮品", "n": "花生", "u": "1小把", "g": 25, "k": 146, "p": 6.0}, {"c": "零食饮品", "n": "瓜子", "u": "1小把", "g": 30, "k": 180, "p": 6.5}, {"c": "零食饮品", "n": "薯片", "u": "1包", "g": 70, "k": 380, "p": 4.0}, {"c": "零食饮品", "n": "饼干", "u": "3片", "g": 30, "k": 145, "p": 2.5}, {"c": "零食饮品", "n": "蛋糕", "u": "1块", "g": 100, "k": 350, "p": 5.0}, {"c": "零食饮品", "n": "月饼", "u": "1个", "g": 100, "k": 420, "p": 6.0}, {"c": "零食饮品", "n": "巧克力", "u": "1块", "g": 25, "k": 135, "p": 1.8}, {"c": "零食饮品", "n": "冰淇淋", "u": "1支", "g": 80, "k": 170, "p": 3.0}, {"c": "零食饮品", "n": "奶茶(全糖)", "u": "1杯", "g": 500, "k": 360, "p": 4.0}, {"c": "零食饮品", "n": "奶茶(无糖)", "u": "1杯", "g": 500, "k": 220, "p": 4.0}, {"c": "零食饮品", "n": "可乐", "u": "1罐", "g": 330, "k": 140, "p": 0.0}, {"c": "零食饮品", "n": "零度可乐", "u": "1罐", "g": 330, "k": 1, "p": 0.0}, {"c": "零食饮品", "n": "美式咖啡", "u": "1杯", "g": 350, "k": 10, "p": 0.5}, {"c": "零食饮品", "n": "拿铁", "u": "1杯", "g": 350, "k": 190, "p": 10.0}, {"c": "零食饮品", "n": "啤酒", "u": "1瓶", "g": 500, "k": 215, "p": 2.0}, {"c": "零食饮品", "n": "白酒", "u": "1两", "g": 50, "k": 150, "p": 0.0}, {"c": "零食饮品", "n": "橙汁", "u": "1杯", "g": 250, "k": 115, "p": 1.5}, {"c": "零食饮品", "n": "蛋白棒", "u": "1根", "g": 60, "k": 210, "p": 20.0}, {"c": "零食饮品", "n": "辣条", "u": "1包", "g": 50, "k": 260, "p": 4.0}, {"c": "零食饮品", "n": "豆浆(加糖)", "u": "1杯", "g": 250, "k": 130, "p": 7.0}];
 const AD=(()=>{const module={exports:{}};// 真实解剖图（用户自有底图）· 点击区域 + 介绍数据
 // 坐标系：600x1300（与 img/*.jpg 一致）。左半边定义后按 cx 镜像。
@@ -2726,8 +2754,10 @@ const TITLE='体态评估（测试）';
 const DISCLAIMER='体态参考，不是医学诊断；有疼痛请就医。';
 const RETEST_DAYS=28;
 const MIN_C=0.5;
+/* 量数值时关节的最低可见度（MediaPipe visibility）；低于这个，这项写看不准 */
+const MEAS_C=0.7;
 const WX=['nose','leftEye','rightEye','leftEar','rightEar','leftShoulder','rightShoulder','leftElbow','rightElbow','leftWrist','rightWrist','leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle','leftHand','rightHand','leftFoot','rightFoot','leftHeel','rightHeel'];
-const MP={0:'nose',2:'leftEye',5:'rightEye',7:'leftEar',8:'rightEar',11:'leftShoulder',12:'rightShoulder',13:'leftElbow',14:'rightElbow',15:'leftWrist',16:'rightWrist',23:'leftHip',24:'rightHip',25:'leftKnee',26:'rightKnee',27:'leftAnkle',28:'rightAnkle',29:'leftHeel',30:'rightHeel',31:'leftFoot',32:'rightFoot'};
+const MP={0:'nose',2:'leftEye',5:'rightEye',7:'leftEar',8:'rightEar',9:'mouthLeft',10:'mouthRight',11:'leftShoulder',12:'rightShoulder',13:'leftElbow',14:'rightElbow',15:'leftWrist',16:'rightWrist',23:'leftHip',24:'rightHip',25:'leftKnee',26:'rightKnee',27:'leftAnkle',28:'rightAnkle',29:'leftHeel',30:'rightHeel',31:'leftFoot',32:'rightFoot'};
 const COLOR={ok:'#12b886',mild:'#f59f00',bad:'#e03131',unsure:'#adb5bd',plumb:'#339af0',ref:'rgba(255,255,255,.75)',joint:'#ffffff'};
 const VIEWS=[
  {id:'front',n:'正面',how:'被拍的人正对手机，自然站直，眼睛平视前方，双手自然垂在身体两侧。'},
@@ -2735,21 +2765,22 @@ const VIEWS=[
  {id:'back',n:'背面',how:'被拍的人背对手机，自然站直，双手自然垂下。'}
 ];
 const TIPS=[
- '请别人帮忙拍，手机竖着拿，放在被拍人胸口高度（大约离地 1 米），每次都一样高。',
- '手机离人大约 2.5～3 米，人站在画面中间，头顶到脚底都要拍进去，上下各留一点空。',
- '双脚分开和髋差不多宽，脚尖朝前，脚下踩平；每次站同一个位置（可在地上贴个标记）。',
- '穿贴身衣服（紧身上衣、短裤或紧身裤），长头发扎起来，露出耳朵和脖子；最好光脚或穿平底鞋。',
- '背景尽量干净、光线亮一点；画面里只留被拍的人。'
+ '请别人帮忙拍（或用手机支架），手机竖着放在被拍人腰部高度（约离地 1 米），每次都一样高。',
+ '手机离人 2～3 米，人站在画面中间，头顶到脚底都在框里，上下各留一点空。',
+ '双脚分开和髋一样宽，脚尖朝前，双手放松自然垂下；每次站同一个位置（可在地上贴个标记）。',
+ '穿贴身衣服（紧身上衣、紧身裤或短裤），长头发扎起来，露出耳朵和脖子；最好光脚或穿平底鞋。',
+ '背景尽量干净（纯色墙最好）、光线亮一点；画面里只留被拍的人。'
 ];
-/* 项目定义：t=[轻度起点, 明显起点]，mdc=小于这个变化算持平（拍照误差），max=超过就当识别出错 */
+/* 项目定义：t=[轻度起点, 明显起点]，mdc=小于这个变化算持平（拍照误差），max=超过就当识别出错，
+   tol=连拍估出的标准误上限（约为档宽的 1/3：95% 区间超过档宽就可能分错级，写看不准） */
 const ITEMS=[
- {key:'shoulder',n:'高低肩',views:['front','back'],unit:'°',t:[2.5,5],mdc:1,max:15},
- {key:'head',n:'头前伸',views:['side'],unit:'°',t:[12,20],mdc:3,max:45},
- {key:'round',n:'圆肩（可能）',views:['side'],unit:'%',t:[8,15],mdc:3,max:40,maybe:true},
- {key:'hip',n:'骨盆左右高低',views:['front','back'],unit:'°',t:[2.5,5],mdc:1.5,max:15},
- {key:'knee',n:'膝盖内扣/外分',views:['front'],unit:'°',t:[6,10],mdc:2,max:25},
- {key:'hyper',n:'膝超伸',views:['side'],unit:'°',t:[5,10],mdc:2,max:25},
- {key:'shift',n:'身体左右偏移',views:['front','back'],unit:'%',t:[1.5,3],mdc:0.5,max:10}
+ {key:'shoulder',n:'高低肩',views:['front','back'],unit:'°',t:[2.5,5],mdc:1,max:15,tol:0.85},
+ {key:'head',n:'头前伸',views:['side'],unit:'°',t:[12,20],mdc:3,max:45,tol:2.7},
+ {key:'round',n:'圆肩（可能）',views:['side'],unit:'%',t:[8,15],mdc:3,max:40,maybe:true,tol:2.3},
+ {key:'hip',n:'骨盆左右高低',views:['front','back'],unit:'°',t:[2.5,5],mdc:1.5,max:15,tol:0.85},
+ {key:'knee',n:'膝盖内扣/外分',views:['front'],unit:'°',t:[6,10],mdc:2,max:25,tol:1.3},
+ {key:'hyper',n:'膝超伸',views:['side'],unit:'°',t:[5,10],mdc:2,max:25,tol:1.7},
+ {key:'shift',n:'身体左右偏移',views:['front','back'],unit:'%',t:[1.5,3],mdc:0.5,max:10,tol:0.5}
 ];
 const itemOf=k=>ITEMS.find(x=>x.key===k);
 /* 今日恢复里已有的三套 */
@@ -2859,16 +2890,111 @@ function checkPhoto(view,J,meta){
   {const la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);if(la&&ra){const dx=Math.abs(la.x-ra.x);if(view==='side'){if(dx>0.12*fr.H)add('stagger');}else if(dx>0.35*fr.H)add('wide');}}
   if(view==='side'){
     const s=sidePts(J,meta);
-    if(!s.ear||!s.sh||!s.hip||!s.knee||!s.ank)add('blur');
+    if(!s.ear||!s.sh||!s.hip||!s.knee||!s.ank||sideVis(J)<MEAS_C)add('blur');
     else if(vertDeg(s.sh,s.ank)>10)add('lean');
     const wr=widthRatio(J,meta);if(wr!=null&&wr>0.3)add('notSide');
   }else{
-    const miss=NEED[view].filter(n=>!P(J,n,meta));if(miss.length)add('blur');
+    /* 肩、髋要看得清（量高低肩/骨盆）；膝、踝至少能找到（量偏移/膝盖的那几项各自再按可见度判看不准） */
+    const miss=NEED[view].filter(n=>!P(J,n,meta,/Shoulder|Hip/.test(n)?MEAS_C:0.4));if(miss.length)add('blur');
     const ls=P(J,'leftShoulder',meta),rs=P(J,'rightShoulder',meta),la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);
     if(ls&&rs&&la&&ra){if(vertDeg(mid(ls,rs),mid(la,ra))>8)add('lean');if(tiltDeg(la,ra)>4&&Math.abs(la.x-ra.x)>0.05*fr.H)add('floor');}
     const wr=widthRatio(J,meta);if(wr!=null&&wr<0.35)add('notFront');
   }
   return{ok:!why.length,reasons:why};
+}
+
+/* 侧面：耳/肩/髋/膝/踝各取看得更清的一侧，返回其中最低的可见度 */
+function sideVis(J){const c=n=>J&&J[n]&&J[n].c!=null?+J[n].c:(J&&J[n]?1:0);
+  return Math.min(...['Ear','Shoulder','Hip','Knee','Ankle'].map(k=>Math.max(c('left'+k),c('right'+k))));}
+/* 每项用到的关节（算这项的可见度） */
+const USES={shoulder:['leftShoulder','rightShoulder'],hip:['leftHip','rightHip'],shift:['leftShoulder','rightShoulder','leftAnkle','rightAnkle'],
+ knee:['leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle'],head:['Ear','Shoulder'],round:['Shoulder','Hip'],hyper:['Hip','Knee','Ankle']};
+function itemVis(key,J){const c=n=>J&&J[n]&&J[n].c!=null?+J[n].c:(J&&J[n]?1:0);const u=USES[key]||[];
+  return Math.min(...u.map(n=>n[0]===n[0].toUpperCase()?Math.max(c('left'+n),c('right'+n)):c(n)));}
+
+/* ---------- 实时取景引导（网页 MediaPipe 视频帧 / 小程序 VisionKit 相机帧共用） ----------
+   每帧给一句话提示；全部通过且站稳约 1 秒才算 ok，由页面倒数 3-2-1 自动拍。 */
+const GUIDE={vis:0.8,minFrac:0.60,maxFrac:0.85,center:0.08,roll:3,pitch:3,jitter:0.006,stableMs:1000,holdMs:1000,fps:6};
+const GUIDE_NEED={front:['nose','leftShoulder','rightShoulder','leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle'],
+ back:['leftShoulder','rightShoulder','leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle']};
+const HINT={nobody:'站到画面里',crowd:'画面里只留一个人',cut:'脑袋到脚都要在框里',far:'往前走一点',close:'往后退一点',
+ toRight:'往画面右边挪一点',toLeft:'往画面左边挪一点',roll:'手机竖直，别左右歪',pitch:'手机竖直，别前后仰',
+ front:'转过来，正对手机',back:'身体正背对手机',side:'转到正侧面',arms:'双手自然放下',bent:'膝盖放松伸直',wide:'两脚和髋一样宽',stagger:'两脚并排站',
+ vis:'关节看不清：光线亮一点、衣服贴身',still:'站着别动',ok:'很好，保持不动'};
+function liveGuide(view,J,meta){
+  const r=(code,x)=>Object.assign({ok:code==='ok',code,hint:HINT[code]},x||{});
+  if(!J||!(J._people>0))return r('nobody');if(J._people>1)return r('crowd');
+  const c=n=>J[n]&&J[n].c!=null?+J[n].c:(J[n]?1:0);
+  const fr=frame(J,meta);
+  const feet=Math.max(c('leftAnkle'),c('rightAnkle'));const head=Math.max(c('nose'),c('leftEar'),c('rightEar'));
+  if(!fr||feet<0.5||head<0.5)return r('cut');
+  const lo=['leftAnkle','rightAnkle','leftHeel','rightHeel','leftFoot','rightFoot'].map(n=>P(J,n,meta,0.3)).filter(Boolean);
+  const maxY=Math.max(fr.botY,...lo.map(p=>p.y+0.01*fr.H));
+  if(fr.topY<0.005*meta.h||maxY>0.995*meta.h)return r('cut');
+  const frac=(fr.botY-fr.topY)/meta.h;
+  if(frac<GUIDE.minFrac)return r('far',{frac});if(frac>GUIDE.maxFrac)return r('close',{frac});
+  const sh=avg2(P(J,'leftShoulder',meta,0.3),P(J,'rightShoulder',meta,0.3));const bx=((sh?sh.x:fr.cx)+fr.cx)/2/meta.w;
+  if(bx<0.5-GUIDE.center)return r('toRight',{frac,cx:bx});if(bx>0.5+GUIDE.center)return r('toLeft',{frac,cx:bx});
+  if(meta.roll!=null&&Math.abs(meta.roll)>GUIDE.roll)return r('roll');
+  if(meta.pitch!=null&&Math.abs(meta.pitch)>GUIDE.pitch)return r('pitch');
+  const wr=widthRatio(J,meta);
+  if(view==='side'){
+    const s=sidePts(J,meta);
+    const prof=wr!=null&&wr<=0.25&&s.nose&&s.ear&&Math.abs(s.nose.x-s.ear.x)>0.02*fr.H;
+    if(!prof)return r('side',{wr});
+    const la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);if(la&&ra&&Math.abs(la.x-ra.x)>0.12*fr.H)return r('stagger');
+    if(sideVis(J)<GUIDE.vis||c('nose')<GUIDE.vis)return r('vis');
+  }else{
+    if(wr==null||wr<0.4)return r(view==='front'?'front':'back',{wr});
+    if(view==='front'){const ls=P(J,'leftShoulder',meta,0.3),rs=P(J,'rightShoulder',meta,0.3);if(ls&&rs&&ls.x<rs.x)return r('front',{wr});}
+    const la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);if(la&&ra&&Math.abs(la.x-ra.x)>0.35*fr.H)return r('wide');
+    /* 正面：主要关节都要 >0.8；背面：肩、髋 >0.8，膝踝 >0.5（背面腿常互相挡，膝踝只用来定位，背面不量膝盖） */
+    if(GUIDE_NEED[view].some(n=>c(n)<(view==='back'&&/Knee|Ankle/.test(n)?0.5:GUIDE.vis)))return r('vis');
+  }
+  let arms=false,bent=false;
+  ['left','right'].forEach(sd=>{const hp=P(J,sd+'Hip',meta),k=P(J,sd+'Knee',meta),a=P(J,sd+'Ankle',meta);if(hp&&k&&a&&ang(hp,k,a)<160)bent=true;
+    const w=P(J,sd+'Wrist',meta,0.4),s2=P(J,sd+'Shoulder',meta);if(w&&s2&&hp&&w.y<(s2.y+hp.y)/2)arms=true;});
+  if(arms)return r('arms');if(bent)return r('bent');
+  return r('ok',{frac,cx:bx,wr});
+}
+/* 抖动：几帧里主要关节位置的标准差（按耳到脚踝高度归一），越小越稳 */
+const JIT_PTS=['nose','leftShoulder','rightShoulder','leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle'];
+function jitterOf(list,meta){
+  if(!list||list.length<3)return Infinity;const fr=frame(list[list.length-1],meta);if(!fr)return Infinity;let worst=0,n=0;
+  JIT_PTS.forEach(k=>{const ps=list.map(J=>P(J,k,meta,0.5)).filter(Boolean);if(ps.length<list.length)return;n++;
+    const sd=a=>{const m=a.reduce((x,y)=>x+y,0)/a.length;return Math.sqrt(a.reduce((x,y)=>x+(y-m)*(y-m),0)/a.length);};
+    worst=Math.max(worst,sd(ps.map(p=>p.x)),sd(ps.map(p=>p.y)));});
+  return n>=4?worst/fr.H:Infinity;
+}
+/* 背面/腿并拢时识别有时会把左右腿认反。几帧之间按第一帧把每一对左右关节对齐，再取中位数 */
+function alignLR(list){
+  if(!list||list.length<2)return list;const R=list[0];
+  const PAIRS=['Ear','Eye','Shoulder','Elbow','Wrist','Hip','Knee','Ankle','Heel','FootIndex'];
+  const d=(a,b)=>a&&b?Math.hypot(a.x-b.x,a.y-b.y):0;
+  return list.map((J,i)=>{if(!i)return J;const o=Object.assign({},J);
+    PAIRS.forEach(n=>{const L='left'+n,Rr='right'+n;if(!J[L]||!J[Rr]||!R[L]||!R[Rr])return;
+      if(d(J[L],R[Rr])+d(J[Rr],R[L])<d(J[L],R[L])+d(J[Rr],R[Rr])-1e-9){o[L]=J[Rr];o[Rr]=J[L];}});return o;});
+}
+/* 几次识别里偶尔有一次认错（比如把背景认成人）。和中位数差太多（>身高 5%）的那次丢掉 */
+const CORE_PTS=['leftShoulder','rightShoulder','leftHip','rightHip','nose'];
+function consensus(list,meta){
+  if(!list||list.length<3)return list;const M=medianJ(list);const fr=frame(M,meta);if(!fr)return list;
+  const dev=J=>{let w=0;CORE_PTS.forEach(k=>{const a=P(J,k,meta,0),b=P(M,k,meta,0);if(a&&b)w=Math.max(w,Math.hypot(a.x-b.x,a.y-b.y));});return w;};
+  return list.filter(J=>dev(J)<=0.05*fr.H);
+}
+/* 几帧取中位数（每个关节 x/y/可见度分别取中位数），比单帧稳 */
+function medianJ(list){
+  const L=(list||[]).filter(Boolean);if(!L.length)return null;const med=a=>{const b=a.slice().sort((x,y)=>x-y);const m=b.length>>1;return b.length%2?b[m]:(b[m-1]+b[m])/2;};
+  const keys={};L.forEach(J=>Object.keys(J).forEach(k=>{if(k[0]!=='_')keys[k]=1;}));const out={};
+  Object.keys(keys).forEach(k=>{const ps=L.map(J=>J[k]).filter(p=>p&&p.x!=null);if(ps.length*2<L.length)return;
+    out[k]={x:med(ps.map(p=>+p.x)),y:med(ps.map(p=>+p.y)),c:med(ps.map(p=>p.c==null?1:+p.c))};});
+  out._people=Math.max(...L.map(J=>J._people||0));out._n=L.length;return out;
+}
+/* 连拍每帧各量一次，估计这项数值有多不稳；不稳到可能分错级（95% 区间超过「轻度」档宽的一半）就写看不准 */
+function burstSpread(view,list,meta,heightCm){
+  const vals={};(list||[]).forEach(J=>{const m=measurePhoto(view,J,meta,heightCm);Object.keys(m).forEach(k=>{if(k[0]==='_'||!m[k]||m[k].v==null)return;(vals[k]=vals[k]||[]).push(m[k].v*(m[k].s||1));});});
+  /* 返回中位数的标准误（约 1.25×标准差/√帧数）：越大越不稳 */
+  const out={};Object.keys(vals).forEach(k=>{const a=vals[k];if(a.length<3)return;const m=a.reduce((x,y)=>x+y,0)/a.length;const sd=Math.sqrt(a.reduce((x,y)=>x+(y-m)*(y-m),0)/(a.length-1));out[k]=Math.round(1.2533*sd/Math.sqrt(a.length)*100)/100;});return out;
 }
 
 /* ---------- 每张照片的量 ---------- */
@@ -2973,11 +3099,15 @@ function trendWord(d){if(!d)return'';if(d.txt==='都正常')return'都正常';re
 /* photos: {front:{J,w,h,roll,pitch,skip?}, side:..., back:...}; opt:{heightCm, injuries} */
 function assess(photos,opt){
   opt=opt||{};const per={},quality={};
+  const unsure={};/* key -> 原因：关节看不清 / 连拍不稳 */
   VIEWS.forEach(({id})=>{const p=photos&&photos[id];
     if(!p||p.skip||!p.J){quality[id]={ok:false,reasons:['这个角度没有拍。'],skipped:true};return;}
     const meta={w:p.w||1,h:p.h||1,roll:p.roll,pitch:p.pitch};
     quality[id]=checkPhoto(id,p.J,meta);
     per[id]=quality[id].ok?measurePhoto(id,p.J,meta,opt.heightCm):{};
+    if(quality[id].ok)ITEMS.forEach(it=>{if(it.views.indexOf(id)<0||!per[id][it.key])return;
+      if(itemVis(it.key,p.J)<MEAS_C){delete per[id][it.key];unsure[it.key]=unsure[it.key]||'相关关节看得不够清楚，这项看不准，先不下结论。';}
+      else if(p.spread&&p.spread[it.key]!=null&&p.spread[it.key]>it.tol){delete per[id][it.key];unsure[it.key]=unsure[it.key]||'连拍几帧结果不稳定（人在动或关节被挡），这项看不准，建议重拍。';}});
   });
   const items=ITEMS.map(it=>{
     const got=it.views.map(v=>({v,m:per[v]&&per[v][it.key]})).filter(x=>x.m);
@@ -2985,7 +3115,7 @@ function assess(photos,opt){
     const fromViews=it.views.filter(v=>quality[v]&&quality[v].ok);
     if(!fromViews.length)why=`${it.views.map(v=>VIEWS.find(x=>x.id===v).n).join('/')}照片没拍好，这项看不准，先不下结论，可以按提示重拍。`;
     else if(it.key==='hyper'||it.key==='head'||it.key==='round'){if(per.side&&!per.side._facing)why='分不清脸朝哪边，这项看不准。';}
-    if(!why&&!got.length)why='相关关节看不清，这项看不准，先不下结论，可以按提示重拍。';
+    if(!why&&!got.length)why=unsure[it.key]||'相关关节看不清，这项看不准，先不下结论，可以按提示重拍。';
     if(!why){
       if(got.length===2){
         const a=got[0].m,b=got[1].m;
@@ -3067,35 +3197,103 @@ function alignBox(photo,cell){
   const sc=0.86*cell.h/(fr.botY-fr.topY);
   return{sc,ox:cell.x+cell.w/2-fr.cx*sc,oy:cell.y+0.07*cell.h-fr.topY*sc,fr};
 }
+/* 照片上的标记（类似专业体态仪的主界面）：
+   有问题的项目：粗红/橙实际线 + 蓝色理想参考线 + 方向箭头；正常：细绿线，不抢眼；看不准：细灰虚线。
+   每个图形带 key（属于哪一项），页面点某一项时高亮它、其它变淡。 */
+const MARK={bad:'#e03131',mild:'#f76707',ok:'#12b886',unsure:'#adb5bd',ideal:'#1c7ed6',plumb:'#ff8a00',joint:'#ffffff'};
+function markColor(g){return g==='明显'?MARK.bad:g==='轻度'?MARK.mild:g==='正常'?MARK.ok:MARK.unsure;}
+function facingOf(J,meta,fr){const s=sidePts(J,meta);const H=fr?fr.H:meta.h;
+  if(s.nose&&s.ear&&Math.abs(s.nose.x-s.ear.x)>0.015*H)return Math.sign(s.nose.x-s.ear.x);
+  if(s.toe&&s.heel&&Math.abs(s.toe.x-s.heel.x)>0.02*H)return Math.sign(s.toe.x-s.heel.x);return 0;}
 function overlay(view,photo,items){
-  const meta={w:photo.w,h:photo.h};const J=photo.J||{};const sh=[];const g=k=>{const i=(items||[]).find(x=>x.key===k);return i?i.grade:'看不准';};
-  const fr=frame(J,meta);if(!fr)return sh;
+  const meta={w:photo.w,h:photo.h};const J=photo.J||{};const sh=[];
+  const it=k=>(items||[]).find(x=>x.key===k);const g=k=>{const i=it(k);return i?i.grade:'看不准';};
+  const bad=k=>g(k)==='轻度'||g(k)==='明显';
+  const fr=frame(J,meta);if(!fr)return sh;const H=fr.H;
+  const seg=(key,a,b,o)=>{if(a&&b)sh.push(Object.assign({t:'line',key,a,b,c:markColor(g(key)),w:bad(key)?5:g(key)==='正常'?2.2:1.6,dash:g(key)==='看不准'?1:0,role:'act',grade:g(key)},o||{}));};
+  const ref=(key,a,b)=>{if(a&&b)sh.push({t:'line',key,a,b,c:MARK.ideal,w:2.4,dash:1,role:'ref'});};
+  const arrow=(key,a,b)=>{if(a&&b)sh.push({t:'arrow',key,a,b,c:markColor(g(key)),w:4.5,role:'act',grade:g(key)});};
+  const dot=(key,a,o)=>{if(a)sh.push(Object.assign({t:'dot',key,a,c:MARK.joint,r:3.6},o||{}));};
   if(view==='side'){
-    const s=sidePts(J,meta);
-    if(s.ank)sh.push({t:'line',a:{x:s.ank.x,y:fr.topY},b:{x:s.ank.x,y:fr.botY},c:COLOR.plumb,dash:1,w:2,label:'铅垂线'});
-    const chain=[s.ear,s.sh,s.hip,s.knee,s.ank].filter(Boolean);
-    if(s.ear&&s.sh)sh.push({t:'line',a:s.ear,b:s.sh,c:GC(g('head')),w:4});
-    if(s.sh&&s.hip)sh.push({t:'line',a:s.sh,b:s.hip,c:GC(g('round')),w:3});
-    if(s.hip&&s.knee)sh.push({t:'line',a:s.hip,b:s.knee,c:GC(g('hyper')),w:3});
-    if(s.knee&&s.ank)sh.push({t:'line',a:s.knee,b:s.ank,c:GC(g('hyper')),w:3});
-    chain.forEach(p=>sh.push({t:'dot',a:p,c:COLOR.joint}));
+    const s=sidePts(J,meta);const f=facingOf(J,meta,fr);
+    if(s.ank)sh.push({t:'line',key:'_plumb',a:{x:s.ank.x,y:fr.topY},b:{x:s.ank.x,y:fr.botY},c:MARK.plumb,dash:1,w:2.2,role:'base',label:'铅垂线'});
+    /* 理想位置：耳、肩、髋、膝都在铅垂线上（空心圈）；有问题的项把实际点和理想点连起来 */
+    const onPl=p=>s.ank&&p?{x:s.ank.x,y:p.y}:null;
+    [['head',s.ear],['round',s.sh],['hyper',s.knee]].forEach(([k,p])=>{if(!p||!s.ank)return;sh.push({t:'ring',key:k,a:onPl(p),c:MARK.ideal,r:4.2,role:'ref'});if(bad(k))ref(k,onPl(p),p);});
+    if(s.hip&&s.ank)sh.push({t:'ring',key:'round',a:onPl(s.hip),c:MARK.ideal,r:4.2,role:'ref'});
+    seg('head',s.ear,s.sh);seg('round',s.sh,s.hip);seg('hyper',s.hip,s.knee);seg('hyper',s.knee,s.ank);
+    if(f){const L=0.07*H;
+      if(bad('head')&&s.ear)arrow('head',{x:s.ear.x-f*L*0.2,y:s.ear.y-0.035*H},{x:s.ear.x+f*L,y:s.ear.y-0.035*H});
+      if(bad('round')&&s.sh)arrow('round',{x:s.sh.x-f*L*0.1,y:s.sh.y+0.03*H},{x:s.sh.x+f*L*0.9,y:s.sh.y+0.03*H});
+      if(bad('hyper')&&s.knee)arrow('hyper',{x:s.knee.x+f*L*0.1,y:s.knee.y},{x:s.knee.x-f*L*0.9,y:s.knee.y});}
+    [s.ear,s.sh,s.hip,s.knee,s.ank].forEach(p=>dot('_j',p));
   }else{
     const ls=P(J,'leftShoulder',meta),rs=P(J,'rightShoulder',meta),lh=P(J,'leftHip',meta),rh=P(J,'rightHip',meta),la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);
     const ac=la&&ra?mid(la,ra):fr.ank;
-    if(ac)sh.push({t:'line',a:{x:ac.x,y:fr.topY},b:{x:ac.x,y:fr.botY},c:COLOR.plumb,dash:1,w:2,label:'中线'});
-    const lvl=(a,b,k)=>{if(!a||!b)return;const L=a.x<b.x?a:b,R=a.x<b.x?b:a;const ext=(R.x-L.x)*0.25;
-      sh.push({t:'line',a:{x:L.x-ext,y:L.y},b:{x:R.x+ext,y:L.y},c:COLOR.ref,dash:1,w:1.5});
-      const dx=R.x-L.x,dy=R.y-L.y;sh.push({t:'line',a:{x:L.x-ext,y:L.y-dy*ext/dx},b:{x:R.x+ext,y:R.y+dy*ext/dx},c:GC(g(k)),w:4});};
+    if(ac)sh.push({t:'line',key:'_plumb',a:{x:ac.x,y:fr.topY},b:{x:ac.x,y:fr.botY},c:MARK.plumb,dash:1,w:2.2,role:'base',label:'中线'});
+    const lvl=(a,b,k)=>{if(!a||!b)return;const L=a.x<b.x?a:b,R=a.x<b.x?b:a;const ext=(R.x-L.x)*0.28;const dx=R.x-L.x||1e-9,dy=R.y-L.y;
+      const A={x:L.x-ext,y:L.y-dy*ext/dx},B={x:R.x+ext,y:R.y+dy*ext/dx};
+      if(bad(k)){const my=(L.y+R.y)/2;ref(k,{x:A.x,y:my},{x:B.x,y:my});}
+      seg(k,A,B);
+      if(bad(k)){const lo=L.y>R.y?L:R;const d=0.06*H;arrow(k,{x:lo.x+(lo===L?-1:1)*ext*0.55,y:lo.y-d*0.35},{x:lo.x+(lo===L?-1:1)*ext*0.55,y:lo.y+d*0.75});}};
     lvl(ls,rs,'shoulder');lvl(lh,rh,'hip');
-    if(ls&&rs){const sc=mid(ls,rs);sh.push({t:'dot',a:sc,c:GC(g('shift')),r:5});if(ac)sh.push({t:'line',a:sc,b:{x:ac.x,y:sc.y},c:GC(g('shift')),w:3});}
-    if(view==='front')['left','right'].forEach(s=>{const hp=P(J,s+'Hip',meta),k=P(J,s+'Knee',meta),a=P(J,s+'Ankle',meta);if(hp&&k&&a){sh.push({t:'line',a:hp,b:k,c:GC(g('knee')),w:3});sh.push({t:'line',a:k,b:a,c:GC(g('knee')),w:3});sh.push({t:'line',a:hp,b:a,c:COLOR.ref,dash:1,w:1});sh.push({t:'dot',a:k,c:COLOR.joint});}});
-    [ls,rs,lh,rh,la,ra].filter(Boolean).forEach(p=>sh.push({t:'dot',a:p,c:COLOR.joint}));
+    if(ls&&rs&&ac){const sc=mid(ls,rs);dot('shift',sc,{r:4.6,c:markColor(g('shift'))});
+      if(bad('shift'))arrow('shift',{x:ac.x,y:sc.y+0.04*H},{x:sc.x+(sc.x>ac.x?1:-1)*0.02*H,y:sc.y+0.04*H});}
+    if(view==='front'){const kn=it('knee');
+      ['left','right'].forEach(sd=>{const hp=P(J,sd+'Hip',meta),k=P(J,sd+'Knee',meta),a=P(J,sd+'Ankle',meta);if(!(hp&&k&&a))return;
+        if(bad('knee'))ref('knee',hp,a);seg('knee',hp,k);seg('knee',k,a);dot('_j',k);
+        if(bad('knee')&&kn&&kn.side===personSide(view,hp.x<(lh&&rh?(lh.x+rh.x)/2:fr.cx))){const mx=lh&&rh?(lh.x+rh.x)/2:fr.cx;const toMid=Math.sign(mx-k.x)||1;const dir=kn.dir==='out'?-toMid:toMid;const L=0.06*H;
+          arrow('knee',{x:k.x-dir*L*0.9,y:k.y},{x:k.x+dir*L*0.15,y:k.y});}});}
+    [ls,rs,lh,rh,la,ra].forEach(p=>dot('_j',p));
   }
   return sh;
 }
-function headBox(photo){const meta={w:photo.w,h:photo.h};const J=photo.J||{};const fr=frame(J,meta);if(!fr)return null;
-  const pts=['nose','leftEar','rightEar','leftEye','rightEye'].map(n=>P(J,n,meta,0.2)).filter(Boolean);if(!pts.length)return null;
-  const cx=pts.reduce((s,p)=>s+p.x,0)/pts.length,cy=pts.reduce((s,p)=>s+p.y,0)/pts.length,r=fr.H*0.085;return{x:cx-r,y:cy-r*1.25,w:2*r,h:2.2*r};}
+/* 遮脸框（照片像素坐标，和关键点同一坐标系）：
+   正面：按鼻子/眼/耳/嘴关键点的范围，上到额头头发、下到下巴、左右到耳朵外，四周留足余量；
+   侧面/背面：盖住整个头。关键点置信度低或缺：用肩膀往上盖一大块（宁可多盖）。 */
+const FACE_PTS=['nose','leftEye','rightEye','leftEar','rightEar','mouthLeft','mouthRight'];
+function faceBox(photo,view){
+  if(!photo)return null;const meta={w:photo.w||1,h:photo.h||1};const J=photo.J||{};const fr=frame(J,meta);
+  const pts=FACE_PTS.map(n=>P(J,n,meta,0.2)).filter(Boolean);
+  const ls=P(J,'leftShoulder',meta,0.2),rs=P(J,'rightShoulder',meta,0.2);const sh=avg2(ls,rs);
+  const sw=ls&&rs?Math.abs(ls.x-rs.x):0;
+  /* 头高（头顶到下巴）约为耳到脚踝高度的 0.15 */
+  let hu=fr?fr.H*0.15:0;
+  if(!hu&&sh&&pts.length){const ey=Math.min(...pts.map(p=>p.y));hu=Math.max(0,(sh.y-ey))*1.1;}
+  if(!hu&&sw)hu=sw*0.6;
+  if(!hu)hu=meta.h*0.12;
+  const box=[];
+  const good=pts.filter(p=>p.c>=0.5).length>=2;
+  if(pts.length){
+    const x0=Math.min(...pts.map(p=>p.x)),x1=Math.max(...pts.map(p=>p.x)),y0=Math.min(...pts.map(p=>p.y)),y1=Math.max(...pts.map(p=>p.y));
+    const cx=(x0+x1)/2,side=view==='side'||view==='back';
+    const w=Math.max(x1-x0+(side?1.3:1.1)*hu,(side?1.5:1.3)*hu);
+    box.push({x:cx-w/2,y:y0-1.0*hu,w,h:(y1+1.2*hu)-(y0-1.0*hu)});
+  }
+  if((!good||!pts.length)&&sh){/* 没把握：从肩膀往上盖一大块 */
+    const w=Math.max(sw*1.0,1.5*hu);box.push({x:sh.x-w/2,y:sh.y-2.3*hu,w,h:2.3*hu-0.02*hu});}
+  if(!box.length&&fr){const w=1.6*hu;box.push({x:fr.cx-w/2,y:fr.topY-0.3*hu,w,h:2.0*hu});}
+  if(!box.length)return null;
+  const x=Math.min(...box.map(b=>b.x)),y=Math.min(...box.map(b=>b.y)),X=Math.max(...box.map(b=>b.x+b.w)),Y=Math.max(...box.map(b=>b.y+b.h));
+  return{x,y,w:X-x,h:Y-y,src:pts.length&&good?'face':sh?'shoulder':'frame',pts};
+}
+function headBox(photo,view){return faceBox(photo,view);}
+/* 打码：先画干净照片，再在照片像素坐标里取脸部区域缩成小格，按显示比例放大盖上（不会采到线条/网格/别处的颜色），再叠一层灰让它更实 */
+function mosaic(ctx,img,photo,hb,b,cell,opt){
+  /* 只在照片范围内取样；照片外是格子底色，没有脸 */
+  const fx=Math.max(0,hb.x),fy=Math.max(0,hb.y),fX=Math.min(photo.w,hb.x+hb.w),fY=Math.min(photo.h,hb.y+hb.h);
+  const R={x:b.ox+hb.x*b.sc,y:b.oy+hb.y*b.sc,w:hb.w*b.sc,h:hb.h*b.sc};
+  let done=false;
+  if(img&&opt.makeCanvas&&fX>fx&&fY>fy){try{
+    const iw=img.naturalWidth||img.width||photo.w,ih=img.naturalHeight||img.height||photo.h;const kx=iw/photo.w,ky=ih/photo.h;/* 存的图可能比原图小（压缩过） */
+    if(Math.abs(kx/ky-1)>0.03)throw new Error('aspect');/* 图片宽高比和关键点坐标对不上（比如方向没转对）：不去猜，直接整块盖灰 */
+    const dw=(fX-fx)*b.sc,dh=(fY-fy)*b.sc;const nx=Math.max(4,Math.round(dw/Math.max(6,Math.min(dw,dh)/6))),ny=Math.max(4,Math.round(nx*dh/dw));
+    const oc=opt.makeCanvas(nx,ny);const o=oc.getContext('2d');o.drawImage(img,fx*kx,fy*ky,(fX-fx)*kx,(fY-fy)*ky,0,0,nx,ny);
+    ctx.imageSmoothingEnabled=false;ctx.drawImage(oc,0,0,nx,ny,b.ox+fx*b.sc,b.oy+fy*b.sc,dw,dh);ctx.imageSmoothingEnabled=true;
+    ctx.fillStyle='rgba(120,122,135,.45)';ctx.fillRect(b.ox+fx*b.sc,b.oy+fy*b.sc,dw,dh);done=true;}catch(e){}}
+  if(!done){ctx.fillStyle='rgba(120,120,135,1)';ctx.fillRect(R.x,R.y,R.w,R.h);}
+  return R;
+}
 /* ctx: CanvasRenderingContext2D；img: 可画的图片对象；cell:{x,y,w,h}；opt:{hideFace, makeCanvas, label} */
 /* opt.theme==='lab'：浅灰底 + 方格 + 橙色铅垂线 + 角标（右/左、前/后）；opt.tags=[{key,no,grade}] 在问题线旁标编号；opt.photoOnly 只看照片 */
 function drawCell(ctx,img,photo,view,items,cell,opt){
@@ -3105,17 +3303,29 @@ function drawCell(ctx,img,photo,view,items,cell,opt){
   if(!photo||!photo.J){ctx.fillStyle='#8a8a99';ctx.font=Math.round(cell.w*0.08)+'px sans-serif';ctx.textAlign='center';ctx.fillText('这次没拍',cell.x+cell.w/2,cell.y+cell.h/2);ctx.restore();return;}
   const b=alignBox(photo,cell);
   if(img)try{ctx.drawImage(img,b.ox,b.oy,photo.w*b.sc,photo.h*b.sc);}catch(e){}
-  if(opt.hideFace){const hb=headBox(photo);if(hb){const x=b.ox+hb.x*b.sc,y=b.oy+hb.y*b.sc,w=hb.w*b.sc,h=hb.h*b.sc;let done=false;
-    if(img&&opt.makeCanvas){try{const n=6,oc=opt.makeCanvas(n,n);const o=oc.getContext('2d');o.drawImage(img,hb.x,hb.y,hb.w,hb.h,0,0,n,n);ctx.imageSmoothingEnabled=false;ctx.drawImage(oc,0,0,n,n,x,y,w,h);ctx.imageSmoothingEnabled=true;done=true;}catch(e){}}
-    if(!done){ctx.fillStyle='rgba(120,120,135,.95)';ctx.fillRect(x,y,w,h);}}}
+  let info={mosaic:null};
+  if(opt.hideFace){const hb=faceBox(photo,view);
+    if(hb)info.mosaic=Object.assign(mosaic(ctx,img,photo,hb,b,cell,opt),{src:hb.src,box:hb});
+    else{const R={x:cell.x,y:cell.y,w:cell.w,h:cell.h*0.3};ctx.fillStyle='rgba(120,120,135,1)';ctx.fillRect(R.x,R.y,R.w,R.h);info.mosaic=Object.assign(R,{src:'top'});}}
   const T=p=>({x:b.ox+p.x*b.sc,y:b.oy+p.y*b.sc});
   if(lab){const st=cell.w/12;ctx.strokeStyle='rgba(255,255,255,.55)';ctx.lineWidth=1;if(ctx.setLineDash)ctx.setLineDash([]);ctx.beginPath();
     for(let x=cell.x+st;x<cell.x+cell.w;x+=st){ctx.moveTo(x,cell.y);ctx.lineTo(x,cell.y+cell.h);}for(let y=cell.y+st;y<cell.y+cell.h;y+=st){ctx.moveTo(cell.x,y);ctx.lineTo(cell.x+cell.w,y);}ctx.stroke();}
   const shapes=opt.photoOnly?[]:overlay(view,photo,items);
-  shapes.forEach(s=>{
-    if(s.t==='line'){const a=T(s.a),c=T(s.b);ctx.beginPath();if(ctx.setLineDash)ctx.setLineDash(s.dash?[6,5]:[]);ctx.strokeStyle=lab&&s.c===COLOR.plumb?'#ff8a00':s.c;ctx.lineWidth=(s.w||2)*(cell.w/240);ctx.moveTo(a.x,a.y);ctx.lineTo(c.x,c.y);ctx.stroke();}
-    else if(s.t==='dot'){const a=T(s.a);ctx.beginPath();if(ctx.setLineDash)ctx.setLineDash([]);ctx.fillStyle=s.c;ctx.arc(a.x,a.y,(s.r||3.5)*(cell.w/240),0,Math.PI*2);ctx.fill();}
+  const k=cell.w/240,hl=opt.hl||null;/* hl：高亮某一项 */
+  const alpha=x=>!hl||x.role==='base'||x.key===hl?1:(x.key==='_j'?0.6:0.22);
+  const halo='rgba(20,22,28,.55)';
+  shapes.forEach(x=>{ctx.globalAlpha=alpha(x);const W=(x.w||2)*k*(hl&&x.key===hl?1.35:1);
+    if(ctx.setLineDash)ctx.setLineDash([]);
+    if(x.t==='line'||x.t==='arrow'){const a=T(x.a),c=T(x.b);
+      ctx.lineCap='round';ctx.strokeStyle=halo;ctx.lineWidth=W+2.6*k;if(ctx.setLineDash)ctx.setLineDash(x.dash?[7*k,5*k]:[]);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(c.x,c.y);ctx.stroke();
+      ctx.strokeStyle=x.c;ctx.lineWidth=W;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(c.x,c.y);ctx.stroke();
+      if(x.t==='arrow'){if(ctx.setLineDash)ctx.setLineDash([]);const an=Math.atan2(c.y-a.y,c.x-a.x),hs=W*2.4;
+        const tri=()=>{ctx.beginPath();ctx.moveTo(c.x+Math.cos(an)*hs*0.35,c.y+Math.sin(an)*hs*0.35);ctx.lineTo(c.x-Math.cos(an-0.5)*hs,c.y-Math.sin(an-0.5)*hs);ctx.lineTo(c.x-Math.cos(an+0.5)*hs,c.y-Math.sin(an+0.5)*hs);ctx.closePath();};
+        tri();ctx.strokeStyle=halo;ctx.lineWidth=2.4*k;ctx.stroke();ctx.fillStyle=x.c;tri();ctx.fill();}}
+    else if(x.t==='dot'){const a=T(x.a);ctx.beginPath();ctx.fillStyle=halo;ctx.arc(a.x,a.y,(x.r||3.5)*k+1.3*k,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.fillStyle=x.c;ctx.arc(a.x,a.y,(x.r||3.5)*k,0,Math.PI*2);ctx.fill();}
+    else if(x.t==='ring'){const a=T(x.a);ctx.beginPath();ctx.strokeStyle=halo;ctx.lineWidth=3.6*k;ctx.arc(a.x,a.y,(x.r||4)*k,0,Math.PI*2);ctx.stroke();ctx.beginPath();ctx.strokeStyle=x.c;ctx.lineWidth=1.8*k;ctx.arc(a.x,a.y,(x.r||4)*k,0,Math.PI*2);ctx.stroke();}
   });
+  ctx.globalAlpha=1;
   if(ctx.setLineDash)ctx.setLineDash([]);
   if(lab){const fs=Math.max(10,Math.round(cell.w*0.07));ctx.font='bold '+fs+'px sans-serif';ctx.fillStyle='rgba(60,64,72,.85)';ctx.textBaseline='top';
     const cn=view==='side'?['前','后']:view==='front'?['右','左']:['左','右'];
@@ -3123,11 +3333,12 @@ function drawCell(ctx,img,photo,view,items,cell,opt){
     if(view==='side'){ctx.textAlign='left';ctx.fillText('右侧',cell.x+fs*0.5,cell.y+fs*0.5+(opt.label?fs*1.8:0));}
     else{ctx.textAlign='left';ctx.fillText(cn[0],cell.x+fs*0.5,cell.y+fs*0.5+(opt.label?fs*1.8:0));ctx.textAlign='right';ctx.fillText(cn[1],cell.x+cell.w-fs*0.5,cell.y+fs*0.5+(opt.label?fs*1.8:0));}
     ctx.textBaseline='alphabetic';
-    if(!opt.photoOnly&&opt.tags&&opt.tags.length)drawTags(ctx,view,photo,opt.tags,T,cell);}
+    if(!opt.photoOnly&&opt.tags&&opt.tags.length)drawTags(ctx,view,photo,opt.tags,T,cell,opt.hl);}
   if(opt.title){const fs=Math.max(11,Math.round(cell.w*0.075));ctx.font='bold '+fs+'px sans-serif';ctx.fillStyle='#2b2f36';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(opt.title,cell.x+cell.w/2,cell.y+fs*0.45);ctx.textBaseline='alphabetic';}
   if(opt.label){ctx.fillStyle='rgba(0,0,0,.55)';const fh=Math.max(11,Math.round(cell.w*0.065));ctx.fillRect(cell.x,cell.y,cell.w,fh*1.7);ctx.fillStyle='#fff';ctx.font='bold '+fh+'px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(opt.label,cell.x+cell.w/2,cell.y+fh*0.85);ctx.textBaseline='alphabetic';}
   if(photo.demo){ctx.save();ctx.translate(cell.x+cell.w/2,cell.y+cell.h*0.55);ctx.rotate(-0.5);ctx.fillStyle='rgba(255,77,125,.35)';ctx.font='bold '+Math.round(cell.w*0.22)+'px sans-serif';ctx.textAlign='center';ctx.fillText('示例',0,0);ctx.restore();}
   ctx.restore();
+  info.align=b;return info;
 }
 /* 问题编号牌：红/橙小方牌「01」挂在对应线条旁 */
 function tagAnchor(view,photo,key){
@@ -3141,21 +3352,33 @@ function tagAnchor(view,photo,key){
 }
 /* 编号牌上的短名：缩略图里也能看出 01 是哪一项 */
 const TAG_NAME={shoulder:'高低肩',head:'头前伸',round:'圆肩',hip:'骨盆',knee:'膝盖',hyper:'膝超伸',shift:'偏移'};
-function drawTags(ctx,view,photo,tags,T,cell){
-  const fs=Math.max(9,Math.round(cell.w*0.075));ctx.textBaseline='middle';const placed=[];
+function drawTags(ctx,view,photo,tags,T,cell,hl){
+  const fs=Math.max(9,Math.round(cell.w*0.07));ctx.textBaseline='middle';const placed=[];
+  const meta={w:photo.w,h:photo.h};const fr=frame(photo.J||{},meta);
+  /* 身体左右边界（照片像素）：牌子放到身体外侧，不盖住身体 */
+  const xs=Object.keys(photo.J||{}).filter(n=>n[0]!=='_').map(n=>P(photo.J,n,meta,0.3)).filter(Boolean).map(p=>T(p).x);
+  const pad0=cell.w*0.035;/* 关键点在关节中心，身体轮廓比它宽一点 */
+  const bl=(xs.length?Math.min(...xs):cell.x+cell.w*0.35)-pad0,br=(xs.length?Math.max(...xs):cell.x+cell.w*0.65)+pad0;
   tags.forEach(t=>{if(!itemOf(t.key)||itemOf(t.key).views.indexOf(view)<0)return;const a=tagAnchor(view,photo,t.key);if(!a)return;const p=T(a);
-    const no=(t.no<10?'0':'')+t.no,nm=TAG_NAME[t.key]||'';
-    ctx.font='bold '+fs+'px sans-serif';const nw=ctx.measureText(no).width;ctx.font=fs+'px sans-serif';const tw=nm?ctx.measureText(nm).width:0;
-    const pad=fs*0.35,bw=nw+pad*2,w=bw+(nm?tw+pad*2:0),h=fs*1.35;
-    /* 放在部位外侧（靠近画面边的那一边），放不下就夹在格子里；和已放的牌子错开 */
-    const left=p.x<cell.x+cell.w/2;let x=left?p.x-w-fs*0.5:p.x+fs*0.5,y=p.y-h/2;x=Math.max(cell.x+2,Math.min(cell.x+cell.w-w-2,x));
-    for(let k=0;k<6&&placed.some(r=>x<r.x+r.w&&r.x<x+w&&y<r.y+r.h+2&&r.y<y+h+2);k++)y+=h+3;
+    const no=(t.no<10?'0':'')+t.no,nm=(TAG_NAME[t.key]||'')+(t.grade?' '+t.grade:'');
+    /* 放到身体外侧空得多的那一边；放不下就把字缩小（最小 9px），不压住身体 */
+    const roomL=bl-cell.x-6,roomR=cell.x+cell.w-br-6;const left=roomL>=roomR;const room=Math.max(roomL,roomR);
+    let f=fs;const wOf=f=>{ctx.font='bold '+f+'px sans-serif';return ctx.measureText(no).width+ctx.measureText(nm).width+f*1.4;};
+    while(f>9&&wOf(f)>room)f--;
+    ctx.font='bold '+f+'px sans-serif';const nw=ctx.measureText(no).width,tw=ctx.measureText(nm).width;
+    const pad=f*0.35,bw=nw+pad*2,w=bw+tw+pad*2,h=f*1.45;
+    let x=left?bl-w-4:br+4,y=p.y-h/2;x=Math.max(cell.x+2,Math.min(cell.x+cell.w-w-2,x));
+    for(let k=0;k<8&&placed.some(r=>x<r.x+r.w&&r.x<x+w&&y<r.y+r.h+2&&r.y<y+h+2);k++)y+=h+3;
     y=Math.max(cell.y+2,Math.min(cell.y+cell.h-h-2,y));placed.push({x,y,w,h});
-    const c=t.grade==='明显'?'#c92a2a':'#e8590c';
+    const c=t.grade==='明显'?'#c92a2a':'#e8590c';ctx.globalAlpha=!hl||hl===t.key?1:0.35;
+    /* 牌子到部位的细引线 */
+    const ex=x+w<p.x?x+w:x>p.x?x:p.x;ctx.strokeStyle='rgba(20,22,28,.55)';ctx.lineWidth=Math.max(1,f*0.22);if(ctx.setLineDash)ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(ex,y+h/2);ctx.lineTo(p.x,p.y);ctx.stroke();
+    ctx.strokeStyle=c;ctx.lineWidth=Math.max(1,f*0.1);ctx.beginPath();ctx.moveTo(ex,y+h/2);ctx.lineTo(p.x,p.y);ctx.stroke();
+    ctx.fillStyle='rgba(20,22,28,.35)';ctx.fillRect(x+1,y+2,w,h);
     ctx.fillStyle=c;ctx.fillRect(x,y,bw,h);
-    if(nm){ctx.fillStyle='rgba(255,255,255,.94)';ctx.fillRect(x+bw,y,w-bw,h);ctx.strokeStyle=c;ctx.lineWidth=Math.max(1,fs*0.08);ctx.strokeRect(x+0.5,y+0.5,w-1,h-1);}
-    ctx.textAlign='center';ctx.font='bold '+fs+'px sans-serif';ctx.fillStyle='#fff';ctx.fillText(no,x+bw/2,y+h/2+1);
-    if(nm){ctx.textAlign='left';ctx.font=fs+'px sans-serif';ctx.fillStyle='#2b2f36';ctx.fillText(nm,x+bw+pad,y+h/2+1);}});
+    ctx.fillStyle='rgba(255,255,255,.96)';ctx.fillRect(x+bw,y,w-bw,h);ctx.strokeStyle=c;ctx.lineWidth=Math.max(1,f*(hl===t.key?0.2:0.1));ctx.strokeRect(x+0.5,y+0.5,w-1,h-1);
+    ctx.textAlign='center';ctx.font='bold '+f+'px sans-serif';ctx.fillStyle='#fff';ctx.fillText(no,x+bw/2,y+h/2+1);
+    ctx.textAlign='left';ctx.fillStyle=c;ctx.fillText(nm,x+bw+pad,y+h/2+1);ctx.globalAlpha=1;});
   ctx.textBaseline='alphabetic';ctx.textAlign='left';
 }
 /* 趋势线：一项一行，横轴是每次评估，纵轴是数值；虚线是「轻度」起点 */
@@ -3189,7 +3412,7 @@ function drawShare(ctx,W,H,data,opt){
   ctx.font=Math.round(30*u)+'px sans-serif';ctx.fillText((data.store?data.store+' · ':'')+(VIEWS.find(v=>v.id===data.view)||{}).n+'照片',48*u,134*u);
   const cw=(W-48*u*2-24*u)/2,ch=cw*4/3,cy=180*u;
   [data.a,data.b].forEach((s,i)=>{const cell={x:48*u+i*(cw+24*u),y:cy,w:cw,h:ch};
-    drawCell(ctx,s&&s.img,s&&s.photo,data.view,s&&s.items,cell,{hideFace:opt.hideFace!==false,makeCanvas:opt.makeCanvas,label:(i?'本次 ':(data.aLabel||'第一次')+' ')+(s?s.date:'')});});
+    drawCell(ctx,s&&s.img,s&&s.photo,data.view,s&&s.items,cell,{theme:'lab',tags:s&&s.items?rankItems(s.items).map((x,n)=>({key:x.key,no:n+1,grade:x.grade})):[],hideFace:opt.hideFace!==false,makeCanvas:opt.makeCanvas,label:(i?'本次 ':(data.aLabel||'第一次')+' ')+(s?s.date:'')});});
   let y=cy+ch+70*u;ctx.textAlign='left';
   if(data.summary){ctx.fillStyle='#222';ctx.font='bold '+Math.round(36*u)+'px sans-serif';y=wrap(ctx,data.summary,48*u,y,W-96*u,48*u);y+=18*u;}
   ctx.font=Math.round(32*u)+'px sans-serif';
@@ -3305,7 +3528,7 @@ function demoJoints3D(k){
   return norm3(J);
 }
 
-return{rankItems,overOf,RANK_RULE,TAG_NAME,plainText,LEVEL,trendWord,tagAnchor,SKEL_LABEL,SMPL,BONES,from3DMediaPipe,from3DWeChat,norm3,has3D,project,drawSkeleton,skel3Of,demoJoints3D,TITLE,DISCLAIMER,RETEST_DAYS,VIEWS,TIPS,ITEMS,REC,COLOR,Q,MIN_C,itemOf,fromMediaPipe,fromWeChat,frame,checkPhoto,measurePhoto,gradeOf,textOf,assess,recsOf,delta,compare,series,nextRetest,addDays,summary,alignBox,overlay,headBox,drawCell,drawTrend,drawShare,shareRows,demoJoints,drawDemoFigure};
+return{MARK,overlay,facingOf,liveGuide,jitterOf,medianJ,alignLR,consensus,burstSpread,itemVis,sideVis,GUIDE,HINT,MEAS_C,USES,faceBox,headBox,FACE_PTS,alignBox,rankItems,overOf,RANK_RULE,TAG_NAME,plainText,LEVEL,trendWord,tagAnchor,SKEL_LABEL,SMPL,BONES,from3DMediaPipe,from3DWeChat,norm3,has3D,project,drawSkeleton,skel3Of,demoJoints3D,TITLE,DISCLAIMER,RETEST_DAYS,VIEWS,TIPS,ITEMS,REC,COLOR,Q,MIN_C,itemOf,fromMediaPipe,fromWeChat,frame,checkPhoto,measurePhoto,gradeOf,textOf,assess,recsOf,delta,compare,series,nextRetest,addDays,summary,alignBox,overlay,headBox,drawCell,drawTrend,drawShare,shareRows,demoJoints,drawDemoFigure};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=Posture;
 
@@ -3752,7 +3975,7 @@ function psSilhouette(view){
   const body=view==='side'
    ?`<ellipse cx="52" cy="17" rx="7" ry="8"/><path d="M49 25 C44 30 44 40 45 52 L46 58 C45 66 46 74 47 86 L47 93 L56 93 L53 86 C52 74 53 66 53 58 L54 48 C55 38 55 30 53 25 Z"/>`
    :`<ellipse cx="50" cy="16" rx="7" ry="8"/><path d="M42 26 L58 26 C64 27 66 32 66 38 L66 55 L62 55 L61 40 L60 56 L58 93 L52 93 L51 62 L49 62 L48 93 L42 93 L40 56 L39 40 L38 55 L34 55 L34 38 C34 32 36 27 42 26 Z"/>`;
-  return `<svg class="ps-sil" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="5" x2="100" y2="5" class="ps-gl"/><line x1="0" y1="95" x2="100" y2="95" class="ps-gl"/><line x1="50" y1="0" x2="50" y2="100" class="ps-gl"/><g class="ps-body">${body}</g><text x="50" y="3.6" class="ps-gt">头顶到这条线</text><text x="50" y="99" class="ps-gt">双脚站在这条线</text></svg>`;
+  return `<svg class="ps-sil" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="5" x2="100" y2="5" class="ps-gl"/><line x1="0" y1="95" x2="100" y2="95" class="ps-gl"/><line x1="50" y1="0" x2="50" y2="100" class="ps-gl"/><g class="ps-body">${body}</g><text x="50" y="3.6" class="ps-gt">头顶大约到这里</text><text x="50" y="99" class="ps-gt">双脚大约站这里</text></svg>`;
 }
 function psLevelHtml(){
   const o=PSS.orient;if(!o)return `<div class="ps-level muted" id="psLevel">${PSS.orientOn?'正在读取手机水平…':'这台设备没有水平提示，请尽量把手机竖直拿正。'}</div>`;
@@ -3763,13 +3986,14 @@ function psLevelHtml(){
 function psShootHtml(){
   const v=Posture.VIEWS[PSS.vi];
   return `${bk(Posture.TITLE)}<div class="ps-steps">${Posture.VIEWS.map((x,i)=>`<span class="${i===PSS.vi?'on':PSS.shots[x.id]?'done':''}">${i+1} ${x.n}</span>`).join('')}</div>
-   <div class="card"><h3>第 ${PSS.vi+1}/3 张：${v.n}</h3><p>${v.how}</p><p class=muted>拍照的人：手机竖着，和被拍人胸口一样高，离 2.5～3 米。让人站进虚线人形里，头顶和脚底对着两条线。</p></div>
+   <div class="card"><h3>第 ${PSS.vi+1}/3 张：${v.n}</h3><p>${v.how}</p><p class=muted>拍照的人：手机竖着，和被拍人腰一样高，离 2～3 米。站好后人形框变绿，会倒数 3 秒自动拍；也可以点「手动拍照」。</p></div>
    ${PSS.note&&PSS.stream?`<div class="alert warn" id="psNote">${PSS.note}</div>`:''}
-   <div class="ps-cam" id="psCam"><video id="psVideo" playsinline autoplay muted style="${PSS.stream?'':'display:none'}"></video>
+   <div class="ps-cam" id="psCam" style="${PSS.camAR?'aspect-ratio:'+PSS.camAR:''}"><video id="psVideo" playsinline autoplay muted style="${PSS.stream?'':'display:none'}"></video>
+    ${PSS.stream?`<div class="ps-hint" id="psHint">正在准备自动取景…</div><div class="ps-cd" id="psCd"></div>`:''}
     ${PSS.stream?'':`<div class="ps-cam-ph" id="psNote">${PSS.note?PSS.note.replace(/。$/,'')+'。':'正在打开后置摄像头…照片只在这台设备上处理，不会上传。'}</div>`}
     ${psSilhouette(v.id)}</div>
    ${psLevelHtml()}
-   <button class="btn big" onclick="psSnap()" ${PSS.stream?'':'disabled style="opacity:.45"'}>拍照</button>
+   <button class="btn big" onclick="psSnap()" ${PSS.stream?'':'disabled style="opacity:.45"'}>手动拍照</button>
    <label class="ps-file ps-filelink">没法用摄像头？<u>从相册选一张</u><input type=file accept="image/*" onchange="psPick(this)" hidden></label>
    <a class="muted center" onclick="psSkip()">这个角度先不拍（这张相关的项目会显示看不准）</a>`;
 }
@@ -3794,7 +4018,20 @@ const PS_RANK={明显:0,轻度:1,正常:2,看不准:3};
 function psPills(g){const lv=PS_LV[g]||0;const c=P3D.GC[g]||'#adb5bd';return `<span class="mt-pill" style="--pc:${c}">${[1,2,3].map(i=>`<u class="${i<=lv?'on':''}"></u>`).join('')}</span>`;}
 /* 优先改善：明显在前、轻度在后，最多 3 项；编号和照片上的编号牌一致 */
 /* 排序规则在引擎 Posture.rankItems（按影响大小排：先程度，再超出正常范围多少），这里只取前 3 */
-function psTop(items){return Posture.rankItems(items).slice(0,3).map((i,n)=>({key:i.key,no:n+1,grade:i.grade,n:P3D.SHORT(i.n),item:i}));}
+function psTop(items){return psTags(items).slice(0,3);}
+/* 照片上的编号牌：所有「轻度/明显」项目按影响大小编号（前 3 个就是优先改善） */
+function psTags(items){return Posture.rankItems(items).map((i,n)=>({key:i.key,no:n+1,grade:i.grade,n:P3D.SHORT(i.n),item:i}));}
+/* 照片下面的项目列表：点一项，照片上只高亮这一项的标记 */
+function psMarkList(items,view,where){const tg=psTags(items);const no=k=>{const t=tg.find(x=>x.key===k);return t?t.no:0;};
+  const list=items.slice().sort((a,b)=>(no(a.key)||99)-(no(b.key)||99));
+  return `<div class="ps-mk" data-where="${where}">${list.map(i=>{const n=no(i.key);const on=PSS.hl===i.key;const here=Posture.itemOf(i.key).views.indexOf(view)>=0;
+    return `<a class="ps-mki g-${PS_LV[i.grade]||0} ${on?'on':''} ${here?'':'away'}" onclick="psHl('${i.key}','${where}')">${n?`<b class="no ${i.grade==='明显'?'bad':'mild'}">${n<10?'0'+n:n}</b>`:`<i class="dot" style="background:${P3D.GC[i.grade]}"></i>`}<span>${P3D.SHORT(i.n)}</span><em style="color:${P3D.GC[i.grade]}">${i.grade}</em></a>`;}).join('')}</div>
+  <p class="muted ps-mkt">${PSS.hl?'正在看「'+P3D.SHORT(Posture.itemOf(PSS.hl).n)+'」的标记，再点一次取消。':'点一项，照片上只亮这一项的标记。'}</p>`;}
+function psHl(k,where){PSS.hl=PSS.hl===k?null:k;
+  if(PSS.hl){const it=Posture.itemOf(k);const cur=where==='cmp'?PSS.cmpView:where==='lb'?PSS.lb:PSS.viewTab;
+    if(it.views.indexOf(cur)<0){if(where==='cmp')PSS.cmpView=it.views[0];else if(where==='lb')PSS.lb=it.views[0];else PSS.viewTab=it.views[0];}}
+  render();if(where==='rep')setTimeout(()=>psSwTo(PSS.viewTab,true),0);}
+const PS_LEGEND=`<div class="ps-legend"><span><i class="ln" style="background:#ff8a00"></i>橙虚线：铅垂线/中线</span><span><i class="ln" style="background:#1c7ed6"></i>蓝虚线：理想位置</span><span><i class="sq" style="background:#c92a2a"></i>编号牌：要改善的项目</span><span><i style="background:#12b886"></i>正常</span><span><i style="background:#f76707"></i>轻度</span><span><i style="background:#e03131"></i>明显</span></div>`;
 function psReportHtml(){
   const s=psFind(PSS.open);if(!s){PSS.step='home';return psHomeHtml();}
   const r=s.result,ss=psSessions(),vt=PSS.viewTab;
@@ -3803,16 +4040,19 @@ function psReportHtml(){
   return `${bk(Posture.TITLE)}<p class="muted center disc ai-disc">${Posture.DISCLAIMER}</p>${psDemoBanner(s.demo)}
    <div class="mt-bar"><div><b>体态评估报告</b><select class="mt-sel" aria-label="选择哪一次" onchange="psOpen(this.value)">${ss.map((x,i)=>`<option value="${x.id}" ${x.id===s.id?'selected':''}>第 ${i+1} 次 · ${psFmtDate(x.date)}${x.demo?'（示例）':''}</option>`).join('')}</select></div>
     <div class="mt-act">${ss.length>=2?`<a class="mt-cmp" onclick="psGoCompare()">看变化 ›</a>`:''}<label class="mt-sw"><input type=checkbox ${PSS.photoOnly?'checked':''} onchange="PSS.photoOnly=this.checked;render()"> 只看照片</label></div></div>
-   <div class="mt-views">${Posture.VIEWS.map(v=>`<canvas class="mt-cv ${v.id===vt?'on':''}" id="mtCv_${v.id}" width="300" height="520" data-sid="${s.id}" data-view="${v.id}" onclick="PSS.viewTab='${v.id}';render();setTimeout(()=>{const e=document.getElementById('psRepCv');e&&e.scrollIntoView({block:'center'})},30)" role="button" aria-label="放大看${v.n}"></canvas>`).join('')}</div>
+   <div class="mt-views">${Posture.VIEWS.map(v=>`<canvas class="mt-cv ${v.id===vt?'on':''}" id="mtCv_${v.id}" width="300" height="520" data-sid="${s.id}" data-view="${v.id}" onclick="psLB('${v.id}')" role="button" aria-label="全屏看${v.n}"></canvas>`).join('')}</div>
+   <p class="muted center ps-tapt">点照片全屏看，可左右滑</p>
    ${psOverview(s,ss)}
    ${psPro3DCard('rep:'+s.id,[{J3:psSkel3(s)}],r.items,!!s.demo,{report:true})}
    <div class="card pr-items"><h3>7 项结果</h3>${r.items.map(i=>`<div class="pr-item" style="--gc:${P3D.GC[i.grade]}"><div class=row><b>${i.n}</b>${psPills(i.grade)}${psChip(i.grade)}</div><p class=muted>${Posture.plainText(i)}${i.extra?' '+i.extra:''}</p></div>`).join('')}
     <p class="muted mt-foot">程度格：1 格正常、2 格轻度、3 格明显；看不准不填格。会员页只显示程度，具体度数在教练那里。</p></div>
    <div class="card"><div class=row><h3 style="margin:0">放大看 · 第 ${no} 次</h3><span class=muted>${psFmtDate(s.date)}</span></div>
-   <div class="ps-tabs">${Posture.VIEWS.map(v=>`<a class="${v.id===vt?'on':''}" onclick="PSS.viewTab='${v.id}';render()">${v.n}</a>`).join('')}</div>
-   <canvas id="psRepCv" class="ps-cv" width="600" height="900" data-sid="${s.id}" data-view="${vt}"></canvas>
+   <div class="ps-tabs" id="psSwTabs">${Posture.VIEWS.map(v=>`<a class="${v.id===vt?'on':''}" data-v="${v.id}" onclick="psSwTo('${v.id}')">${v.n}</a>`).join('')}</div>
+   <div class="ps-sw" id="psSw" onscroll="psSwScroll()">${Posture.VIEWS.map(v=>`<div class="ps-swc"><canvas id="psRepCv_${v.id}" class="ps-cv ps-rep" width="600" height="900" data-sid="${s.id}" data-view="${v.id}" onclick="psLB('${v.id}')"></canvas></div>`).join('')}</div>
    ${qv&&!qv.ok?`<p class="muted">${qv.skipped?'这个角度没有拍。':'这张照片没通过检查：'+qv.reasons.join('')}</p>`:''}
-   <p class="muted ps-legend"><i style="background:#ff8a00"></i>橙线：铅垂线/中线 <i style="background:#c92a2a"></i>编号牌：优先改善的项目 <i style="background:#12b886"></i>正常 <i style="background:#f59f00"></i>轻度 <i style="background:#e03131"></i>明显</p></div>
+   ${psMarkList(r.items,vt,'rep')}
+   ${PS_LEGEND}</div>
+   ${PSS.lb?psLBHtml(s):''}
    ${recs.length?`<div class="card"><h3>可以先这样练</h3>${recs.map(x=>`<p>今日恢复里的「<b>${x.n}</b>」：对应 ${x.for.join('、')}</p>`).join('')}<p class=muted>先按能控制、不疼的幅度做。照片只是参考，具体请教练当面看。</p><button class="btn sm" onclick="go('recover')">去今日恢复</button></div>`:''}
    ${(r.notes||[]).map(t=>`<div class="alert warn">${t}</div>`).join('')}
    <div class="card"><p>建议 <b>${psFmtDate(nx)}</b> 左右复测：同一地点、同样穿着、同样站位，前后对比才准。</p><p class=muted>这些项目用的是手机照片的平面画面，衣服、站姿、拍摄角度都会影响，变化在误差内会显示「持平」。</p></div>
@@ -3839,7 +4079,9 @@ function psCompareHtml(){
     ${worse.length?`<p class="muted" style="margin-top:8px">变差：${worse.map(r=>P3D.SHORT(r.n)).join('、')}（见下面的表）</p>`:''}</div>
    <div class="card"><div class="ps-tabs">${Posture.VIEWS.map(v=>`<a class="${v.id===vt?'on':''}" onclick="PSS.cmpView='${v.id}';render()">${v.n}</a>`).join('')}</div>
    <canvas id="psCmpCv" class="ps-cv" width="${cols.length*300}" height="520"></canvas>
-   <p class="muted">每张照片都按身高缩放到一样高、脚放在同一位置，线条画法一样，方便直接看。</p></div>
+   ${psMarkList(cmp.cur.result.items,vt,'cmp')}
+   ${PS_LEGEND}
+   <p class="muted">每张照片都按身高缩放到一样高、脚放在同一位置，线条画法一样，方便直接看。编号是每一次自己的排序。</p></div>
    ${psPro3DCard('cmp:'+A.id+':'+cmp.cur.id,[{J3:psSkel3(A),ghost:true,role:'before',label:base+' '+psFmtDate(A.date)},{J3:psSkel3(cmp.cur),label:'本次 '+psFmtDate(cmp.cur.date)}],cmp.cur.result.items,demo,{over:P3D.cmpOver(cmp.rows,!!cmp.first),compare:true})}
    <div class="card" id="psCmpTable"><h3>每次的程度和变化</h3><div class="mt-tlw"><table class="mt-tlt"><tr><th></th>${ss.map((x,i)=>`<th>第${i+1}次<br><small>${psFmtDate(x.date)}</small></th>`).join('')}<th class="mt-chg">变化</th></tr>
     ${cmp.rows.map(r=>{const ser=Posture.series(ss,r.key);return `<tr class="mt-tlr"><td>${P3D.SHORT(r.n)}</td>${ss.map((x,k)=>{const p=ser[k];const g=p?p.grade:'—';return `<td><i style="background:${P3D.GC[g]||'#ced4da'}">${g}</i></td>`;}).join('')}<td class="mt-chg">${cmp.first?'比第一次 '+psTrendTxt(r.vsFirst)+'<br>比上次 '+psTrendTxt(r.vsPrev):'比上次 '+psTrendTxt(r.vsPrev)}</td></tr>`;}).join('')}</table></div>
@@ -3955,10 +4197,11 @@ function psSkBind(){
 /* ---------- 动作 ---------- */
 function psBegin(){if(isPreg()){go('posture');return;}PSS.step='tips';PSS.shots={};PSS.vi=0;PSS.cur=null;PSS.note='';render();}
 function psGoCompare(){PSS.step='compare';PSS.share=null;render();document.getElementById('main').scrollTop=0;}
-function psOpen(id){PSS.open=id;PSS.step='report';PSS.viewTab='front';render();document.getElementById('main').scrollTop=0;}
+function psOpen(id){PSS.open=id;PSS.hl=null;PSS.lb=null;PSS.step='report';PSS.viewTab='front';render();document.getElementById('main').scrollTop=0;}
 function psDel(id){if(!confirm('删除这次记录和照片？删除后不能恢复。'))return;psSave(psLoad().filter(x=>x.id!==id));render();}
 function psStartShoot(){
   if(isPreg()){go('posture');return;}
+  try{const A=window.AudioContext||window.webkitAudioContext;if(A&&!PG.ac)PG.ac=new A();}catch(e){}
   PSS.step='shoot';PSS.note='';render();
   psOrient();psOpenCam();
 }
@@ -3984,12 +4227,52 @@ async function psOpenCam(){
     render();
   }
 }
-function psStopCam(){if(PSS.stream){try{PSS.stream.getTracks().forEach(t=>t.stop());}catch(e){}PSS.stream=null;}}
-function psSnap(){
+function psStopCam(){psGuideStop();if(PSS.stream){try{PSS.stream.getTracks().forEach(t=>t.stop());}catch(e){}PSS.stream=null;}}
+/* ---------- 实时取景引导：同一个 MediaPipe 模型，每秒约 6 帧；全部合格并站稳 1 秒 → 倒数 3-2-1 自动连拍 ---------- */
+var PG={on:false,t:0,hist:[],okAt:0,cd:0,cdT:0,last:null,small:null,off:false,ac:null};
+function psGuideStart(){
+  if(PG.on||!PSS.stream||PSS.step!=='shoot')return;PG.on=true;PG.off=false;PG.hist=[];PG.okAt=0;PG.cd=0;psGuideUI('正在准备自动取景…','wait');
+  psLoadModel().then(ok=>{if(!PG.on)return;if(!ok){PG.on=false;PG.off=true;psGuideUI('自动取景没打开，请对照人形框手动拍','off');return;}psGuideTick();});
+}
+function psGuideStop(){PG.on=false;clearTimeout(PG.t);if(PG.cd)psCountCancel();PG.okAt=0;}
+function psGuideTick(){
+  if(!PG.on)return;
+  if(document.hidden||typeof tab==='undefined'||tab!=='posture'||PSS.step!=='shoot'||!PSS.stream){psGuideStop();return;}
+  const v=document.getElementById('psVideo');let dt=0;
+  if(v&&v.videoWidth&&v.readyState>=2&&PSS.lm){const t0=performance.now();
+    const sc=Math.min(1,480/v.videoHeight),c=PG.small||(PG.small=document.createElement('canvas'));c.width=Math.round(v.videoWidth*sc);c.height=Math.round(v.videoHeight*sc);
+    c.getContext('2d').drawImage(v,0,0,c.width,c.height);let J=null;try{J=Posture.fromMediaPipe(PSS.lm.detect(c));}catch(e){}
+    dt=performance.now()-t0;psGuideStep(J,{w:c.width,h:c.height,roll:PSS.orient?PSS.orient.roll:null,pitch:PSS.orient?PSS.orient.pitch:null},performance.now());}
+  /* 目标约 6 帧/秒；识别慢的手机自动降帧（至少留一半时间给页面） */
+  PG.t=setTimeout(psGuideTick,Math.max(1000/Posture.GUIDE.fps-dt,dt,60));
+}
+function psGuideStep(J,meta,now){
+  const view=Posture.VIEWS[PSS.vi].id,G=Posture.GUIDE;let g=Posture.liveGuide(view,J,meta);
+  PG.hist.push({t:now,J});PG.hist=PG.hist.filter(h=>now-h.t<=G.stableMs+300);
+  if(g.ok){const win=PG.hist.filter(h=>now-h.t<=G.stableMs);const span=win.length?now-win[0].t:0;const jit=Posture.jitterOf(win.map(h=>h.J),meta);
+    if(span<G.stableMs*0.8||!(jit<=G.jitter))g={ok:false,code:'still',hint:Posture.HINT.still,jit};}
+  PG.last=g;
+  if(g.ok){if(!PG.okAt)PG.okAt=now;if(!PG.cd&&now-PG.okAt>=G.holdMs)psCountStart();}
+  else{PG.okAt=0;if(PG.cd)psCountCancel();}
+  psGuideUI(g.ok?(PG.cd?'保持不动':g.hint):g.hint,g.ok?'ok':g.code==='still'?'still':'bad');
+  return g;
+}
+function psGuideUI(t,st){const h=document.getElementById('psHint');if(h){h.textContent=t;h.className='ps-hint '+(st||'');}
+  const c=document.getElementById('psCam');if(c){c.classList.toggle('g-ok',st==='ok');c.classList.toggle('g-bad',st==='bad'||st==='still');}}
+function psCdUI(){const e=document.getElementById('psCd');if(e){e.textContent=PG.cd?String(PG.cd):'';e.style.display=PG.cd?'flex':'none';}}
+function psBeep(f,d){try{const A=window.AudioContext||window.webkitAudioContext;if(!A)return;PG.ac=PG.ac||new A();const ac=PG.ac;if(ac.state==='suspended')ac.resume();
+  const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f||660;g.gain.value=0.18;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+(d||0.12));}catch(e){}}
+function psCountStart(){PG.cd=3;psBeep(660);psCdUI();clearTimeout(PG.cdT);PG.cdT=setTimeout(psCountNext,1000);}
+function psCountNext(){if(!PG.cd)return;PG.cd--;if(PG.cd>0){psBeep(660);psCdUI();PG.cdT=setTimeout(psCountNext,1000);}else{psBeep(990,0.3);psCdUI();PSS.auto=true;psSnap();}}
+function psCountCancel(){PG.cd=0;clearTimeout(PG.cdT);psCdUI();}
+document.addEventListener('visibilitychange',()=>{if(document.hidden)psGuideStop();else if(typeof tab!=='undefined'&&tab==='posture'&&PSS.step==='shoot'&&PSS.stream)psGuideStart();});
+/* 拍照：连拍 5 帧全分辨率画面，每帧都在全分辨率上重新识别，关键点取中位数；人在动或结果不稳就提示重拍 */
+async function psSnap(){
   const v=document.getElementById('psVideo');if(!v||!PSS.stream||!v.videoWidth){tip('摄像头还没准备好');return;}
-  const c=document.createElement('canvas');c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);
+  psGuideStop();const frames=[];
+  for(let i=0;i<5;i++){const c=document.createElement('canvas');c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);frames.push(c);if(i<4)await new Promise(r=>setTimeout(r,90));}
   const o=PSS.orient?{roll:PSS.orient.roll,pitch:PSS.orient.pitch}:{};
-  psStopCam();psAnalyze(c,o);
+  psStopCam();psAnalyze(frames,o);
 }
 function psPick(inp){
   const f=inp.files&&inp.files[0];if(!f)return;
@@ -4003,7 +4286,7 @@ function psRetake(){PSS.cur=null;PSS.step='shoot';PSS.note='';render();psOpenCam
 function psAccept(force){
   const c=PSS.cur;if(!c)return;
   const v=Posture.VIEWS[PSS.vi].id;
-  PSS.shots[v]={img:c.img,w:c.w,h:c.h,J:c.J,J3:c.J3||null,roll:c.roll,pitch:c.pitch,ok:!!(c.quality&&c.quality.ok)};
+  PSS.shots[v]={img:c.img,w:c.w,h:c.h,J:c.J,J3:c.J3||null,roll:c.roll,pitch:c.pitch,spread:c.spread||null,burst:c.burst||1,ok:!!(c.quality&&c.quality.ok)};
   if(force&&!PSS.shots[v].ok)PSS.shots[v].bad=true;
   psNext();
 }
@@ -4016,7 +4299,7 @@ function psFinish(){
   const prof=psProfile();
   const res=Posture.assess(PSS.shots,{heightCm:prof.heightCm,injuries:prof.injuries});
   const id='p'+Date.now();
-  const views={};Posture.VIEWS.forEach(v=>{const x=PSS.shots[v.id];views[v.id]=x&&!x.skip?{img:x.img,w:x.w,h:x.h,J:x.J,J3:x.J3||null,roll:x.roll,pitch:x.pitch}:null;});
+  const views={};Posture.VIEWS.forEach(v=>{const x=PSS.shots[v.id];views[v.id]=x&&!x.skip?{img:x.img,w:x.w,h:x.h,J:x.J,J3:x.J3||null,roll:x.roll,pitch:x.pitch,spread:x.spread||null,burst:x.burst||1}:null;});
   const s={id,date:today(),ts:Date.now(),heightCm:prof.heightCm,views,result:res};
   const list=psLoad();list.push(s);psSave(list);
   PSS.shots={};PSS.open=id;PSS.step='report';PSS.viewTab='front';render();document.getElementById('main').scrollTop=0;
@@ -4034,16 +4317,30 @@ async function psLoadModel(){
   return false;
 }
 function psDownscale(src,maxH){const sc=Math.min(1,maxH/src.height);const c=document.createElement('canvas');c.width=Math.round(src.width*sc);c.height=Math.round(src.height*sc);c.getContext('2d').drawImage(src,0,0,c.width,c.height);return c.toDataURL('image/jpeg',0.72);}
-async function psAnalyze(canvas,o){
-  const view=Posture.VIEWS[PSS.vi].id;
-  PSS.cur={img:psDownscale(canvas,720),w:canvas.width,h:canvas.height,roll:o.roll,pitch:o.pitch,J:null,quality:null,err:''};
+async function psAnalyze(src,o){
+  const view=Posture.VIEWS[PSS.vi].id;const frames=Array.isArray(src)?src:[src];const canvas=frames[frames.length>>1];
+  PSS.cur={img:psDownscale(canvas,720),w:canvas.width,h:canvas.height,roll:o.roll,pitch:o.pitch,J:null,quality:null,err:'',burst:frames.length,src:frames.length>1?'camera':'album'};
   PSS.step='check';PSS.busy=true;render();
   const ok=await psLoadModel();
   if(!ok){PSS.busy=false;PSS.cur.err='这台环境暂时识别不了关节（模型没加载上），照片没有上传。可以换个网络或换台手机再试。';render();return;}
   try{
-    const res=PSS.lm.detect(canvas);
-    const J=Posture.fromMediaPipe(res);
-    PSS.cur.J=J;PSS.cur.J3=Posture.from3DMediaPipe(res);PSS.cur.quality=Posture.checkPhoto(view,J,{w:canvas.width,h:canvas.height,roll:o.roll,pitch:o.pitch});
+    const meta={w:canvas.width,h:canvas.height,roll:o.roll,pitch:o.pitch};
+    /* 相册单张：没有连拍，就把同一张缩放/平移 5 次各识别一遍（不裁掉任何部分，边上补灰），取中位数并估计稳定度 */
+    let res,Js;
+    if(frames.length>1){res=frames.map(c=>PSS.lm.detect(c));Js=res.map(r=>Posture.fromMediaPipe(r));}
+    else{const V=[[1,0,0],[0.92,0.04,0.04],[0.92,0,0.08],[0.92,0.08,0],[0.86,0.07,0.07]];res=[];Js=[];
+      V.forEach(([k,ox,oy])=>{let c=canvas;if(k!==1){c=document.createElement('canvas');c.width=canvas.width;c.height=canvas.height;const x=c.getContext('2d');x.fillStyle='#808080';x.fillRect(0,0,c.width,c.height);x.drawImage(canvas,ox*c.width,oy*c.height,k*c.width,k*c.height);}
+        const r=PSS.lm.detect(c);res.push(r);const J=Posture.fromMediaPipe(r);if(k!==1)Object.keys(J).forEach(n=>{if(n[0]==='_')return;J[n].x=(J[n].x-ox)/k;J[n].y=(J[n].y-oy)/k;});Js.push(J);});}
+    if(Js.length>1)Js=Posture.alignLR(Js);
+    const nAll=Js.length;if(Js.length>2)Js=Posture.consensus(Js,meta);const nOk=Js.length;PSS.cur.used=nOk+"/"+nAll;
+    const J=Js.length>1?Posture.medianJ(Js):Js[0];
+    PSS.cur.J=J;PSS.cur.J3=Posture.from3DMediaPipe(res[res.length>>1]);
+    const q=Posture.checkPhoto(view,J,meta);
+    if(Js.length>1){PSS.cur.spread=Posture.burstSpread(view,Js,meta);const jit=Posture.jitterOf(Js,meta);PSS.cur.jit=jit;
+      /* 现场连拍：抖动大=人在动，整张重拍。相册单张：靠每一项的稳定度判断“看不准”，不整张拒绝 */
+      if(frames.length>1&&!(jit<=0.012)){q.ok=false;q.reasons.push('拍的时候人在动（或识别不稳），请站稳不动再拍。');}}
+    if(nAll>2&&nOk<3){q.ok=false;q.reasons.push(frames.length>1?'拍的时候人在动（或识别不稳），请站稳不动再拍。':'这张照片识别得不稳定，请按提示重拍一张（人站在画面中间、背景简单一点）。');}
+    PSS.cur.quality=q;
   }catch(e){PSS.cur.err='识别出错了，请重拍一张。';}
   PSS.busy=false;render();
 }
@@ -4057,20 +4354,33 @@ function psImg(key,src,cb){
 }
 function psMk(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;return c;}
 function psPhoto(s,view){const p=s&&s.views&&s.views[view];if(!p)return null;return{J:p.J,w:p.w,h:p.h,demo:!!s.demo};}
-function psDrawView(cv,s,vw,opt){const ph=psPhoto(s,vw);const items=s.result.items;const tags=psTop(items).map(t=>({key:t.key,no:t.no,grade:t.grade}));
+function psDrawView(cv,s,vw,opt){const ph=psPhoto(s,vw);const items=s.result.items;const tags=psTags(items).map(t=>({key:t.key,no:t.no,grade:t.grade}));
   psImg(s.id+vw,ph&&s.views[vw].img,im=>Posture.drawCell(cv.getContext('2d'),im,ph,vw,items,opt.cell||{x:0,y:0,w:cv.width,h:cv.height},Object.assign({theme:'lab',tags,photoOnly:!!PSS.photoOnly},opt)));}
+/* 全屏看照片：左右滑切换正/侧/背，下面同样可以点项目高亮 */
+function psLB(v){PSS.lb=v;render();if(v)setTimeout(()=>psSwTo(v,true,'psLBSw'),0);}
+function psLBHtml(s){return `<div class="ps-lb" id="psLB"><div class="ps-lbh"><b>${psFmtDate(s.date)} · 左右滑看三张</b><a class="ps-lbx" onclick="psLB(null)" aria-label="关闭">✕</a></div>
+  <div class="ps-sw lb" id="psLBSw" onscroll="psSwScroll('psLBSw')">${Posture.VIEWS.map(v=>`<div class="ps-swc"><canvas id="psLBCv_${v.id}" class="ps-cv" width="720" height="1080" data-sid="${s.id}" data-view="${v.id}"></canvas></div>`).join('')}</div>
+  <div class="ps-lbf">${psMarkList(s.result.items,PSS.lb,'lb')}${PS_LEGEND}</div></div>`;}
+function psSwTo(v,instant,id){const sw=document.getElementById(id||'psSw');if(!sw)return;const i=Posture.VIEWS.findIndex(x=>x.id===v);sw.scrollTo({left:i*sw.clientWidth,behavior:instant?'auto':'smooth'});if(!id){PSS.viewTab=v;psSwTabs();}}
+function psSwTabs(){document.querySelectorAll('#psSwTabs a').forEach(a=>a.classList.toggle('on',a.dataset.v===PSS.viewTab));}
+function psSwScroll(id){const sw=document.getElementById(id||'psSw');if(!sw||!sw.clientWidth)return;const i=Math.round(sw.scrollLeft/sw.clientWidth);const v=(Posture.VIEWS[i]||{}).id;if(!v)return;
+  if(id==='psLBSw'){if(PSS.lb!==v){PSS.lb=v;}}else if(PSS.viewTab!==v){PSS.viewTab=v;psSwTabs();}}
 function psAfter(){
   if(tab!=='posture')return;
-  if(PSS.step==='shoot'){const v=document.getElementById('psVideo');if(v&&PSS.stream&&v.srcObject!==PSS.stream){try{v.srcObject=PSS.stream;v.play().catch(()=>{});}catch(e){}}}
+  if(PSS.step==='shoot'){const v=document.getElementById('psVideo');
+    if(v&&PSS.stream){const ar=()=>{if(v.videoWidth&&v.videoHeight){const a=v.videoWidth+'/'+v.videoHeight;if(PSS.camAR!==a){PSS.camAR=a;const c=document.getElementById('psCam');if(c)c.style.aspectRatio=a;}}psGuideStart();};
+      if(v.srcObject!==PSS.stream){try{v.srcObject=PSS.stream;v.onloadedmetadata=ar;v.play().catch(()=>{});}catch(e){}}else if(v.videoWidth)ar();
+      if(PG.last)psGuideUI(PG.last.hint,PG.last.ok?'ok':'bad');psCdUI();}}
   const ck=document.getElementById('psCheckCv');
   if(ck&&PSS.cur){const c=PSS.cur;psImg('cur',c.img,im=>{const ctx=ck.getContext('2d');Posture.drawCell(ctx,im,c.J?{J:c.J,w:c.w,h:c.h}:{J:{},w:c.w,h:c.h},Posture.VIEWS[PSS.vi].id,[],{x:0,y:0,w:ck.width,h:ck.height},{theme:'lab'});});}
   document.querySelectorAll('canvas.mt-cv').forEach(cv=>{const s=psFind(cv.dataset.sid);if(!s)return;const vw=cv.dataset.view;psDrawView(cv,s,vw,{title:(Posture.VIEWS.find(v=>v.id===vw)||{}).n});});
-  const rc=document.getElementById('psRepCv');
-  if(rc){const s=psFind(rc.dataset.sid),vw=rc.dataset.view;psDrawView(rc,s,vw,{label:psFmtDate(s.date)+' '+(Posture.VIEWS.find(v=>v.id===vw)||{}).n});}
+  document.querySelectorAll('canvas.ps-rep,#psLB canvas').forEach(rc=>{const s=psFind(rc.dataset.sid),vw=rc.dataset.view;if(!s)return;psDrawView(rc,s,vw,{label:psFmtDate(s.date)+' '+(Posture.VIEWS.find(v=>v.id===vw)||{}).n,hl:PSS.hl});});
+  if(document.getElementById('psSw'))psSwTo(PSS.viewTab,true);
+  if(document.getElementById('psLBSw'))psSwTo(PSS.lb,true,'psLBSw');document.body.classList.toggle('ps-lbopen',!!document.getElementById('psLB'));
   const cc=document.getElementById('psCmpCv');
   if(cc){const ss=psSessions(),cmp=Posture.compare(ss);const cols=[cmp.first,cmp.prev,cmp.cur].filter(Boolean);const names=cmp.first?['第一次','上次','本次']:['上次','本次'];const vw=PSS.cmpView;const ctx=cc.getContext('2d');
     ctx.fillStyle='#fff';ctx.fillRect(0,0,cc.width,cc.height);
-    cols.forEach((s,i)=>{const ph=psPhoto(s,vw);const cell={x:i*300+4,y:0,w:292,h:cc.height};psImg(s.id+vw,ph&&s.views[vw].img,im=>Posture.drawCell(ctx,im,ph,vw,s.result.items,cell,{theme:'lab',label:names[i]+' '+psFmtDate(s.date)}));});}
+    cols.forEach((s,i)=>{const ph=psPhoto(s,vw);const cell={x:i*300+4,y:0,w:292,h:cc.height};psImg(s.id+vw,ph&&s.views[vw].img,im=>Posture.drawCell(ctx,im,ph,vw,s.result.items,cell,{theme:'lab',hl:PSS.hl,tags:psTags(s.result.items).map(t=>({key:t.key,no:t.no,grade:t.grade})),label:names[i]+' '+psFmtDate(s.date)}));});}
   if(P3S.state!=="fallback"){psSkBind();psSkDraw();}p3dAfter();
 }
 function psMakeShare(){
@@ -4095,7 +4405,7 @@ function psSheetDraw(ctx,W,s,imgs,opt){
   ctx.fillStyle='#1f6fe0';ctx.fillRect(0,0,W,150*u);ctx.fillStyle='#fff';F(52,1);ctx.textAlign='left';ctx.fillText('板栗健身 · 体态评估报告',X,88*u);
   F(28);const st=(typeof S!=='undefined'&&S.user&&S.user.store)||'';ctx.fillText([st,'第 '+no+' 次',s.date].filter(Boolean).join(' · '),X,130*u);y=180*u;
   const cw=(CW-2*20*u)/3,ch=cw*520/300;
-  Posture.VIEWS.forEach((v,i)=>{const cell={x:X+i*(cw+20*u),y,w:cw,h:ch};Posture.drawCell(ctx,imgs[v.id],psPhoto(s,v.id),v.id,items,cell,{theme:'lab',tags:top.map(t=>({key:t.key,no:t.no,grade:t.grade})),title:v.n,hideFace:opt.hideFace,makeCanvas:psMk});});
+  Posture.VIEWS.forEach((v,i)=>{const cell={x:X+i*(cw+20*u),y,w:cw,h:ch};Posture.drawCell(ctx,imgs[v.id],psPhoto(s,v.id),v.id,items,cell,{theme:'lab',tags:psTags(items).map(t=>({key:t.key,no:t.no,grade:t.grade})),title:v.n,hideFace:opt.hideFace,makeCanvas:psMk});});
   y+=ch+GAP;
   /* 体态概览 */
   const c=g=>items.filter(i=>i.grade===g).length;let y0=y;

@@ -426,6 +426,34 @@ details.p3d-note p{margin:calc(6*var(--p)) 0 0}
 .mt-tlt .mt-chg{text-align:left;font-size:calc(11.5*var(--p));line-height:1.5;padding-left:calc(8*var(--p))}
 /* 拍照页：「从相册选一张」改成小字链接 */
 .ps-filelink{font-size:calc(13*var(--p));color:#8a8a99;margin:calc(10*var(--p)) 0 calc(4*var(--p));cursor:pointer}.ps-filelink u{color:#1f6fe0;text-decoration:underline}
+
+/* 2026-11-16 拍照实时引导 + 结果页标记（类专业体态仪主界面） */
+.ps-sil{left:15%;top:11%;width:70%;height:78%}
+.ps-cam .ps-sil .ps-body{transition:stroke .2s,fill .2s}
+.ps-cam.g-ok .ps-sil .ps-body{stroke:#12b886;fill:rgba(18,184,134,.16);stroke-width:1.2;stroke-dasharray:none}
+.ps-cam.g-bad .ps-sil .ps-body{stroke:#ffd43b}
+.ps-hint{position:absolute;left:6%;right:6%;bottom:calc(10*var(--p));z-index:3;text-align:center;color:#fff;background:rgba(20,22,28,.72);border-radius:calc(12*var(--p));padding:calc(8*var(--p)) calc(10*var(--p));font-size:calc(16*var(--p));font-weight:700;line-height:1.35}
+.ps-hint.ok{background:rgba(12,138,99,.88)}.ps-hint.off{font-size:calc(13*var(--p));font-weight:500}
+.ps-cd{position:absolute;inset:0;z-index:4;display:none;align-items:center;justify-content:center;font-size:calc(96*var(--p));font-weight:800;color:#fff;text-shadow:0 0 calc(12*var(--p)) rgba(0,0,0,.7);pointer-events:none}
+.ps-legend{display:flex;flex-wrap:wrap;gap:calc(4*var(--p)) calc(12*var(--p));font-size:calc(12*var(--p));color:#6b7385;margin:calc(8*var(--p)) 0 0;line-height:1.4;max-width:100%}
+.ps-legend span{white-space:nowrap;display:inline-flex;align-items:center}
+.ps-legend i{display:inline-block;width:calc(10*var(--p));height:calc(10*var(--p));border-radius:50%;margin:0 calc(4*var(--p)) 0 0}
+.ps-legend i.ln{width:calc(14*var(--p));height:calc(3*var(--p));border-radius:2px}.ps-legend i.sq{border-radius:2px}
+.ps-sw{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:calc(12*var(--p))}
+.ps-sw::-webkit-scrollbar{display:none}.ps-swc{flex:0 0 100%;scroll-snap-align:center}.ps-swc canvas{width:100%;display:block;cursor:zoom-in}
+.ps-tapt{font-size:calc(11.5*var(--p));margin:calc(4*var(--p)) 0 calc(8*var(--p))}
+.ps-mk{display:flex;flex-wrap:wrap;gap:calc(6*var(--p));margin-top:calc(10*var(--p))}
+.ps-mki{display:inline-flex;align-items:center;gap:calc(5*var(--p));padding:calc(5*var(--p)) calc(9*var(--p));border-radius:calc(16*var(--p));background:#f3f5f8;border:1px solid #e3e6eb;font-size:calc(13*var(--p));color:#2b2f36;cursor:pointer}
+.ps-mki.on{border-color:#1c7ed6;background:#e7f1ff;box-shadow:0 0 0 2px rgba(28,126,214,.25)}.ps-mki.away{opacity:.75}
+.ps-mki b.no{color:#fff;font-size:calc(11*var(--p));padding:0 calc(4*var(--p));border-radius:3px}.ps-mki b.no.bad{background:#c92a2a}.ps-mki b.no.mild{background:#e8590c}
+.ps-mki i.dot{width:calc(8*var(--p));height:calc(8*var(--p));border-radius:50%;display:inline-block}.ps-mki em{font-style:normal;font-weight:700;font-size:calc(12*var(--p))}
+.ps-mkt{font-size:calc(11.5*var(--p));margin:calc(6*var(--p)) 0 0}
+.ps-lb{position:fixed;inset:0;z-index:999;background:rgba(14,16,22,.96);display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.ps-lbh{display:flex;justify-content:space-between;align-items:center;color:#fff;padding:calc(10*var(--p)) calc(14*var(--p));font-size:calc(14*var(--p))}
+.ps-lbx{color:#fff;font-size:calc(22*var(--p));padding:0 calc(6*var(--p));cursor:pointer}
+.ps-sw.lb{flex:1;min-height:0;border-radius:0}.ps-sw.lb .ps-swc{display:flex;align-items:center;justify-content:center}.ps-sw.lb canvas{width:auto;max-width:100%;max-height:100%;height:auto;cursor:default}
+.ps-lbf{background:#fff;border-radius:calc(14*var(--p)) calc(14*var(--p)) 0 0;padding:calc(4*var(--p)) calc(12*var(--p)) calc(10*var(--p));max-height:40vh;overflow:auto}
+body.ps-lbopen{overflow:hidden}
 html body{max-width:520px;width:auto;height:auto;margin:0 auto;padding:12px;display:block;overflow:auto;transform:none}:root{--p:1px}#main{padding:0 0 40px}#tp{display:none;position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:8px 16px;border-radius:20px;z-index:9}</style></head><body><div id=tp></div><div id=main></div><script>/* 板栗健身 激活码核心逻辑（预览、云函数、测试共用，纯函数） */
 (function(root){
 const A='23456789ABCDEFGHJKMNPQRSTUVWXYZ'; // 31字符，去掉 0 O 1 I L
@@ -497,8 +525,10 @@ const TITLE='体态评估（测试）';
 const DISCLAIMER='体态参考，不是医学诊断；有疼痛请就医。';
 const RETEST_DAYS=28;
 const MIN_C=0.5;
+/* 量数值时关节的最低可见度（MediaPipe visibility）；低于这个，这项写看不准 */
+const MEAS_C=0.7;
 const WX=['nose','leftEye','rightEye','leftEar','rightEar','leftShoulder','rightShoulder','leftElbow','rightElbow','leftWrist','rightWrist','leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle','leftHand','rightHand','leftFoot','rightFoot','leftHeel','rightHeel'];
-const MP={0:'nose',2:'leftEye',5:'rightEye',7:'leftEar',8:'rightEar',11:'leftShoulder',12:'rightShoulder',13:'leftElbow',14:'rightElbow',15:'leftWrist',16:'rightWrist',23:'leftHip',24:'rightHip',25:'leftKnee',26:'rightKnee',27:'leftAnkle',28:'rightAnkle',29:'leftHeel',30:'rightHeel',31:'leftFoot',32:'rightFoot'};
+const MP={0:'nose',2:'leftEye',5:'rightEye',7:'leftEar',8:'rightEar',9:'mouthLeft',10:'mouthRight',11:'leftShoulder',12:'rightShoulder',13:'leftElbow',14:'rightElbow',15:'leftWrist',16:'rightWrist',23:'leftHip',24:'rightHip',25:'leftKnee',26:'rightKnee',27:'leftAnkle',28:'rightAnkle',29:'leftHeel',30:'rightHeel',31:'leftFoot',32:'rightFoot'};
 const COLOR={ok:'#12b886',mild:'#f59f00',bad:'#e03131',unsure:'#adb5bd',plumb:'#339af0',ref:'rgba(255,255,255,.75)',joint:'#ffffff'};
 const VIEWS=[
  {id:'front',n:'正面',how:'被拍的人正对手机，自然站直，眼睛平视前方，双手自然垂在身体两侧。'},
@@ -506,21 +536,22 @@ const VIEWS=[
  {id:'back',n:'背面',how:'被拍的人背对手机，自然站直，双手自然垂下。'}
 ];
 const TIPS=[
- '请别人帮忙拍，手机竖着拿，放在被拍人胸口高度（大约离地 1 米），每次都一样高。',
- '手机离人大约 2.5～3 米，人站在画面中间，头顶到脚底都要拍进去，上下各留一点空。',
- '双脚分开和髋差不多宽，脚尖朝前，脚下踩平；每次站同一个位置（可在地上贴个标记）。',
- '穿贴身衣服（紧身上衣、短裤或紧身裤），长头发扎起来，露出耳朵和脖子；最好光脚或穿平底鞋。',
- '背景尽量干净、光线亮一点；画面里只留被拍的人。'
+ '请别人帮忙拍（或用手机支架），手机竖着放在被拍人腰部高度（约离地 1 米），每次都一样高。',
+ '手机离人 2～3 米，人站在画面中间，头顶到脚底都在框里，上下各留一点空。',
+ '双脚分开和髋一样宽，脚尖朝前，双手放松自然垂下；每次站同一个位置（可在地上贴个标记）。',
+ '穿贴身衣服（紧身上衣、紧身裤或短裤），长头发扎起来，露出耳朵和脖子；最好光脚或穿平底鞋。',
+ '背景尽量干净（纯色墙最好）、光线亮一点；画面里只留被拍的人。'
 ];
-/* 项目定义：t=[轻度起点, 明显起点]，mdc=小于这个变化算持平（拍照误差），max=超过就当识别出错 */
+/* 项目定义：t=[轻度起点, 明显起点]，mdc=小于这个变化算持平（拍照误差），max=超过就当识别出错，
+   tol=连拍估出的标准误上限（约为档宽的 1/3：95% 区间超过档宽就可能分错级，写看不准） */
 const ITEMS=[
- {key:'shoulder',n:'高低肩',views:['front','back'],unit:'°',t:[2.5,5],mdc:1,max:15},
- {key:'head',n:'头前伸',views:['side'],unit:'°',t:[12,20],mdc:3,max:45},
- {key:'round',n:'圆肩（可能）',views:['side'],unit:'%',t:[8,15],mdc:3,max:40,maybe:true},
- {key:'hip',n:'骨盆左右高低',views:['front','back'],unit:'°',t:[2.5,5],mdc:1.5,max:15},
- {key:'knee',n:'膝盖内扣/外分',views:['front'],unit:'°',t:[6,10],mdc:2,max:25},
- {key:'hyper',n:'膝超伸',views:['side'],unit:'°',t:[5,10],mdc:2,max:25},
- {key:'shift',n:'身体左右偏移',views:['front','back'],unit:'%',t:[1.5,3],mdc:0.5,max:10}
+ {key:'shoulder',n:'高低肩',views:['front','back'],unit:'°',t:[2.5,5],mdc:1,max:15,tol:0.85},
+ {key:'head',n:'头前伸',views:['side'],unit:'°',t:[12,20],mdc:3,max:45,tol:2.7},
+ {key:'round',n:'圆肩（可能）',views:['side'],unit:'%',t:[8,15],mdc:3,max:40,maybe:true,tol:2.3},
+ {key:'hip',n:'骨盆左右高低',views:['front','back'],unit:'°',t:[2.5,5],mdc:1.5,max:15,tol:0.85},
+ {key:'knee',n:'膝盖内扣/外分',views:['front'],unit:'°',t:[6,10],mdc:2,max:25,tol:1.3},
+ {key:'hyper',n:'膝超伸',views:['side'],unit:'°',t:[5,10],mdc:2,max:25,tol:1.7},
+ {key:'shift',n:'身体左右偏移',views:['front','back'],unit:'%',t:[1.5,3],mdc:0.5,max:10,tol:0.5}
 ];
 const itemOf=k=>ITEMS.find(x=>x.key===k);
 /* 今日恢复里已有的三套 */
@@ -630,16 +661,111 @@ function checkPhoto(view,J,meta){
   {const la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);if(la&&ra){const dx=Math.abs(la.x-ra.x);if(view==='side'){if(dx>0.12*fr.H)add('stagger');}else if(dx>0.35*fr.H)add('wide');}}
   if(view==='side'){
     const s=sidePts(J,meta);
-    if(!s.ear||!s.sh||!s.hip||!s.knee||!s.ank)add('blur');
+    if(!s.ear||!s.sh||!s.hip||!s.knee||!s.ank||sideVis(J)<MEAS_C)add('blur');
     else if(vertDeg(s.sh,s.ank)>10)add('lean');
     const wr=widthRatio(J,meta);if(wr!=null&&wr>0.3)add('notSide');
   }else{
-    const miss=NEED[view].filter(n=>!P(J,n,meta));if(miss.length)add('blur');
+    /* 肩、髋要看得清（量高低肩/骨盆）；膝、踝至少能找到（量偏移/膝盖的那几项各自再按可见度判看不准） */
+    const miss=NEED[view].filter(n=>!P(J,n,meta,/Shoulder|Hip/.test(n)?MEAS_C:0.4));if(miss.length)add('blur');
     const ls=P(J,'leftShoulder',meta),rs=P(J,'rightShoulder',meta),la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);
     if(ls&&rs&&la&&ra){if(vertDeg(mid(ls,rs),mid(la,ra))>8)add('lean');if(tiltDeg(la,ra)>4&&Math.abs(la.x-ra.x)>0.05*fr.H)add('floor');}
     const wr=widthRatio(J,meta);if(wr!=null&&wr<0.35)add('notFront');
   }
   return{ok:!why.length,reasons:why};
+}
+
+/* 侧面：耳/肩/髋/膝/踝各取看得更清的一侧，返回其中最低的可见度 */
+function sideVis(J){const c=n=>J&&J[n]&&J[n].c!=null?+J[n].c:(J&&J[n]?1:0);
+  return Math.min(...['Ear','Shoulder','Hip','Knee','Ankle'].map(k=>Math.max(c('left'+k),c('right'+k))));}
+/* 每项用到的关节（算这项的可见度） */
+const USES={shoulder:['leftShoulder','rightShoulder'],hip:['leftHip','rightHip'],shift:['leftShoulder','rightShoulder','leftAnkle','rightAnkle'],
+ knee:['leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle'],head:['Ear','Shoulder'],round:['Shoulder','Hip'],hyper:['Hip','Knee','Ankle']};
+function itemVis(key,J){const c=n=>J&&J[n]&&J[n].c!=null?+J[n].c:(J&&J[n]?1:0);const u=USES[key]||[];
+  return Math.min(...u.map(n=>n[0]===n[0].toUpperCase()?Math.max(c('left'+n),c('right'+n)):c(n)));}
+
+/* ---------- 实时取景引导（网页 MediaPipe 视频帧 / 小程序 VisionKit 相机帧共用） ----------
+   每帧给一句话提示；全部通过且站稳约 1 秒才算 ok，由页面倒数 3-2-1 自动拍。 */
+const GUIDE={vis:0.8,minFrac:0.60,maxFrac:0.85,center:0.08,roll:3,pitch:3,jitter:0.006,stableMs:1000,holdMs:1000,fps:6};
+const GUIDE_NEED={front:['nose','leftShoulder','rightShoulder','leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle'],
+ back:['leftShoulder','rightShoulder','leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle']};
+const HINT={nobody:'站到画面里',crowd:'画面里只留一个人',cut:'脑袋到脚都要在框里',far:'往前走一点',close:'往后退一点',
+ toRight:'往画面右边挪一点',toLeft:'往画面左边挪一点',roll:'手机竖直，别左右歪',pitch:'手机竖直，别前后仰',
+ front:'转过来，正对手机',back:'身体正背对手机',side:'转到正侧面',arms:'双手自然放下',bent:'膝盖放松伸直',wide:'两脚和髋一样宽',stagger:'两脚并排站',
+ vis:'关节看不清：光线亮一点、衣服贴身',still:'站着别动',ok:'很好，保持不动'};
+function liveGuide(view,J,meta){
+  const r=(code,x)=>Object.assign({ok:code==='ok',code,hint:HINT[code]},x||{});
+  if(!J||!(J._people>0))return r('nobody');if(J._people>1)return r('crowd');
+  const c=n=>J[n]&&J[n].c!=null?+J[n].c:(J[n]?1:0);
+  const fr=frame(J,meta);
+  const feet=Math.max(c('leftAnkle'),c('rightAnkle'));const head=Math.max(c('nose'),c('leftEar'),c('rightEar'));
+  if(!fr||feet<0.5||head<0.5)return r('cut');
+  const lo=['leftAnkle','rightAnkle','leftHeel','rightHeel','leftFoot','rightFoot'].map(n=>P(J,n,meta,0.3)).filter(Boolean);
+  const maxY=Math.max(fr.botY,...lo.map(p=>p.y+0.01*fr.H));
+  if(fr.topY<0.005*meta.h||maxY>0.995*meta.h)return r('cut');
+  const frac=(fr.botY-fr.topY)/meta.h;
+  if(frac<GUIDE.minFrac)return r('far',{frac});if(frac>GUIDE.maxFrac)return r('close',{frac});
+  const sh=avg2(P(J,'leftShoulder',meta,0.3),P(J,'rightShoulder',meta,0.3));const bx=((sh?sh.x:fr.cx)+fr.cx)/2/meta.w;
+  if(bx<0.5-GUIDE.center)return r('toRight',{frac,cx:bx});if(bx>0.5+GUIDE.center)return r('toLeft',{frac,cx:bx});
+  if(meta.roll!=null&&Math.abs(meta.roll)>GUIDE.roll)return r('roll');
+  if(meta.pitch!=null&&Math.abs(meta.pitch)>GUIDE.pitch)return r('pitch');
+  const wr=widthRatio(J,meta);
+  if(view==='side'){
+    const s=sidePts(J,meta);
+    const prof=wr!=null&&wr<=0.25&&s.nose&&s.ear&&Math.abs(s.nose.x-s.ear.x)>0.02*fr.H;
+    if(!prof)return r('side',{wr});
+    const la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);if(la&&ra&&Math.abs(la.x-ra.x)>0.12*fr.H)return r('stagger');
+    if(sideVis(J)<GUIDE.vis||c('nose')<GUIDE.vis)return r('vis');
+  }else{
+    if(wr==null||wr<0.4)return r(view==='front'?'front':'back',{wr});
+    if(view==='front'){const ls=P(J,'leftShoulder',meta,0.3),rs=P(J,'rightShoulder',meta,0.3);if(ls&&rs&&ls.x<rs.x)return r('front',{wr});}
+    const la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);if(la&&ra&&Math.abs(la.x-ra.x)>0.35*fr.H)return r('wide');
+    /* 正面：主要关节都要 >0.8；背面：肩、髋 >0.8，膝踝 >0.5（背面腿常互相挡，膝踝只用来定位，背面不量膝盖） */
+    if(GUIDE_NEED[view].some(n=>c(n)<(view==='back'&&/Knee|Ankle/.test(n)?0.5:GUIDE.vis)))return r('vis');
+  }
+  let arms=false,bent=false;
+  ['left','right'].forEach(sd=>{const hp=P(J,sd+'Hip',meta),k=P(J,sd+'Knee',meta),a=P(J,sd+'Ankle',meta);if(hp&&k&&a&&ang(hp,k,a)<160)bent=true;
+    const w=P(J,sd+'Wrist',meta,0.4),s2=P(J,sd+'Shoulder',meta);if(w&&s2&&hp&&w.y<(s2.y+hp.y)/2)arms=true;});
+  if(arms)return r('arms');if(bent)return r('bent');
+  return r('ok',{frac,cx:bx,wr});
+}
+/* 抖动：几帧里主要关节位置的标准差（按耳到脚踝高度归一），越小越稳 */
+const JIT_PTS=['nose','leftShoulder','rightShoulder','leftHip','rightHip','leftKnee','rightKnee','leftAnkle','rightAnkle'];
+function jitterOf(list,meta){
+  if(!list||list.length<3)return Infinity;const fr=frame(list[list.length-1],meta);if(!fr)return Infinity;let worst=0,n=0;
+  JIT_PTS.forEach(k=>{const ps=list.map(J=>P(J,k,meta,0.5)).filter(Boolean);if(ps.length<list.length)return;n++;
+    const sd=a=>{const m=a.reduce((x,y)=>x+y,0)/a.length;return Math.sqrt(a.reduce((x,y)=>x+(y-m)*(y-m),0)/a.length);};
+    worst=Math.max(worst,sd(ps.map(p=>p.x)),sd(ps.map(p=>p.y)));});
+  return n>=4?worst/fr.H:Infinity;
+}
+/* 背面/腿并拢时识别有时会把左右腿认反。几帧之间按第一帧把每一对左右关节对齐，再取中位数 */
+function alignLR(list){
+  if(!list||list.length<2)return list;const R=list[0];
+  const PAIRS=['Ear','Eye','Shoulder','Elbow','Wrist','Hip','Knee','Ankle','Heel','FootIndex'];
+  const d=(a,b)=>a&&b?Math.hypot(a.x-b.x,a.y-b.y):0;
+  return list.map((J,i)=>{if(!i)return J;const o=Object.assign({},J);
+    PAIRS.forEach(n=>{const L='left'+n,Rr='right'+n;if(!J[L]||!J[Rr]||!R[L]||!R[Rr])return;
+      if(d(J[L],R[Rr])+d(J[Rr],R[L])<d(J[L],R[L])+d(J[Rr],R[Rr])-1e-9){o[L]=J[Rr];o[Rr]=J[L];}});return o;});
+}
+/* 几次识别里偶尔有一次认错（比如把背景认成人）。和中位数差太多（>身高 5%）的那次丢掉 */
+const CORE_PTS=['leftShoulder','rightShoulder','leftHip','rightHip','nose'];
+function consensus(list,meta){
+  if(!list||list.length<3)return list;const M=medianJ(list);const fr=frame(M,meta);if(!fr)return list;
+  const dev=J=>{let w=0;CORE_PTS.forEach(k=>{const a=P(J,k,meta,0),b=P(M,k,meta,0);if(a&&b)w=Math.max(w,Math.hypot(a.x-b.x,a.y-b.y));});return w;};
+  return list.filter(J=>dev(J)<=0.05*fr.H);
+}
+/* 几帧取中位数（每个关节 x/y/可见度分别取中位数），比单帧稳 */
+function medianJ(list){
+  const L=(list||[]).filter(Boolean);if(!L.length)return null;const med=a=>{const b=a.slice().sort((x,y)=>x-y);const m=b.length>>1;return b.length%2?b[m]:(b[m-1]+b[m])/2;};
+  const keys={};L.forEach(J=>Object.keys(J).forEach(k=>{if(k[0]!=='_')keys[k]=1;}));const out={};
+  Object.keys(keys).forEach(k=>{const ps=L.map(J=>J[k]).filter(p=>p&&p.x!=null);if(ps.length*2<L.length)return;
+    out[k]={x:med(ps.map(p=>+p.x)),y:med(ps.map(p=>+p.y)),c:med(ps.map(p=>p.c==null?1:+p.c))};});
+  out._people=Math.max(...L.map(J=>J._people||0));out._n=L.length;return out;
+}
+/* 连拍每帧各量一次，估计这项数值有多不稳；不稳到可能分错级（95% 区间超过「轻度」档宽的一半）就写看不准 */
+function burstSpread(view,list,meta,heightCm){
+  const vals={};(list||[]).forEach(J=>{const m=measurePhoto(view,J,meta,heightCm);Object.keys(m).forEach(k=>{if(k[0]==='_'||!m[k]||m[k].v==null)return;(vals[k]=vals[k]||[]).push(m[k].v*(m[k].s||1));});});
+  /* 返回中位数的标准误（约 1.25×标准差/√帧数）：越大越不稳 */
+  const out={};Object.keys(vals).forEach(k=>{const a=vals[k];if(a.length<3)return;const m=a.reduce((x,y)=>x+y,0)/a.length;const sd=Math.sqrt(a.reduce((x,y)=>x+(y-m)*(y-m),0)/(a.length-1));out[k]=Math.round(1.2533*sd/Math.sqrt(a.length)*100)/100;});return out;
 }
 
 /* ---------- 每张照片的量 ---------- */
@@ -744,11 +870,15 @@ function trendWord(d){if(!d)return'';if(d.txt==='都正常')return'都正常';re
 /* photos: {front:{J,w,h,roll,pitch,skip?}, side:..., back:...}; opt:{heightCm, injuries} */
 function assess(photos,opt){
   opt=opt||{};const per={},quality={};
+  const unsure={};/* key -> 原因：关节看不清 / 连拍不稳 */
   VIEWS.forEach(({id})=>{const p=photos&&photos[id];
     if(!p||p.skip||!p.J){quality[id]={ok:false,reasons:['这个角度没有拍。'],skipped:true};return;}
     const meta={w:p.w||1,h:p.h||1,roll:p.roll,pitch:p.pitch};
     quality[id]=checkPhoto(id,p.J,meta);
     per[id]=quality[id].ok?measurePhoto(id,p.J,meta,opt.heightCm):{};
+    if(quality[id].ok)ITEMS.forEach(it=>{if(it.views.indexOf(id)<0||!per[id][it.key])return;
+      if(itemVis(it.key,p.J)<MEAS_C){delete per[id][it.key];unsure[it.key]=unsure[it.key]||'相关关节看得不够清楚，这项看不准，先不下结论。';}
+      else if(p.spread&&p.spread[it.key]!=null&&p.spread[it.key]>it.tol){delete per[id][it.key];unsure[it.key]=unsure[it.key]||'连拍几帧结果不稳定（人在动或关节被挡），这项看不准，建议重拍。';}});
   });
   const items=ITEMS.map(it=>{
     const got=it.views.map(v=>({v,m:per[v]&&per[v][it.key]})).filter(x=>x.m);
@@ -756,7 +886,7 @@ function assess(photos,opt){
     const fromViews=it.views.filter(v=>quality[v]&&quality[v].ok);
     if(!fromViews.length)why=`${it.views.map(v=>VIEWS.find(x=>x.id===v).n).join('/')}照片没拍好，这项看不准，先不下结论，可以按提示重拍。`;
     else if(it.key==='hyper'||it.key==='head'||it.key==='round'){if(per.side&&!per.side._facing)why='分不清脸朝哪边，这项看不准。';}
-    if(!why&&!got.length)why='相关关节看不清，这项看不准，先不下结论，可以按提示重拍。';
+    if(!why&&!got.length)why=unsure[it.key]||'相关关节看不清，这项看不准，先不下结论，可以按提示重拍。';
     if(!why){
       if(got.length===2){
         const a=got[0].m,b=got[1].m;
@@ -838,35 +968,103 @@ function alignBox(photo,cell){
   const sc=0.86*cell.h/(fr.botY-fr.topY);
   return{sc,ox:cell.x+cell.w/2-fr.cx*sc,oy:cell.y+0.07*cell.h-fr.topY*sc,fr};
 }
+/* 照片上的标记（类似专业体态仪的主界面）：
+   有问题的项目：粗红/橙实际线 + 蓝色理想参考线 + 方向箭头；正常：细绿线，不抢眼；看不准：细灰虚线。
+   每个图形带 key（属于哪一项），页面点某一项时高亮它、其它变淡。 */
+const MARK={bad:'#e03131',mild:'#f76707',ok:'#12b886',unsure:'#adb5bd',ideal:'#1c7ed6',plumb:'#ff8a00',joint:'#ffffff'};
+function markColor(g){return g==='明显'?MARK.bad:g==='轻度'?MARK.mild:g==='正常'?MARK.ok:MARK.unsure;}
+function facingOf(J,meta,fr){const s=sidePts(J,meta);const H=fr?fr.H:meta.h;
+  if(s.nose&&s.ear&&Math.abs(s.nose.x-s.ear.x)>0.015*H)return Math.sign(s.nose.x-s.ear.x);
+  if(s.toe&&s.heel&&Math.abs(s.toe.x-s.heel.x)>0.02*H)return Math.sign(s.toe.x-s.heel.x);return 0;}
 function overlay(view,photo,items){
-  const meta={w:photo.w,h:photo.h};const J=photo.J||{};const sh=[];const g=k=>{const i=(items||[]).find(x=>x.key===k);return i?i.grade:'看不准';};
-  const fr=frame(J,meta);if(!fr)return sh;
+  const meta={w:photo.w,h:photo.h};const J=photo.J||{};const sh=[];
+  const it=k=>(items||[]).find(x=>x.key===k);const g=k=>{const i=it(k);return i?i.grade:'看不准';};
+  const bad=k=>g(k)==='轻度'||g(k)==='明显';
+  const fr=frame(J,meta);if(!fr)return sh;const H=fr.H;
+  const seg=(key,a,b,o)=>{if(a&&b)sh.push(Object.assign({t:'line',key,a,b,c:markColor(g(key)),w:bad(key)?5:g(key)==='正常'?2.2:1.6,dash:g(key)==='看不准'?1:0,role:'act',grade:g(key)},o||{}));};
+  const ref=(key,a,b)=>{if(a&&b)sh.push({t:'line',key,a,b,c:MARK.ideal,w:2.4,dash:1,role:'ref'});};
+  const arrow=(key,a,b)=>{if(a&&b)sh.push({t:'arrow',key,a,b,c:markColor(g(key)),w:4.5,role:'act',grade:g(key)});};
+  const dot=(key,a,o)=>{if(a)sh.push(Object.assign({t:'dot',key,a,c:MARK.joint,r:3.6},o||{}));};
   if(view==='side'){
-    const s=sidePts(J,meta);
-    if(s.ank)sh.push({t:'line',a:{x:s.ank.x,y:fr.topY},b:{x:s.ank.x,y:fr.botY},c:COLOR.plumb,dash:1,w:2,label:'铅垂线'});
-    const chain=[s.ear,s.sh,s.hip,s.knee,s.ank].filter(Boolean);
-    if(s.ear&&s.sh)sh.push({t:'line',a:s.ear,b:s.sh,c:GC(g('head')),w:4});
-    if(s.sh&&s.hip)sh.push({t:'line',a:s.sh,b:s.hip,c:GC(g('round')),w:3});
-    if(s.hip&&s.knee)sh.push({t:'line',a:s.hip,b:s.knee,c:GC(g('hyper')),w:3});
-    if(s.knee&&s.ank)sh.push({t:'line',a:s.knee,b:s.ank,c:GC(g('hyper')),w:3});
-    chain.forEach(p=>sh.push({t:'dot',a:p,c:COLOR.joint}));
+    const s=sidePts(J,meta);const f=facingOf(J,meta,fr);
+    if(s.ank)sh.push({t:'line',key:'_plumb',a:{x:s.ank.x,y:fr.topY},b:{x:s.ank.x,y:fr.botY},c:MARK.plumb,dash:1,w:2.2,role:'base',label:'铅垂线'});
+    /* 理想位置：耳、肩、髋、膝都在铅垂线上（空心圈）；有问题的项把实际点和理想点连起来 */
+    const onPl=p=>s.ank&&p?{x:s.ank.x,y:p.y}:null;
+    [['head',s.ear],['round',s.sh],['hyper',s.knee]].forEach(([k,p])=>{if(!p||!s.ank)return;sh.push({t:'ring',key:k,a:onPl(p),c:MARK.ideal,r:4.2,role:'ref'});if(bad(k))ref(k,onPl(p),p);});
+    if(s.hip&&s.ank)sh.push({t:'ring',key:'round',a:onPl(s.hip),c:MARK.ideal,r:4.2,role:'ref'});
+    seg('head',s.ear,s.sh);seg('round',s.sh,s.hip);seg('hyper',s.hip,s.knee);seg('hyper',s.knee,s.ank);
+    if(f){const L=0.07*H;
+      if(bad('head')&&s.ear)arrow('head',{x:s.ear.x-f*L*0.2,y:s.ear.y-0.035*H},{x:s.ear.x+f*L,y:s.ear.y-0.035*H});
+      if(bad('round')&&s.sh)arrow('round',{x:s.sh.x-f*L*0.1,y:s.sh.y+0.03*H},{x:s.sh.x+f*L*0.9,y:s.sh.y+0.03*H});
+      if(bad('hyper')&&s.knee)arrow('hyper',{x:s.knee.x+f*L*0.1,y:s.knee.y},{x:s.knee.x-f*L*0.9,y:s.knee.y});}
+    [s.ear,s.sh,s.hip,s.knee,s.ank].forEach(p=>dot('_j',p));
   }else{
     const ls=P(J,'leftShoulder',meta),rs=P(J,'rightShoulder',meta),lh=P(J,'leftHip',meta),rh=P(J,'rightHip',meta),la=P(J,'leftAnkle',meta),ra=P(J,'rightAnkle',meta);
     const ac=la&&ra?mid(la,ra):fr.ank;
-    if(ac)sh.push({t:'line',a:{x:ac.x,y:fr.topY},b:{x:ac.x,y:fr.botY},c:COLOR.plumb,dash:1,w:2,label:'中线'});
-    const lvl=(a,b,k)=>{if(!a||!b)return;const L=a.x<b.x?a:b,R=a.x<b.x?b:a;const ext=(R.x-L.x)*0.25;
-      sh.push({t:'line',a:{x:L.x-ext,y:L.y},b:{x:R.x+ext,y:L.y},c:COLOR.ref,dash:1,w:1.5});
-      const dx=R.x-L.x,dy=R.y-L.y;sh.push({t:'line',a:{x:L.x-ext,y:L.y-dy*ext/dx},b:{x:R.x+ext,y:R.y+dy*ext/dx},c:GC(g(k)),w:4});};
+    if(ac)sh.push({t:'line',key:'_plumb',a:{x:ac.x,y:fr.topY},b:{x:ac.x,y:fr.botY},c:MARK.plumb,dash:1,w:2.2,role:'base',label:'中线'});
+    const lvl=(a,b,k)=>{if(!a||!b)return;const L=a.x<b.x?a:b,R=a.x<b.x?b:a;const ext=(R.x-L.x)*0.28;const dx=R.x-L.x||1e-9,dy=R.y-L.y;
+      const A={x:L.x-ext,y:L.y-dy*ext/dx},B={x:R.x+ext,y:R.y+dy*ext/dx};
+      if(bad(k)){const my=(L.y+R.y)/2;ref(k,{x:A.x,y:my},{x:B.x,y:my});}
+      seg(k,A,B);
+      if(bad(k)){const lo=L.y>R.y?L:R;const d=0.06*H;arrow(k,{x:lo.x+(lo===L?-1:1)*ext*0.55,y:lo.y-d*0.35},{x:lo.x+(lo===L?-1:1)*ext*0.55,y:lo.y+d*0.75});}};
     lvl(ls,rs,'shoulder');lvl(lh,rh,'hip');
-    if(ls&&rs){const sc=mid(ls,rs);sh.push({t:'dot',a:sc,c:GC(g('shift')),r:5});if(ac)sh.push({t:'line',a:sc,b:{x:ac.x,y:sc.y},c:GC(g('shift')),w:3});}
-    if(view==='front')['left','right'].forEach(s=>{const hp=P(J,s+'Hip',meta),k=P(J,s+'Knee',meta),a=P(J,s+'Ankle',meta);if(hp&&k&&a){sh.push({t:'line',a:hp,b:k,c:GC(g('knee')),w:3});sh.push({t:'line',a:k,b:a,c:GC(g('knee')),w:3});sh.push({t:'line',a:hp,b:a,c:COLOR.ref,dash:1,w:1});sh.push({t:'dot',a:k,c:COLOR.joint});}});
-    [ls,rs,lh,rh,la,ra].filter(Boolean).forEach(p=>sh.push({t:'dot',a:p,c:COLOR.joint}));
+    if(ls&&rs&&ac){const sc=mid(ls,rs);dot('shift',sc,{r:4.6,c:markColor(g('shift'))});
+      if(bad('shift'))arrow('shift',{x:ac.x,y:sc.y+0.04*H},{x:sc.x+(sc.x>ac.x?1:-1)*0.02*H,y:sc.y+0.04*H});}
+    if(view==='front'){const kn=it('knee');
+      ['left','right'].forEach(sd=>{const hp=P(J,sd+'Hip',meta),k=P(J,sd+'Knee',meta),a=P(J,sd+'Ankle',meta);if(!(hp&&k&&a))return;
+        if(bad('knee'))ref('knee',hp,a);seg('knee',hp,k);seg('knee',k,a);dot('_j',k);
+        if(bad('knee')&&kn&&kn.side===personSide(view,hp.x<(lh&&rh?(lh.x+rh.x)/2:fr.cx))){const mx=lh&&rh?(lh.x+rh.x)/2:fr.cx;const toMid=Math.sign(mx-k.x)||1;const dir=kn.dir==='out'?-toMid:toMid;const L=0.06*H;
+          arrow('knee',{x:k.x-dir*L*0.9,y:k.y},{x:k.x+dir*L*0.15,y:k.y});}});}
+    [ls,rs,lh,rh,la,ra].forEach(p=>dot('_j',p));
   }
   return sh;
 }
-function headBox(photo){const meta={w:photo.w,h:photo.h};const J=photo.J||{};const fr=frame(J,meta);if(!fr)return null;
-  const pts=['nose','leftEar','rightEar','leftEye','rightEye'].map(n=>P(J,n,meta,0.2)).filter(Boolean);if(!pts.length)return null;
-  const cx=pts.reduce((s,p)=>s+p.x,0)/pts.length,cy=pts.reduce((s,p)=>s+p.y,0)/pts.length,r=fr.H*0.085;return{x:cx-r,y:cy-r*1.25,w:2*r,h:2.2*r};}
+/* 遮脸框（照片像素坐标，和关键点同一坐标系）：
+   正面：按鼻子/眼/耳/嘴关键点的范围，上到额头头发、下到下巴、左右到耳朵外，四周留足余量；
+   侧面/背面：盖住整个头。关键点置信度低或缺：用肩膀往上盖一大块（宁可多盖）。 */
+const FACE_PTS=['nose','leftEye','rightEye','leftEar','rightEar','mouthLeft','mouthRight'];
+function faceBox(photo,view){
+  if(!photo)return null;const meta={w:photo.w||1,h:photo.h||1};const J=photo.J||{};const fr=frame(J,meta);
+  const pts=FACE_PTS.map(n=>P(J,n,meta,0.2)).filter(Boolean);
+  const ls=P(J,'leftShoulder',meta,0.2),rs=P(J,'rightShoulder',meta,0.2);const sh=avg2(ls,rs);
+  const sw=ls&&rs?Math.abs(ls.x-rs.x):0;
+  /* 头高（头顶到下巴）约为耳到脚踝高度的 0.15 */
+  let hu=fr?fr.H*0.15:0;
+  if(!hu&&sh&&pts.length){const ey=Math.min(...pts.map(p=>p.y));hu=Math.max(0,(sh.y-ey))*1.1;}
+  if(!hu&&sw)hu=sw*0.6;
+  if(!hu)hu=meta.h*0.12;
+  const box=[];
+  const good=pts.filter(p=>p.c>=0.5).length>=2;
+  if(pts.length){
+    const x0=Math.min(...pts.map(p=>p.x)),x1=Math.max(...pts.map(p=>p.x)),y0=Math.min(...pts.map(p=>p.y)),y1=Math.max(...pts.map(p=>p.y));
+    const cx=(x0+x1)/2,side=view==='side'||view==='back';
+    const w=Math.max(x1-x0+(side?1.3:1.1)*hu,(side?1.5:1.3)*hu);
+    box.push({x:cx-w/2,y:y0-1.0*hu,w,h:(y1+1.2*hu)-(y0-1.0*hu)});
+  }
+  if((!good||!pts.length)&&sh){/* 没把握：从肩膀往上盖一大块 */
+    const w=Math.max(sw*1.0,1.5*hu);box.push({x:sh.x-w/2,y:sh.y-2.3*hu,w,h:2.3*hu-0.02*hu});}
+  if(!box.length&&fr){const w=1.6*hu;box.push({x:fr.cx-w/2,y:fr.topY-0.3*hu,w,h:2.0*hu});}
+  if(!box.length)return null;
+  const x=Math.min(...box.map(b=>b.x)),y=Math.min(...box.map(b=>b.y)),X=Math.max(...box.map(b=>b.x+b.w)),Y=Math.max(...box.map(b=>b.y+b.h));
+  return{x,y,w:X-x,h:Y-y,src:pts.length&&good?'face':sh?'shoulder':'frame',pts};
+}
+function headBox(photo,view){return faceBox(photo,view);}
+/* 打码：先画干净照片，再在照片像素坐标里取脸部区域缩成小格，按显示比例放大盖上（不会采到线条/网格/别处的颜色），再叠一层灰让它更实 */
+function mosaic(ctx,img,photo,hb,b,cell,opt){
+  /* 只在照片范围内取样；照片外是格子底色，没有脸 */
+  const fx=Math.max(0,hb.x),fy=Math.max(0,hb.y),fX=Math.min(photo.w,hb.x+hb.w),fY=Math.min(photo.h,hb.y+hb.h);
+  const R={x:b.ox+hb.x*b.sc,y:b.oy+hb.y*b.sc,w:hb.w*b.sc,h:hb.h*b.sc};
+  let done=false;
+  if(img&&opt.makeCanvas&&fX>fx&&fY>fy){try{
+    const iw=img.naturalWidth||img.width||photo.w,ih=img.naturalHeight||img.height||photo.h;const kx=iw/photo.w,ky=ih/photo.h;/* 存的图可能比原图小（压缩过） */
+    if(Math.abs(kx/ky-1)>0.03)throw new Error('aspect');/* 图片宽高比和关键点坐标对不上（比如方向没转对）：不去猜，直接整块盖灰 */
+    const dw=(fX-fx)*b.sc,dh=(fY-fy)*b.sc;const nx=Math.max(4,Math.round(dw/Math.max(6,Math.min(dw,dh)/6))),ny=Math.max(4,Math.round(nx*dh/dw));
+    const oc=opt.makeCanvas(nx,ny);const o=oc.getContext('2d');o.drawImage(img,fx*kx,fy*ky,(fX-fx)*kx,(fY-fy)*ky,0,0,nx,ny);
+    ctx.imageSmoothingEnabled=false;ctx.drawImage(oc,0,0,nx,ny,b.ox+fx*b.sc,b.oy+fy*b.sc,dw,dh);ctx.imageSmoothingEnabled=true;
+    ctx.fillStyle='rgba(120,122,135,.45)';ctx.fillRect(b.ox+fx*b.sc,b.oy+fy*b.sc,dw,dh);done=true;}catch(e){}}
+  if(!done){ctx.fillStyle='rgba(120,120,135,1)';ctx.fillRect(R.x,R.y,R.w,R.h);}
+  return R;
+}
 /* ctx: CanvasRenderingContext2D；img: 可画的图片对象；cell:{x,y,w,h}；opt:{hideFace, makeCanvas, label} */
 /* opt.theme==='lab'：浅灰底 + 方格 + 橙色铅垂线 + 角标（右/左、前/后）；opt.tags=[{key,no,grade}] 在问题线旁标编号；opt.photoOnly 只看照片 */
 function drawCell(ctx,img,photo,view,items,cell,opt){
@@ -876,17 +1074,29 @@ function drawCell(ctx,img,photo,view,items,cell,opt){
   if(!photo||!photo.J){ctx.fillStyle='#8a8a99';ctx.font=Math.round(cell.w*0.08)+'px sans-serif';ctx.textAlign='center';ctx.fillText('这次没拍',cell.x+cell.w/2,cell.y+cell.h/2);ctx.restore();return;}
   const b=alignBox(photo,cell);
   if(img)try{ctx.drawImage(img,b.ox,b.oy,photo.w*b.sc,photo.h*b.sc);}catch(e){}
-  if(opt.hideFace){const hb=headBox(photo);if(hb){const x=b.ox+hb.x*b.sc,y=b.oy+hb.y*b.sc,w=hb.w*b.sc,h=hb.h*b.sc;let done=false;
-    if(img&&opt.makeCanvas){try{const n=6,oc=opt.makeCanvas(n,n);const o=oc.getContext('2d');o.drawImage(img,hb.x,hb.y,hb.w,hb.h,0,0,n,n);ctx.imageSmoothingEnabled=false;ctx.drawImage(oc,0,0,n,n,x,y,w,h);ctx.imageSmoothingEnabled=true;done=true;}catch(e){}}
-    if(!done){ctx.fillStyle='rgba(120,120,135,.95)';ctx.fillRect(x,y,w,h);}}}
+  let info={mosaic:null};
+  if(opt.hideFace){const hb=faceBox(photo,view);
+    if(hb)info.mosaic=Object.assign(mosaic(ctx,img,photo,hb,b,cell,opt),{src:hb.src,box:hb});
+    else{const R={x:cell.x,y:cell.y,w:cell.w,h:cell.h*0.3};ctx.fillStyle='rgba(120,120,135,1)';ctx.fillRect(R.x,R.y,R.w,R.h);info.mosaic=Object.assign(R,{src:'top'});}}
   const T=p=>({x:b.ox+p.x*b.sc,y:b.oy+p.y*b.sc});
   if(lab){const st=cell.w/12;ctx.strokeStyle='rgba(255,255,255,.55)';ctx.lineWidth=1;if(ctx.setLineDash)ctx.setLineDash([]);ctx.beginPath();
     for(let x=cell.x+st;x<cell.x+cell.w;x+=st){ctx.moveTo(x,cell.y);ctx.lineTo(x,cell.y+cell.h);}for(let y=cell.y+st;y<cell.y+cell.h;y+=st){ctx.moveTo(cell.x,y);ctx.lineTo(cell.x+cell.w,y);}ctx.stroke();}
   const shapes=opt.photoOnly?[]:overlay(view,photo,items);
-  shapes.forEach(s=>{
-    if(s.t==='line'){const a=T(s.a),c=T(s.b);ctx.beginPath();if(ctx.setLineDash)ctx.setLineDash(s.dash?[6,5]:[]);ctx.strokeStyle=lab&&s.c===COLOR.plumb?'#ff8a00':s.c;ctx.lineWidth=(s.w||2)*(cell.w/240);ctx.moveTo(a.x,a.y);ctx.lineTo(c.x,c.y);ctx.stroke();}
-    else if(s.t==='dot'){const a=T(s.a);ctx.beginPath();if(ctx.setLineDash)ctx.setLineDash([]);ctx.fillStyle=s.c;ctx.arc(a.x,a.y,(s.r||3.5)*(cell.w/240),0,Math.PI*2);ctx.fill();}
+  const k=cell.w/240,hl=opt.hl||null;/* hl：高亮某一项 */
+  const alpha=x=>!hl||x.role==='base'||x.key===hl?1:(x.key==='_j'?0.6:0.22);
+  const halo='rgba(20,22,28,.55)';
+  shapes.forEach(x=>{ctx.globalAlpha=alpha(x);const W=(x.w||2)*k*(hl&&x.key===hl?1.35:1);
+    if(ctx.setLineDash)ctx.setLineDash([]);
+    if(x.t==='line'||x.t==='arrow'){const a=T(x.a),c=T(x.b);
+      ctx.lineCap='round';ctx.strokeStyle=halo;ctx.lineWidth=W+2.6*k;if(ctx.setLineDash)ctx.setLineDash(x.dash?[7*k,5*k]:[]);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(c.x,c.y);ctx.stroke();
+      ctx.strokeStyle=x.c;ctx.lineWidth=W;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(c.x,c.y);ctx.stroke();
+      if(x.t==='arrow'){if(ctx.setLineDash)ctx.setLineDash([]);const an=Math.atan2(c.y-a.y,c.x-a.x),hs=W*2.4;
+        const tri=()=>{ctx.beginPath();ctx.moveTo(c.x+Math.cos(an)*hs*0.35,c.y+Math.sin(an)*hs*0.35);ctx.lineTo(c.x-Math.cos(an-0.5)*hs,c.y-Math.sin(an-0.5)*hs);ctx.lineTo(c.x-Math.cos(an+0.5)*hs,c.y-Math.sin(an+0.5)*hs);ctx.closePath();};
+        tri();ctx.strokeStyle=halo;ctx.lineWidth=2.4*k;ctx.stroke();ctx.fillStyle=x.c;tri();ctx.fill();}}
+    else if(x.t==='dot'){const a=T(x.a);ctx.beginPath();ctx.fillStyle=halo;ctx.arc(a.x,a.y,(x.r||3.5)*k+1.3*k,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.fillStyle=x.c;ctx.arc(a.x,a.y,(x.r||3.5)*k,0,Math.PI*2);ctx.fill();}
+    else if(x.t==='ring'){const a=T(x.a);ctx.beginPath();ctx.strokeStyle=halo;ctx.lineWidth=3.6*k;ctx.arc(a.x,a.y,(x.r||4)*k,0,Math.PI*2);ctx.stroke();ctx.beginPath();ctx.strokeStyle=x.c;ctx.lineWidth=1.8*k;ctx.arc(a.x,a.y,(x.r||4)*k,0,Math.PI*2);ctx.stroke();}
   });
+  ctx.globalAlpha=1;
   if(ctx.setLineDash)ctx.setLineDash([]);
   if(lab){const fs=Math.max(10,Math.round(cell.w*0.07));ctx.font='bold '+fs+'px sans-serif';ctx.fillStyle='rgba(60,64,72,.85)';ctx.textBaseline='top';
     const cn=view==='side'?['前','后']:view==='front'?['右','左']:['左','右'];
@@ -894,11 +1104,12 @@ function drawCell(ctx,img,photo,view,items,cell,opt){
     if(view==='side'){ctx.textAlign='left';ctx.fillText('右侧',cell.x+fs*0.5,cell.y+fs*0.5+(opt.label?fs*1.8:0));}
     else{ctx.textAlign='left';ctx.fillText(cn[0],cell.x+fs*0.5,cell.y+fs*0.5+(opt.label?fs*1.8:0));ctx.textAlign='right';ctx.fillText(cn[1],cell.x+cell.w-fs*0.5,cell.y+fs*0.5+(opt.label?fs*1.8:0));}
     ctx.textBaseline='alphabetic';
-    if(!opt.photoOnly&&opt.tags&&opt.tags.length)drawTags(ctx,view,photo,opt.tags,T,cell);}
+    if(!opt.photoOnly&&opt.tags&&opt.tags.length)drawTags(ctx,view,photo,opt.tags,T,cell,opt.hl);}
   if(opt.title){const fs=Math.max(11,Math.round(cell.w*0.075));ctx.font='bold '+fs+'px sans-serif';ctx.fillStyle='#2b2f36';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(opt.title,cell.x+cell.w/2,cell.y+fs*0.45);ctx.textBaseline='alphabetic';}
   if(opt.label){ctx.fillStyle='rgba(0,0,0,.55)';const fh=Math.max(11,Math.round(cell.w*0.065));ctx.fillRect(cell.x,cell.y,cell.w,fh*1.7);ctx.fillStyle='#fff';ctx.font='bold '+fh+'px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(opt.label,cell.x+cell.w/2,cell.y+fh*0.85);ctx.textBaseline='alphabetic';}
   if(photo.demo){ctx.save();ctx.translate(cell.x+cell.w/2,cell.y+cell.h*0.55);ctx.rotate(-0.5);ctx.fillStyle='rgba(255,77,125,.35)';ctx.font='bold '+Math.round(cell.w*0.22)+'px sans-serif';ctx.textAlign='center';ctx.fillText('示例',0,0);ctx.restore();}
   ctx.restore();
+  info.align=b;return info;
 }
 /* 问题编号牌：红/橙小方牌「01」挂在对应线条旁 */
 function tagAnchor(view,photo,key){
@@ -912,21 +1123,33 @@ function tagAnchor(view,photo,key){
 }
 /* 编号牌上的短名：缩略图里也能看出 01 是哪一项 */
 const TAG_NAME={shoulder:'高低肩',head:'头前伸',round:'圆肩',hip:'骨盆',knee:'膝盖',hyper:'膝超伸',shift:'偏移'};
-function drawTags(ctx,view,photo,tags,T,cell){
-  const fs=Math.max(9,Math.round(cell.w*0.075));ctx.textBaseline='middle';const placed=[];
+function drawTags(ctx,view,photo,tags,T,cell,hl){
+  const fs=Math.max(9,Math.round(cell.w*0.07));ctx.textBaseline='middle';const placed=[];
+  const meta={w:photo.w,h:photo.h};const fr=frame(photo.J||{},meta);
+  /* 身体左右边界（照片像素）：牌子放到身体外侧，不盖住身体 */
+  const xs=Object.keys(photo.J||{}).filter(n=>n[0]!=='_').map(n=>P(photo.J,n,meta,0.3)).filter(Boolean).map(p=>T(p).x);
+  const pad0=cell.w*0.035;/* 关键点在关节中心，身体轮廓比它宽一点 */
+  const bl=(xs.length?Math.min(...xs):cell.x+cell.w*0.35)-pad0,br=(xs.length?Math.max(...xs):cell.x+cell.w*0.65)+pad0;
   tags.forEach(t=>{if(!itemOf(t.key)||itemOf(t.key).views.indexOf(view)<0)return;const a=tagAnchor(view,photo,t.key);if(!a)return;const p=T(a);
-    const no=(t.no<10?'0':'')+t.no,nm=TAG_NAME[t.key]||'';
-    ctx.font='bold '+fs+'px sans-serif';const nw=ctx.measureText(no).width;ctx.font=fs+'px sans-serif';const tw=nm?ctx.measureText(nm).width:0;
-    const pad=fs*0.35,bw=nw+pad*2,w=bw+(nm?tw+pad*2:0),h=fs*1.35;
-    /* 放在部位外侧（靠近画面边的那一边），放不下就夹在格子里；和已放的牌子错开 */
-    const left=p.x<cell.x+cell.w/2;let x=left?p.x-w-fs*0.5:p.x+fs*0.5,y=p.y-h/2;x=Math.max(cell.x+2,Math.min(cell.x+cell.w-w-2,x));
-    for(let k=0;k<6&&placed.some(r=>x<r.x+r.w&&r.x<x+w&&y<r.y+r.h+2&&r.y<y+h+2);k++)y+=h+3;
+    const no=(t.no<10?'0':'')+t.no,nm=(TAG_NAME[t.key]||'')+(t.grade?' '+t.grade:'');
+    /* 放到身体外侧空得多的那一边；放不下就把字缩小（最小 9px），不压住身体 */
+    const roomL=bl-cell.x-6,roomR=cell.x+cell.w-br-6;const left=roomL>=roomR;const room=Math.max(roomL,roomR);
+    let f=fs;const wOf=f=>{ctx.font='bold '+f+'px sans-serif';return ctx.measureText(no).width+ctx.measureText(nm).width+f*1.4;};
+    while(f>9&&wOf(f)>room)f--;
+    ctx.font='bold '+f+'px sans-serif';const nw=ctx.measureText(no).width,tw=ctx.measureText(nm).width;
+    const pad=f*0.35,bw=nw+pad*2,w=bw+tw+pad*2,h=f*1.45;
+    let x=left?bl-w-4:br+4,y=p.y-h/2;x=Math.max(cell.x+2,Math.min(cell.x+cell.w-w-2,x));
+    for(let k=0;k<8&&placed.some(r=>x<r.x+r.w&&r.x<x+w&&y<r.y+r.h+2&&r.y<y+h+2);k++)y+=h+3;
     y=Math.max(cell.y+2,Math.min(cell.y+cell.h-h-2,y));placed.push({x,y,w,h});
-    const c=t.grade==='明显'?'#c92a2a':'#e8590c';
+    const c=t.grade==='明显'?'#c92a2a':'#e8590c';ctx.globalAlpha=!hl||hl===t.key?1:0.35;
+    /* 牌子到部位的细引线 */
+    const ex=x+w<p.x?x+w:x>p.x?x:p.x;ctx.strokeStyle='rgba(20,22,28,.55)';ctx.lineWidth=Math.max(1,f*0.22);if(ctx.setLineDash)ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(ex,y+h/2);ctx.lineTo(p.x,p.y);ctx.stroke();
+    ctx.strokeStyle=c;ctx.lineWidth=Math.max(1,f*0.1);ctx.beginPath();ctx.moveTo(ex,y+h/2);ctx.lineTo(p.x,p.y);ctx.stroke();
+    ctx.fillStyle='rgba(20,22,28,.35)';ctx.fillRect(x+1,y+2,w,h);
     ctx.fillStyle=c;ctx.fillRect(x,y,bw,h);
-    if(nm){ctx.fillStyle='rgba(255,255,255,.94)';ctx.fillRect(x+bw,y,w-bw,h);ctx.strokeStyle=c;ctx.lineWidth=Math.max(1,fs*0.08);ctx.strokeRect(x+0.5,y+0.5,w-1,h-1);}
-    ctx.textAlign='center';ctx.font='bold '+fs+'px sans-serif';ctx.fillStyle='#fff';ctx.fillText(no,x+bw/2,y+h/2+1);
-    if(nm){ctx.textAlign='left';ctx.font=fs+'px sans-serif';ctx.fillStyle='#2b2f36';ctx.fillText(nm,x+bw+pad,y+h/2+1);}});
+    ctx.fillStyle='rgba(255,255,255,.96)';ctx.fillRect(x+bw,y,w-bw,h);ctx.strokeStyle=c;ctx.lineWidth=Math.max(1,f*(hl===t.key?0.2:0.1));ctx.strokeRect(x+0.5,y+0.5,w-1,h-1);
+    ctx.textAlign='center';ctx.font='bold '+f+'px sans-serif';ctx.fillStyle='#fff';ctx.fillText(no,x+bw/2,y+h/2+1);
+    ctx.textAlign='left';ctx.fillStyle=c;ctx.fillText(nm,x+bw+pad,y+h/2+1);ctx.globalAlpha=1;});
   ctx.textBaseline='alphabetic';ctx.textAlign='left';
 }
 /* 趋势线：一项一行，横轴是每次评估，纵轴是数值；虚线是「轻度」起点 */
@@ -960,7 +1183,7 @@ function drawShare(ctx,W,H,data,opt){
   ctx.font=Math.round(30*u)+'px sans-serif';ctx.fillText((data.store?data.store+' · ':'')+(VIEWS.find(v=>v.id===data.view)||{}).n+'照片',48*u,134*u);
   const cw=(W-48*u*2-24*u)/2,ch=cw*4/3,cy=180*u;
   [data.a,data.b].forEach((s,i)=>{const cell={x:48*u+i*(cw+24*u),y:cy,w:cw,h:ch};
-    drawCell(ctx,s&&s.img,s&&s.photo,data.view,s&&s.items,cell,{hideFace:opt.hideFace!==false,makeCanvas:opt.makeCanvas,label:(i?'本次 ':(data.aLabel||'第一次')+' ')+(s?s.date:'')});});
+    drawCell(ctx,s&&s.img,s&&s.photo,data.view,s&&s.items,cell,{theme:'lab',tags:s&&s.items?rankItems(s.items).map((x,n)=>({key:x.key,no:n+1,grade:x.grade})):[],hideFace:opt.hideFace!==false,makeCanvas:opt.makeCanvas,label:(i?'本次 ':(data.aLabel||'第一次')+' ')+(s?s.date:'')});});
   let y=cy+ch+70*u;ctx.textAlign='left';
   if(data.summary){ctx.fillStyle='#222';ctx.font='bold '+Math.round(36*u)+'px sans-serif';y=wrap(ctx,data.summary,48*u,y,W-96*u,48*u);y+=18*u;}
   ctx.font=Math.round(32*u)+'px sans-serif';
@@ -1076,7 +1299,7 @@ function demoJoints3D(k){
   return norm3(J);
 }
 
-return{rankItems,overOf,RANK_RULE,TAG_NAME,plainText,LEVEL,trendWord,tagAnchor,SKEL_LABEL,SMPL,BONES,from3DMediaPipe,from3DWeChat,norm3,has3D,project,drawSkeleton,skel3Of,demoJoints3D,TITLE,DISCLAIMER,RETEST_DAYS,VIEWS,TIPS,ITEMS,REC,COLOR,Q,MIN_C,itemOf,fromMediaPipe,fromWeChat,frame,checkPhoto,measurePhoto,gradeOf,textOf,assess,recsOf,delta,compare,series,nextRetest,addDays,summary,alignBox,overlay,headBox,drawCell,drawTrend,drawShare,shareRows,demoJoints,drawDemoFigure};
+return{MARK,overlay,facingOf,liveGuide,jitterOf,medianJ,alignLR,consensus,burstSpread,itemVis,sideVis,GUIDE,HINT,MEAS_C,USES,faceBox,headBox,FACE_PTS,alignBox,rankItems,overOf,RANK_RULE,TAG_NAME,plainText,LEVEL,trendWord,tagAnchor,SKEL_LABEL,SMPL,BONES,from3DMediaPipe,from3DWeChat,norm3,has3D,project,drawSkeleton,skel3Of,demoJoints3D,TITLE,DISCLAIMER,RETEST_DAYS,VIEWS,TIPS,ITEMS,REC,COLOR,Q,MIN_C,itemOf,fromMediaPipe,fromWeChat,frame,checkPhoto,measurePhoto,gradeOf,textOf,assess,recsOf,delta,compare,series,nextRetest,addDays,summary,alignBox,overlay,headBox,drawCell,drawTrend,drawShare,shareRows,demoJoints,drawDemoFigure};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=Posture;
 
